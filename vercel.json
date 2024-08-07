@@ -5,7 +5,7 @@
   "functions": {
     "api/*.php": {
       "runtime": "vercel-php@0.5.3"
-    }
+    } 
   },
   "routes": [
     { "src": "/(css|js|img|icons|pages)/(.*)", "dest": "public/\$1/\$2" },
