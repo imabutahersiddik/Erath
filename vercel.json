@@ -8,11 +8,9 @@
     }
   },
   "routes": [
-    { "src": "/(css|js|img|icons|pages)/(.*)", "dest": "public/$1/$2" },
+    { "src": "/(css|js|img|icons|pages)/(.*)", "dest": "public/\$1/\$2" },
     { "src": "/site/(.*)?", "dest": "/api/site.php" },
     { "src": "/note/(.*)?", "dest": "/api/note.php" },
-    { "src": "/(.*)", "dest": "/api/$1" }
-  ],
-  "outputDirectory": "public",
-  "public": true
+    { "src": "/(.*)", "dest": "/api/\$1" }
+  ]
 }
