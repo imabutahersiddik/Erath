@@ -4,15 +4,7 @@
       <div class="col-md-12 text-center">
       <div class="uses">
         <div class="text-center label-uses">Used on Erath</div>
-        <i class="icon fa fa-eth"></i>
-			<div class="title">Crypto Currency</div>
-			<p>If you prefer to support us with cryptocurrency, you can send us Ethereum, USDT, BUSD, BNB to the following address:</p>
-			<p style="font-size: 14px; font-weight: 600;">0xDcc69c50463556Fd1CC45480feB2CF4eaE7d05C8</p>
-			<button onclick="copyToClipboard('0xDcc69c50463556Fd1CC45480feB2CF4eaE7d05C8')" class="button">Copy address</button>
-			<p>Bitcoin:</p>
-			<p style="font-size: 14px; font-weight: 600;">bc1qfvxhe95k9jl8nvy49zy50vngqkq7yjnqmgzmr0</p>
-			<button onclick="copyToClipboard('bc1qfvxhe95k9jl8nvy49zy50vngqkq7yjnqmgzmr0')" class="button">Copy address</button>
-		</div>
+        
     </div>
   </div>  
   <div class="container">
@@ -89,12 +81,6 @@
 @media screen and (min-width:768px){.cr-list a img {
     width: 144px;
 }}
-</style>
-<script>
-		function copyToClipboard(text) {
-			navigator.clipboard.writeText(text);
-			alert('Address copied to clipboard');
-		} 
-</script>
+</style>     
 </body>
 </html>

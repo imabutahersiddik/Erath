@@ -28,10 +28,10 @@
 
       // Get the selected value of the sidebar position and save it as a cookie
       var sidebarPosition = document.querySelector('.btn-group > .active').getAttribute('data-class');
-      document.cookie = "sidebarPosition=" + sidebarPosition + "; expires=Fri, 31 Dec 2080 23:59:59 GMT; path=/";
+      document.cookie = "sidebarPosition=" + sidebarPosition + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
 
       // Save the theme value as a cookie
-      document.cookie = "theme=" + theme + "; expires=Fri, 31 Dec 2080 23:59:59 GMT; path=/";
+      document.cookie = "theme=" + theme + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
     }
 
     // Call the loadSettings function when the page is loaded
