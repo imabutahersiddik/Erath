@@ -33,7 +33,7 @@
         reader.onload = function(event) {
             const fileData = new Uint8Array(event.target.result);
             const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-            const url = "currentUrl" + base64Data;
+            const url = "https://erath.vercel.app/targz/" + base64Data;
 
             const outputUrl = document.getElementById('outputUrl');
             outputUrl.style.display = 'block';
