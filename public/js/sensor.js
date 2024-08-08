@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
       bannedWords.forEach(word => {
         // Escape periods (dots) in the word for the regex
         let escapedWord = word.replace(/\./g, '\\.'); 
-        let regex = new RegExp(`\\b${escapedWord}\\b`, "gi"); 
+        // Use lookarounds to match the word without including the periods in the match
+        let regex = new RegExp(`(?<=\s|^)${escapedWord}(?=\s|$)`, "gi"); 
         text = text.replace(regex, "*".repeat(word.length)); 
       });
       this.value = text;
