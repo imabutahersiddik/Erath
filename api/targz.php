@@ -72,7 +72,35 @@
         <br>
         <a id="downloadLink" style="display:none;">Download .tar.gz File</a>
     </div>
-
+    <div class="instructions">
+    <h2>Instructions to Extract Your File</h2>
+    <ol>
+        <li>
+            <strong>Download the .gz File:</strong>
+            After clicking the download link, a file with a random number and the .gz extension will be saved to your device.
+        </li>
+        <li>
+            <strong>Open the .gz File:</strong>
+            Use an archiving tool (like WinRAR, 7-Zip, or any other compatible software) to open the downloaded .gz file.
+        </li>
+        <li>
+            <strong>Locate the .bin File:</strong>
+            Inside the .gz file, you will find a .bin file. This file contains your original content.
+        </li>
+        <li>
+            <strong>Rename the .bin File:</strong>
+            Right-click on the .bin file and choose to rename it. Change the file extension from .bin to .tar.gz. For example, if the file is named <code>random_number.bin</code>, rename it to <code>filename.tar.gz</code>.
+        </li>
+        <li>
+            <strong>Extract the .tar.gz File:</strong>
+            Now, use the archiving tool again to extract the newly renamed <code>filename.tar.gz</code> file. This will reveal the original file content.
+        </li>
+        <li>
+            <strong>Access Your Original File:</strong>
+            After extraction, you will find your original file content in the extracted folder. You can now open or use it as needed.
+        </li>
+    </ol>
+    </div>
     <script>
         // Set the current page URL in the input field when the page loads
         window.onload = function() {
