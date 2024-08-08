@@ -9,3 +9,10 @@
 <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
  <script defer src="https://erath.vercel.app/_vercel/insights/script.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/imabutahersiddik/Erath@main/public/js/sensor.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/imabutahersiddik/Erath@main/public/js/sensor2.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/imabutahersiddik/Erath@main/public/js/sensor3.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/imabutahersiddik/Erath@main/public/js/sensor4.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/imabutahersiddik/Erath@main/public/js/sensor5.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/imabutahersiddik/Erath@main/public/js/sensor6.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/imabutahersiddik/Erath@main/public/js/sensor7.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/imabutahersiddik/Erath@main/public/js/sensor8.js"></script>
