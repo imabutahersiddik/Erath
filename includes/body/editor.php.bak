@@ -24,6 +24,13 @@
          </div>
          <div class="row">
             <div class="col">
+               <div id="upload" class="collapse">
+                  <button class="btn btn-secondary" data-toggle="modal" data-target="#targz">tar.gz</button>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col">
                <form onsubmit="return false;">
                   <textarea class="textarea" id="html-code" name="html-code" contenteditable="true" rows="10"></textarea>
                   <br><br>
