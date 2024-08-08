@@ -2,7 +2,7 @@
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h4 class="modal-title">Help</h4>
+                     <h4 class="modal-title">Tar.gz File Upload</h4>
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
@@ -16,6 +16,10 @@
 <button id="copyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
+    window.onload = function() {
+    // Get the current page URL
+    const currentUrl = window.location.href;
+    };
     document.getElementById('encryptBtn').addEventListener('click', function() {
         const fileInput = document.getElementById('fileInput');
         if (fileInput.files.length === 0) {
@@ -29,7 +33,7 @@
         reader.onload = function(event) {
             const fileData = new Uint8Array(event.target.result);
             const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-            const url = "data:application/gzip;base64," + base64Data;
+            const url = "currentUrl" + base64Data;
 
             const outputUrl = document.getElementById('outputUrl');
             outputUrl.style.display = 'block';

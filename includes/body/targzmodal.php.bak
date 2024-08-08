@@ -2,7 +2,7 @@
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h4 class="modal-title">Help</h4>
+                     <h4 class="modal-title">Tar.gz File Upload</h4>
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
@@ -14,10 +14,6 @@
     <br>
 <a id="downloadLink" style="display:none;">Download Encrypted Data</a>
 <button id="copyUrlBtn" style="display:none;">Copy URL</button>
-
-<style>
-    .Erath { background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 12px; }
-</style>
 
 <script>
     document.getElementById('encryptBtn').addEventListener('click', function() {
