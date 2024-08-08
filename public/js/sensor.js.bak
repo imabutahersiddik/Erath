@@ -2,7 +2,7 @@ const bannedWords = ["redgifs", "kutta", "sex", "sexy",   "2 girls 1 cup",  "2g1
 
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-  const textArea = document.getElementById("sensor");
+  const textArea = document.getElementById("html-code");
 
   if (textArea) { // Check if the textarea element exists
     textArea.addEventListener("input", function() {
