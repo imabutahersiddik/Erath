@@ -7,6 +7,7 @@
                <button id="link-btn" class="btn btn-secondary" onclick="addLink()">Links</button>
                <button id="image-btn" class="btn btn-secondary" onclick="addImage()">Images</button>
                <button class="btn btn-secondary" data-toggle="modal" data-target="#help">Help</button>
+               <button class="btn btn-secondary" data-toggle="collapse" data-target="#upload">Up-Files</button>
             </div>
          </div>
          <div class="row">
@@ -18,6 +19,13 @@
                   <button class="btn btn-secondary" onclick="h4()">H4</button>
                   <button class="btn btn-secondary" onclick="h5()">H5</button>
                   <button class="btn btn-secondary" onclick="h6()">H6</button>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col">
+               <div id="upload" class="collapse">
+                  <button class="btn btn-secondary" data-toggle="modal" data-target="#targzmodal">tar.gz</button>
                </div>
             </div>
          </div>

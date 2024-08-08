@@ -25,7 +25,7 @@
          <div class="row">
             <div class="col">
                <div id="upload" class="collapse">
-                  <button class="btn btn-secondary" data-toggle="modal" data-target="#targzmodal">tar.gz</button>
+                  <button class="btn btn-secondary" data-toggle="modal" data-target="#targz">tar.gz</button>
                </div>
             </div>
          </div>
