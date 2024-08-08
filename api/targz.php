@@ -74,6 +74,11 @@
     </div>
 
     <script>
+        // Set the current page URL in the input field when the page loads
+        window.onload = function() {
+            document.getElementById('urlInput').value = window.location.href;
+        };
+
         document.getElementById('processUrlBtn').addEventListener('click', function() {
             const urlInput = document.getElementById('urlInput').value;
             const encryptedDataPattern = /\/\/[^\/]+\/targz\/([^ ]+)/; // Adjusted regex to match any domain

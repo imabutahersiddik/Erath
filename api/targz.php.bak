@@ -76,7 +76,7 @@
     <script>
         document.getElementById('processUrlBtn').addEventListener('click', function() {
             const urlInput = document.getElementById('urlInput').value;
-            const encryptedDataPattern = /\/\/[^\/]+\/site\/([^ ]+)/; // Adjusted regex to match any domain
+            const encryptedDataPattern = /\/\/[^\/]+\/targz\/([^ ]+)/; // Adjusted regex to match any domain
 
             let encryptedData = '';
 
