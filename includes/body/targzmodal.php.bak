@@ -6,20 +6,61 @@
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-                     <h2>Help: How to Use Erath Hosting</h2>
-        <p><strong>Step 1: Paste Your HTML Code</strong><br>
-        In the provided textarea, paste your HTML code that you want to host. Make sure your code is complete and properly formatted.</p>
+                         <h2>Encrypt .tar.gz File and Generate URL</h1>
+    <input type="file" id="fileInput" accept=".tar.gz">
+    <button id="encryptBtn">Encrypt and Generate URL</button>
+    <br><br>
+    <textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+    <br>
+<a id="downloadLink" style="display:none;">Download Encrypted Data</a>
+<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+
+<style>
+    .Erath { background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 12px; }
+</style>
+
+<script>
+    document.getElementById('encryptBtn').addEventListener('click', function() {
+        const fileInput = document.getElementById('fileInput');
+        if (fileInput.files.length === 0) {
+            alert("Please select a .tar.gz file.");
+            return;
+        }
         
-        <p><strong>Step 2: Submit Your Code</strong><br>
-        Once you’ve pasted your HTML code, click the "Erath" button to submit your code. This action will process your input and prepare it for hosting.</p>
-        
-        <p><strong>Step 3: Get Your Link</strong><br>
-        After clicking the "Erath" button, you will receive a link to your hosted web page. This link will allow you to access your page from any browser.</p>
-        
-        <p><strong>Step 4: View Your Web Page</strong><br>
-        Click on the provided link to view your web page. You can share this link with others or bookmark it for easy access.</p>
-        
-        <p>If you encounter any issues or have further questions, please refer to our FAQs or contact support.</p>
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+            const fileData = new Uint8Array(event.target.result);
+            const base64Data = btoa(String.fromCharCode.apply(null, fileData));
+            const url = "data:application/gzip;base64," + base64Data;
+
+            const outputUrl = document.getElementById('outputUrl');
+            outputUrl.style.display = 'block';
+            outputUrl.value = url;
+
+            const downloadLink = document.getElementById('downloadLink');
+            downloadLink.href = url;
+            downloadLink.download = 'encrypted_file.tar.gz';
+            downloadLink.style.display = 'block';
+            downloadLink.innerText = 'Download Encrypted .tar.gz File';
+            downloadLink.className = 'Erath'; // Apply Erath class for styling
+
+            const copyUrlBtn = document.getElementById('copyUrlBtn');
+            copyUrlBtn.style.display = 'block';
+            copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+            copyUrlBtn.onclick = function() {
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('URL copied to clipboard!');
+                }, () => {
+                    alert('Failed to copy the URL.');
+                });
+            };
+        };
+
+        reader.readAsArrayBuffer(file);
+    });
+</script>
                   </div>
                </div>
             </div>

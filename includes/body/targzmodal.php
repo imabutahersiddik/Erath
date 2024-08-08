@@ -6,50 +6,57 @@
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-                         <h1>Encrypt .tar.gz File and Generate URL</h1>
+                         <h2>Encrypt .tar.gz File and Generate URL</h1>
     <input type="file" id="fileInput" accept=".tar.gz">
     <button id="encryptBtn">Encrypt and Generate URL</button>
     <br><br>
     <textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
     <br>
-    <a id="downloadLink" style="display:none;">Download Encrypted Data</a>
+<a id="downloadLink" style="display:none;">Download Encrypted Data</a>
+<button id="copyUrlBtn" style="display:none;">Copy URL</button>
 
-    <script>
-        document.getElementById('encryptBtn').addEventListener('click', function() {
-            const fileInput = document.getElementById('fileInput');
-            if (fileInput.files.length === 0) {
-                alert("Please select a .tar.gz file.");
-                return;
-            }
-            
-            const file = fileInput.files[0];
-            const reader = new FileReader();
+<script>
+    document.getElementById('encryptBtn').addEventListener('click', function() {
+        const fileInput = document.getElementById('fileInput');
+        if (fileInput.files.length === 0) {
+            alert("Please select a .tar.gz file.");
+            return;
+        }
+        
+        const file = fileInput.files[0];
+        const reader = new FileReader();
 
-            reader.onload = function(event) {
-                const fileData = new Uint8Array(event.target.result);
-                
-                // Convert the file data to Base64
-                const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-                
-                // Create a URL for the Base64 data
-                const url = "data:application/gzip;base64," + base64Data;
+        reader.onload = function(event) {
+            const fileData = new Uint8Array(event.target.result);
+            const base64Data = btoa(String.fromCharCode.apply(null, fileData));
+            const url = "data:application/gzip;base64," + base64Data;
 
-                // Show the output URL
-                const outputUrl = document.getElementById('outputUrl');
-                outputUrl.style.display = 'block';
-                outputUrl.value = url;
+            const outputUrl = document.getElementById('outputUrl');
+            outputUrl.style.display = 'block';
+            outputUrl.value = url;
 
-                // Create a download link
-                const downloadLink = document.getElementById('downloadLink');
-                downloadLink.href = url;
-                downloadLink.download = 'encrypted_file.tar.gz'; // Change this if you want a different filename
-                downloadLink.style.display = 'block';
-                downloadLink.innerText = 'Download Encrypted .tar.gz File';
+            const downloadLink = document.getElementById('downloadLink');
+            downloadLink.href = url;
+            downloadLink.download = 'encrypted_file.tar.gz';
+            downloadLink.style.display = 'block';
+            downloadLink.innerText = 'Download Encrypted .tar.gz File';
+            downloadLink.className = 'Erath'; // Apply Erath class for styling
+
+            const copyUrlBtn = document.getElementById('copyUrlBtn');
+            copyUrlBtn.style.display = 'block';
+            copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+            copyUrlBtn.onclick = function() {
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('URL copied to clipboard!');
+                }, () => {
+                    alert('Failed to copy the URL.');
+                });
             };
+        };
 
-            reader.readAsArrayBuffer(file); // Read the file as an ArrayBuffer
-        });
-    </script>
+        reader.readAsArrayBuffer(file);
+    });
+</script>
                   </div>
                </div>
             </div>
