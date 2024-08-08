@@ -4,9 +4,6 @@
       "runtime": "vercel-php@0.5.3"
     }
   },
-  "engines": {
-    "node": "18.x" 
-  },
   "routes": [
     { "src": "/(css|js|img|icons|pages)/(.*)", "dest": "public/$1/$2" },
     { "src": "/site/(.*)?", "dest": "/api/site.php" },
