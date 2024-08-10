@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your PAK</h2>
-<input type="file" id="fileInput" accept=".pak">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="pakfileInput" accept=".pak">
+<button id="pakencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="pakoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download PAK</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="pakdownloadLink" style="display:none;">Download PAK</a>
+<button id="pakcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('pakencryptBtn').addEventListener('click', function() {
+    const pakfileInput = document.getElementById('pakfileInput');
+    if (pakfileInput.files.length === 0) {
         alert("Please select a PAK file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = pakfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/pak/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/pak/" + base64Data;
+        const pakoutputUrl = document.getElementById('pakoutputUrl');
+        pakoutputUrl.style.display = 'block';
+        pakoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download PAK';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const pakdownloadLink = document.getElementById('pakdownloadLink');
+        pakdownloadLink.href = url;
+        pakdownloadLink.style.display = 'block';
+        pakdownloadLink.innerText = ' Download PAK';
+        pakdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        pakdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const pakcopyUrlBtn = document.getElementById('pakcopyUrlBtn');
+        pakcopyUrlBtn.style.display = 'block';
+        pakcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        pakcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

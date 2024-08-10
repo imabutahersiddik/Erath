@@ -36,7 +36,7 @@
                 const encryptedData = CryptoJS.AES.encrypt(wordArray, secretKey).toString();
                 
                 // Create a URL for the encrypted data
-                const url = "https://erath.vercel.app/documents/pptx/" + btoa(encryptedData);
+                const url = "https://erath.vercel.app/pptx/" + btoa(encryptedData);
 
                 // Show the output URL
                 const PPTXoutputUrl = document.getElementById('PPTXoutputUrl');

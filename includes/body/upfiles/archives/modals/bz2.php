@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your BZ2</h2>
-<input type="file" id="fileInput" accept=".bz2">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="bz2fileInput" accept=".bz2">
+<button id="bz2encryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="bz2outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download BZ2</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="bz2downloadLink" style="display:none;">Download BZ2</a>
+<button id="bz2copyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('bz2encryptBtn').addEventListener('click', function() {
+    const bz2fileInput = document.getElementById('bz2fileInput');
+    if (bz2fileInput.files.length === 0) {
         alert("Please select a BZ2 file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = bz2fileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/bz2/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/bz2/" + base64Data;
+        const bz2outputUrl = document.getElementById('bz2outputUrl');
+        bz2outputUrl.style.display = 'block';
+        bz2outputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download BZ2';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const bz2downloadLink = document.getElementById('bz2downloadLink');
+        bz2downloadLink.href = url;
+        bz2downloadLink.style.display = 'block';
+        bz2downloadLink.innerText = ' Download BZ2';
+        bz2downloadLink.className = 'Erath'; // Apply Erath class for styling
+        bz2downloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const bz2copyUrlBtn = document.getElementById('bz2copyUrlBtn');
+        bz2copyUrlBtn.style.display = 'block';
+        bz2copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        bz2copyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

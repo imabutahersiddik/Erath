@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your DMG</h2>
-<input type="file" id="fileInput" accept=".dmg">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="dmgfileInput" accept=".dmg">
+<button id="dmgencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="dmgoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download DMG</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="dmgdownloadLink" style="display:none;">Download DMG</a>
+<button id="dmgcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('dmgencryptBtn').addEventListener('click', function() {
+    const dmgfileInput = document.getElementById('dmgfileInput');
+    if (dmgfileInput.files.length === 0) {
         alert("Please select a DMG file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = dmgfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/dmg/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/dmg/" + base64Data;
+        const dmgoutputUrl = document.getElementById('dmgoutputUrl');
+        dmgoutputUrl.style.display = 'block';
+        dmgoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download DMG';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const dmgdownloadLink = document.getElementById('dmgdownloadLink');
+        dmgdownloadLink.href = url;
+        dmgdownloadLink.style.display = 'block';
+        dmgdownloadLink.innerText = ' Download DMG';
+        dmgdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        dmgdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const dmgcopyUrlBtn = document.getElementById('dmgcopyUrlBtn');
+        dmgcopyUrlBtn.style.display = 'block';
+        dmgcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        dmgcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

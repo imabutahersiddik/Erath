@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your TAZ</h2>
-<input type="file" id="fileInput" accept=".taz">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="tazfileInput" accept=".taz">
+<button id="tazencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="tazoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download TAZ</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="tazdownloadLink" style="display:none;">Download TAZ</a>
+<button id="tazcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('tazencryptBtn').addEventListener('click', function() {
+    const tazfileInput = document.getElementById('tazfileInput');
+    if (tazfileInput.files.length === 0) {
         alert("Please select a TAZ file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = tazfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/taz/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/taz/" + base64Data;
+        const tazoutputUrl = document.getElementById('tazoutputUrl');
+        tazoutputUrl.style.display = 'block';
+        tazoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download TAZ';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const tazdownloadLink = document.getElementById('tazdownloadLink');
+        tazdownloadLink.href = url;
+        tazdownloadLink.style.display = 'block';
+        tazdownloadLink.innerText = ' Download TAZ';
+        tazdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        tazdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const tazcopyUrlBtn = document.getElementById('tazcopyUrlBtn');
+        tazcopyUrlBtn.style.display = 'block';
+        tazcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        tazcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your HQX</h2>
-<input type="file" id="fileInput" accept=".hqx">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="hqxfileInput" accept=".hqx">
+<button id="hqxencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="hqxoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download HQX</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="hqxdownloadLink" style="display:none;">Download HQX</a>
+<button id="hqxcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('hqxencryptBtn').addEventListener('click', function() {
+    const hqxfileInput = document.getElementById('hqxfileInput');
+    if (hqxfileInput.files.length === 0) {
         alert("Please select a HQX file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = hqxfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/hqx/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/hqx/" + base64Data;
+        const hqxoutputUrl = document.getElementById('hqxoutputUrl');
+        hqxoutputUrl.style.display = 'block';
+        hqxoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download HQX';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const hqxdownloadLink = document.getElementById('hqxdownloadLink');
+        hqxdownloadLink.href = url;
+        hqxdownloadLink.style.display = 'block';
+        hqxdownloadLink.innerText = ' Download HQX';
+        hqxdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        hqxdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const hqxcopyUrlBtn = document.getElementById('hqxcopyUrlBtn');
+        hqxcopyUrlBtn.style.display = 'block';
+        hqxcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        hqxcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

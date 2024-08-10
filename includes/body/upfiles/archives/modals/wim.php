@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your WIM</h2>
-<input type="file" id="fileInput" accept=".wim">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="wimfileInput" accept=".wim">
+<button id="wimencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="wimoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download WIM</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="wimdownloadLink" style="display:none;">Download WIM</a>
+<button id="wimcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('wimencryptBtn').addEventListener('click', function() {
+    const wimfileInput = document.getElementById('wimfileInput');
+    if (wimfileInput.files.length === 0) {
         alert("Please select a WIM file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = wimfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/wim/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/wim/" + base64Data;
+        const wimoutputUrl = document.getElementById('wimoutputUrl');
+        wimoutputUrl.style.display = 'block';
+        wimoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download WIM';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const wimdownloadLink = document.getElementById('wimdownloadLink');
+        wimdownloadLink.href = url;
+        wimdownloadLink.style.display = 'block';
+        wimdownloadLink.innerText = ' Download WIM';
+        wimdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        wimdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const wimcopyUrlBtn = document.getElementById('wimcopyUrlBtn');
+        wimcopyUrlBtn.style.display = 'block';
+        wimcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        wimcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

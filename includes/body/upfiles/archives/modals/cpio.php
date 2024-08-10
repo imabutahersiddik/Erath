@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your CPIO</h2>
-<input type="file" id="fileInput" accept=".cpio">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="cpiofileInput" accept=".cpio">
+<button id="cpioencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="cpiooutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download CPIO</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="cpiodownloadLink" style="display:none;">Download CPIO</a>
+<button id="cpiocopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('cpioencryptBtn').addEventListener('click', function() {
+    const cpiofileInput = document.getElementById('cpiofileInput');
+    if (cpiofileInput.files.length === 0) {
         alert("Please select a CPIO file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = cpiofileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/cpio/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/cpio/" + base64Data;
+        const cpiooutputUrl = document.getElementById('cpiooutputUrl');
+        cpiooutputUrl.style.display = 'block';
+        cpiooutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download CPIO';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const cpiodownloadLink = document.getElementById('cpiodownloadLink');
+        cpiodownloadLink.href = url;
+        cpiodownloadLink.style.display = 'block';
+        cpiodownloadLink.innerText = ' Download CPIO';
+        cpiodownloadLink.className = 'Erath'; // Apply Erath class for styling
+        cpiodownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const cpiocopyUrlBtn = document.getElementById('cpiocopyUrlBtn');
+        cpiocopyUrlBtn.style.display = 'block';
+        cpiocopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        cpiocopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

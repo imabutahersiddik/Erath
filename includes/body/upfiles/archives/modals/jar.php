@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your JAR</h2>
-<input type="file" id="fileInput" accept=".jar">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="jarfileInput" accept=".jar">
+<button id="jarencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="jaroutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download JAR</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="jardownloadLink" style="display:none;">Download JAR</a>
+<button id="jarcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('jarencryptBtn').addEventListener('click', function() {
+    const jarfileInput = document.getElementById('jarfileInput');
+    if (jarfileInput.files.length === 0) {
         alert("Please select a JAR file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = jarfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/jar/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/jar/" + base64Data;
+        const jaroutputUrl = document.getElementById('jaroutputUrl');
+        jaroutputUrl.style.display = 'block';
+        jaroutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download JAR';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const jardownloadLink = document.getElementById('jardownloadLink');
+        jardownloadLink.href = url;
+        jardownloadLink.style.display = 'block';
+        jardownloadLink.innerText = ' Download JAR';
+        jardownloadLink.className = 'Erath'; // Apply Erath class for styling
+        jardownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const jarcopyUrlBtn = document.getElementById('jarcopyUrlBtn');
+        jarcopyUrlBtn.style.display = 'block';
+        jarcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        jarcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

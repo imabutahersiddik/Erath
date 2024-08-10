@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your TAR.LZMA</h2>
-<input type="file" id="fileInput" accept=".tar.lzma">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="tarlzmafileInput" accept=".tar.lzma">
+<button id="tarlzmaencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="tarlzmaoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download TAR.LZMA</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="tarlzmadownloadLink" style="display:none;">Download TAR.LZMA</a>
+<button id="tarlzmacopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('tarlzmaencryptBtn').addEventListener('click', function() {
+    const tarlzmafileInput = document.getElementById('tarlzmafileInput');
+    if (tarlzmafileInput.files.length === 0) {
         alert("Please select a TAR.LZMA file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = tarlzmafileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/tarlzma/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/tarlzma/" + base64Data;
+        const tarlzmaoutputUrl = document.getElementById('tarlzmaoutputUrl');
+        tarlzmaoutputUrl.style.display = 'block';
+        tarlzmaoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download TAR.LZMA';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const tarlzmadownloadLink = document.getElementById('tarlzmadownloadLink');
+        tarlzmadownloadLink.href = url;
+        tarlzmadownloadLink.style.display = 'block';
+        tarlzmadownloadLink.innerText = ' Download TAR.LZMA';
+        tarlzmadownloadLink.className = 'Erath'; // Apply Erath class for styling
+        tarlzmadownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const tarlzmacopyUrlBtn = document.getElementById('tarlzmacopyUrlBtn');
+        tarlzmacopyUrlBtn.style.display = 'block';
+        tarlzmacopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        tarlzmacopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your TAR</h2>
-<input type="file" id="fileInput" accept=".tar">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="tarfileInput" accept=".tar">
+<button id="tarencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="taroutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download TAR</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="tardownloadLink" style="display:none;">Download TAR</a>
+<button id="tarcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('tarencryptBtn').addEventListener('click', function() {
+    const tarfileInput = document.getElementById('tarfileInput');
+    if (tarfileInput.files.length === 0) {
         alert("Please select a TAR file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = tarfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/tar/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/tar/" + base64Data;
+        const taroutputUrl = document.getElementById('taroutputUrl');
+        taroutputUrl.style.display = 'block';
+        taroutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download TAR';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const tardownloadLink = document.getElementById('tardownloadLink');
+        tardownloadLink.href = url;
+        tardownloadLink.style.display = 'block';
+        tardownloadLink.innerText = ' Download TAR';
+        tardownloadLink.className = 'Erath'; // Apply Erath class for styling
+        tardownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const tarcopyUrlBtn = document.getElementById('tarcopyUrlBtn');
+        tarcopyUrlBtn.style.display = 'block';
+        tarcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        tarcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

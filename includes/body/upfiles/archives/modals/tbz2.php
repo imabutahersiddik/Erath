@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your TBZ2</h2>
-<input type="file" id="fileInput" accept=".tbz2">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="tbz2fileInput" accept=".tbz2">
+<button id="tbz2encryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="tbz2outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download TBZ2</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="tbz2downloadLink" style="display:none;">Download TBZ2</a>
+<button id="tbz2copyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('tbz2encryptBtn').addEventListener('click', function() {
+    const tbz2fileInput = document.getElementById('tbz2fileInput');
+    if (tbz2fileInput.files.length === 0) {
         alert("Please select a TBZ2 file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = tbz2fileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/tbz2/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/tbz2/" + base64Data;
+        const tbz2outputUrl = document.getElementById('tbz2outputUrl');
+        tbz2outputUrl.style.display = 'block';
+        tbz2outputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download TBZ2';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const tbz2downloadLink = document.getElementById('tbz2downloadLink');
+        tbz2downloadLink.href = url;
+        tbz2downloadLink.style.display = 'block';
+        tbz2downloadLink.innerText = ' Download TBZ2';
+        tbz2downloadLink.className = 'Erath'; // Apply Erath class for styling
+        tbz2downloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const tbz2copyUrlBtn = document.getElementById('tbz2copyUrlBtn');
+        tbz2copyUrlBtn.style.display = 'block';
+        tbz2copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        tbz2copyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your RAR</h2>
-<input type="file" id="fileInput" accept=".rar">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="rarfileInput" accept=".rar">
+<button id="rarencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="raroutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download RAR</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="rardownloadLink" style="display:none;">Download RAR</a>
+<button id="rarcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('rarencryptBtn').addEventListener('click', function() {
+    const rarfileInput = document.getElementById('rarfileInput');
+    if (rarfileInput.files.length === 0) {
         alert("Please select a RAR file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = rarfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/rar/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/rar/" + base64Data;
+        const raroutputUrl = document.getElementById('raroutputUrl');
+        raroutputUrl.style.display = 'block';
+        raroutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download RAR';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const rardownloadLink = document.getElementById('rardownloadLink');
+        rardownloadLink.href = url;
+        rardownloadLink.style.display = 'block';
+        rardownloadLink.innerText = ' Download RAR';
+        rardownloadLink.className = 'Erath'; // Apply Erath class for styling
+        rardownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const rarcopyUrlBtn = document.getElementById('rarcopyUrlBtn');
+        rarcopyUrlBtn.style.display = 'block';
+        rarcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        rarcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

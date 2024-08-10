@@ -36,7 +36,7 @@
                 const encryptedData = CryptoJS.AES.encrypt(wordArray, secretKey).toString();
                 
                 // Create a URL for the encrypted data
-                const url = "https://erath.vercel.app/documents/pdf/" + btoa(encryptedData);
+                const url = "https://erath.vercel.app/pdf/" + btoa(encryptedData);
 
                 // Show the output URL
                 const PdfoutputUrl = document.getElementById('PdfoutputUrl');

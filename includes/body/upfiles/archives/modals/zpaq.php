@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your ZPAQ</h2>
-<input type="file" id="fileInput" accept=".zpaq">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="zpaqfileInput" accept=".zpaq">
+<button id="zpaqencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="zpaqoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download ZPAQ</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="zpaqdownloadLink" style="display:none;">Download ZPAQ</a>
+<button id="zpaqcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('zpaqencryptBtn').addEventListener('click', function() {
+    const zpaqfileInput = document.getElementById('zpaqfileInput');
+    if (zpaqfileInput.files.length === 0) {
         alert("Please select a ZPAQ file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = zpaqfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/zpaq/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/zpaq/" + base64Data;
+        const zpaqoutputUrl = document.getElementById('zpaqoutputUrl');
+        zpaqoutputUrl.style.display = 'block';
+        zpaqoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download ZPAQ';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const zpaqdownloadLink = document.getElementById('zpaqdownloadLink');
+        zpaqdownloadLink.href = url;
+        zpaqdownloadLink.style.display = 'block';
+        zpaqdownloadLink.innerText = ' Download ZPAQ';
+        zpaqdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        zpaqdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const zpaqcopyUrlBtn = document.getElementById('zpaqcopyUrlBtn');
+        zpaqcopyUrlBtn.style.display = 'block';
+        zpaqcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        zpaqcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

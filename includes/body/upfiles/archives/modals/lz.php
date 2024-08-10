@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your LZ</h2>
-<input type="file" id="fileInput" accept=".lz">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="lzfileInput" accept=".lz">
+<button id="lzencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="lzoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download LZ</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="lzdownloadLink" style="display:none;">Download LZ</a>
+<button id="lzcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('lzencryptBtn').addEventListener('click', function() {
+    const lzfileInput = document.getElementById('lzfileInput');
+    if (lzfileInput.files.length === 0) {
         alert("Please select a LZ file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = lzfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/lz/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/lz/" + base64Data;
+        const lzoutputUrl = document.getElementById('lzoutputUrl');
+        lzoutputUrl.style.display = 'block';
+        lzoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download LZ';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const lzdownloadLink = document.getElementById('lzdownloadLink');
+        lzdownloadLink.href = url;
+        lzdownloadLink.style.display = 'block';
+        lzdownloadLink.innerText = ' Download LZ';
+        lzdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        lzdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const lzcopyUrlBtn = document.getElementById('lzcopyUrlBtn');
+        lzcopyUrlBtn.style.display = 'block';
+        lzcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        lzcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

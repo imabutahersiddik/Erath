@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your SIT</h2>
-<input type="file" id="fileInput" accept=".sit">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="sitfileInput" accept=".sit">
+<button id="sitencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="sitoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download SIT</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="sitdownloadLink" style="display:none;">Download SIT</a>
+<button id="sitcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('sitencryptBtn').addEventListener('click', function() {
+    const sitfileInput = document.getElementById('sitfileInput');
+    if (sitfileInput.files.length === 0) {
         alert("Please select a SIT file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = sitfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/sit/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/sit/" + base64Data;
+        const sitoutputUrl = document.getElementById('sitoutputUrl');
+        sitoutputUrl.style.display = 'block';
+        sitoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download SIT';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const sitdownloadLink = document.getElementById('sitdownloadLink');
+        sitdownloadLink.href = url;
+        sitdownloadLink.style.display = 'block';
+        sitdownloadLink.innerText = ' Download SIT';
+        sitdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        sitdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const sitcopyUrlBtn = document.getElementById('sitcopyUrlBtn');
+        sitcopyUrlBtn.style.display = 'block';
+        sitcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        sitcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

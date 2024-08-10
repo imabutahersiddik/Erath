@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your TAR.ZST</h2>
-<input type="file" id="fileInput" accept=".tar.zst">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="tarzstfileInput" accept=".tar.zst">
+<button id="tarzstencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="tarzstoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download TAR.ZST</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="tarzstdownloadLink" style="display:none;">Download TAR.ZST</a>
+<button id="tarzstcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('tarzstencryptBtn').addEventListener('click', function() {
+    const tarzstfileInput = document.getElementById('tarzstfileInput');
+    if (tarzstfileInput.files.length === 0) {
         alert("Please select a TAR.ZST file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = tarzstfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/tarzst/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/tarzst/" + base64Data;
+        const tarzstoutputUrl = document.getElementById('tarzstoutputUrl');
+        tarzstoutputUrl.style.display = 'block';
+        tarzstoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download TAR.ZST';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const tarzstdownloadLink = document.getElementById('tarzstdownloadLink');
+        tarzstdownloadLink.href = url;
+        tarzstdownloadLink.style.display = 'block';
+        tarzstdownloadLink.innerText = ' Download TAR.ZST';
+        tarzstdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        tarzstdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const tarzstcopyUrlBtn = document.getElementById('tarzstcopyUrlBtn');
+        tarzstcopyUrlBtn.style.display = 'block';
+        tarzstcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        tarzstcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

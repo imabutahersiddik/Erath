@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your LZOP</h2>
-<input type="file" id="fileInput" accept=".lzop">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="lzopfileInput" accept=".lzop">
+<button id="lzopencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="lzopoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download LZOP</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="lzopdownloadLink" style="display:none;">Download LZOP</a>
+<button id="lzopcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('lzopencryptBtn').addEventListener('click', function() {
+    const lzopfileInput = document.getElementById('lzopfileInput');
+    if (lzopfileInput.files.length === 0) {
         alert("Please select a LZOP file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = lzopfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/lzop/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/lzop/" + base64Data;
+        const lzopoutputUrl = document.getElementById('lzopoutputUrl');
+        lzopoutputUrl.style.display = 'block';
+        lzopoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download LZOP';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const lzopdownloadLink = document.getElementById('lzopdownloadLink');
+        lzopdownloadLink.href = url;
+        lzopdownloadLink.style.display = 'block';
+        lzopdownloadLink.innerText = ' Download LZOP';
+        lzopdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        lzopdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const lzopcopyUrlBtn = document.getElementById('lzopcopyUrlBtn');
+        lzopcopyUrlBtn.style.display = 'block';
+        lzopcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        lzopcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

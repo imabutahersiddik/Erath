@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your CAB</h2>
-<input type="file" id="fileInput" accept=".cab">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="cabfileInput" accept=".cab">
+<button id="cabencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="caboutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download CAB</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="cabdownloadLink" style="display:none;">Download CAB</a>
+<button id="cabcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('cabencryptBtn').addEventListener('click', function() {
+    const cabfileInput = document.getElementById('cabfileInput');
+    if (cabfileInput.files.length === 0) {
         alert("Please select a CAB file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = cabfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/cab/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/cab/" + base64Data;
+        const caboutputUrl = document.getElementById('caboutputUrl');
+        caboutputUrl.style.display = 'block';
+        caboutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download CAB';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const cabdownloadLink = document.getElementById('cabdownloadLink');
+        cabdownloadLink.href = url;
+        cabdownloadLink.style.display = 'block';
+        cabdownloadLink.innerText = ' Download CAB';
+        cabdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        cabdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const cabcopyUrlBtn = document.getElementById('cabcopyUrlBtn');
+        cabcopyUrlBtn.style.display = 'block';
+        cabcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        cabcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

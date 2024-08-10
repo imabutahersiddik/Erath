@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your 7Z</h2>
-<input type="file" id="fileInput" accept=".7z">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="7zfileInput" accept=".7z">
+<button id="7zencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="7zoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download 7Z</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="7zdownloadLink" style="display:none;">Download 7Z</a>
+<button id="7zcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('7zencryptBtn').addEventListener('click', function() {
+    const 7zfileInput = document.getElementById('7zfileInput');
+    if (7zfileInput.files.length === 0) {
         alert("Please select a 7Z file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = 7zfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/7z/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/7z/" + base64Data;
+        const 7zoutputUrl = document.getElementById('7zoutputUrl');
+        7zoutputUrl.style.display = 'block';
+        7zoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download 7Z';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const 7zdownloadLink = document.getElementById('7zdownloadLink');
+        7zdownloadLink.href = url;
+        7zdownloadLink.style.display = 'block';
+        7zdownloadLink.innerText = ' Download 7Z';
+        7zdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        7zdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const 7zcopyUrlBtn = document.getElementById('7zcopyUrlBtn');
+        7zcopyUrlBtn.style.display = 'block';
+        7zcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        7zcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

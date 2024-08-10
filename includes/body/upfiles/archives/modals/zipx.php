@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your ZIPX</h2>
-<input type="file" id="fileInput" accept=".zipx">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="zipxfileInput" accept=".zipx">
+<button id="zipxencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="zipxoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download ZIPX</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="zipxdownloadLink" style="display:none;">Download ZIPX</a>
+<button id="zipxcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('zipxencryptBtn').addEventListener('click', function() {
+    const zipxfileInput = document.getElementById('zipxfileInput');
+    if (zipxfileInput.files.length === 0) {
         alert("Please select a ZIPX file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = zipxfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/zipx/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/zipx/" + base64Data;
+        const zipxoutputUrl = document.getElementById('zipxoutputUrl');
+        zipxoutputUrl.style.display = 'block';
+        zipxoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download ZIPX';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const zipxdownloadLink = document.getElementById('zipxdownloadLink');
+        zipxdownloadLink.href = url;
+        zipxdownloadLink.style.display = 'block';
+        zipxdownloadLink.innerText = ' Download ZIPX';
+        zipxdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        zipxdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const zipxcopyUrlBtn = document.getElementById('zipxcopyUrlBtn');
+        zipxcopyUrlBtn.style.display = 'block';
+        zipxcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        zipxcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

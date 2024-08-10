@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your PDF</h2>
-<input type="file" id="fileInput" accept=".pdf">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="examplefileInput" accept=".pdf">
+<button id="exampleencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="exampleoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download PDF</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="exampledownloadLink" style="display:none;">Download PDF</a>
+<button id="examplecopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('exampleencryptBtn').addEventListener('click', function() {
+    const examplefileInput = document.getElementById('examplefileInput');
+    if (examplefileInput.files.length === 0) {
         alert("Please select a PDF file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = examplefileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/pdf/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/pdf/" + base64Data;
+        const exampleoutputUrl = document.getElementById('exampleoutputUrl');
+        exampleoutputUrl.style.display = 'block';
+        exampleoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download PDF';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const exampledownloadLink = document.getElementById('exampledownloadLink');
+        exampledownloadLink.href = url;
+        exampledownloadLink.style.display = 'block';
+        exampledownloadLink.innerText = ' Download PDF';
+        exampledownloadLink.className = 'Erath'; // Apply Erath class for styling
+        exampledownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const examplecopyUrlBtn = document.getElementById('examplecopyUrlBtn');
+        examplecopyUrlBtn.style.display = 'block';
+        examplecopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        examplecopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

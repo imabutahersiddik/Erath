@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your SQZ</h2>
-<input type="file" id="fileInput" accept=".sqz">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="sqzfileInput" accept=".sqz">
+<button id="sqzencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="sqzoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download SQZ</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="sqzdownloadLink" style="display:none;">Download SQZ</a>
+<button id="sqzcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('sqzencryptBtn').addEventListener('click', function() {
+    const sqzfileInput = document.getElementById('sqzfileInput');
+    if (sqzfileInput.files.length === 0) {
         alert("Please select a SQZ file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = sqzfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/sqz/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/sqz/" + base64Data;
+        const sqzoutputUrl = document.getElementById('sqzoutputUrl');
+        sqzoutputUrl.style.display = 'block';
+        sqzoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download SQZ';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const sqzdownloadLink = document.getElementById('sqzdownloadLink');
+        sqzdownloadLink.href = url;
+        sqzdownloadLink.style.display = 'block';
+        sqzdownloadLink.innerText = ' Download SQZ';
+        sqzdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        sqzdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const sqzcopyUrlBtn = document.getElementById('sqzcopyUrlBtn');
+        sqzcopyUrlBtn.style.display = 'block';
+        sqzcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        sqzcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

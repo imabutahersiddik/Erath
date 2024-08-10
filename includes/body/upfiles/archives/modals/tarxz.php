@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your TAR.XZ</h2>
-<input type="file" id="fileInput" accept=".tar.xz">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="tarxzfileInput" accept=".tar.xz">
+<button id="tarxzencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="tarxzoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download TAR.XZ</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="tarxzdownloadLink" style="display:none;">Download TAR.XZ</a>
+<button id="tarxzcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('tarxzencryptBtn').addEventListener('click', function() {
+    const tarxzfileInput = document.getElementById('tarxzfileInput');
+    if (tarxzfileInput.files.length === 0) {
         alert("Please select a TAR.XZ file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = tarxzfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/tarxz/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/tarxz/" + base64Data;
+        const tarxzoutputUrl = document.getElementById('tarxzoutputUrl');
+        tarxzoutputUrl.style.display = 'block';
+        tarxzoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download TAR.XZ';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const tarxzdownloadLink = document.getElementById('tarxzdownloadLink');
+        tarxzdownloadLink.href = url;
+        tarxzdownloadLink.style.display = 'block';
+        tarxzdownloadLink.innerText = ' Download TAR.XZ';
+        tarxzdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        tarxzdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const tarxzcopyUrlBtn = document.getElementById('tarxzcopyUrlBtn');
+        tarxzcopyUrlBtn.style.display = 'block';
+        tarxzcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        tarxzcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

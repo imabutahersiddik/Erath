@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your CBT</h2>
-<input type="file" id="fileInput" accept=".cbt">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="cbtfileInput" accept=".cbt">
+<button id="cbtencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="cbtoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download CBT</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="cbtdownloadLink" style="display:none;">Download CBT</a>
+<button id="cbtcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('cbtencryptBtn').addEventListener('click', function() {
+    const cbtfileInput = document.getElementById('cbtfileInput');
+    if (cbtfileInput.files.length === 0) {
         alert("Please select a CBT file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = cbtfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/cbt/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/cbt/" + base64Data;
+        const cbtoutputUrl = document.getElementById('cbtoutputUrl');
+        cbtoutputUrl.style.display = 'block';
+        cbtoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download CBT';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const cbtdownloadLink = document.getElementById('cbtdownloadLink');
+        cbtdownloadLink.href = url;
+        cbtdownloadLink.style.display = 'block';
+        cbtdownloadLink.innerText = ' Download CBT';
+        cbtdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        cbtdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const cbtcopyUrlBtn = document.getElementById('cbtcopyUrlBtn');
+        cbtcopyUrlBtn.style.display = 'block';
+        cbtcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        cbtcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

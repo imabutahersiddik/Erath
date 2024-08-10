@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your CBR</h2>
-<input type="file" id="fileInput" accept=".cbr">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="cbrfileInput" accept=".cbr">
+<button id="cbrencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="cbroutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download CBR</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="cbrdownloadLink" style="display:none;">Download CBR</a>
+<button id="cbrcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('cbrencryptBtn').addEventListener('click', function() {
+    const cbrfileInput = document.getElementById('cbrfileInput');
+    if (cbrfileInput.files.length === 0) {
         alert("Please select a CBR file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = cbrfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/cbr/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/cbr/" + base64Data;
+        const cbroutputUrl = document.getElementById('cbroutputUrl');
+        cbroutputUrl.style.display = 'block';
+        cbroutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download CBR';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const cbrdownloadLink = document.getElementById('cbrdownloadLink');
+        cbrdownloadLink.href = url;
+        cbrdownloadLink.style.display = 'block';
+        cbrdownloadLink.innerText = ' Download CBR';
+        cbrdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        cbrdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const cbrcopyUrlBtn = document.getElementById('cbrcopyUrlBtn');
+        cbrcopyUrlBtn.style.display = 'block';
+        cbrcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        cbrcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

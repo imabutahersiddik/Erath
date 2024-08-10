@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your LHA</h2>
-<input type="file" id="fileInput" accept=".lha">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="lhafileInput" accept=".lha">
+<button id="lhaencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="lhaoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download LHA</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="lhadownloadLink" style="display:none;">Download LHA</a>
+<button id="lhacopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('lhaencryptBtn').addEventListener('click', function() {
+    const lhafileInput = document.getElementById('lhafileInput');
+    if (lhafileInput.files.length === 0) {
         alert("Please select a LHA file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = lhafileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/lha/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/lha/" + base64Data;
+        const lhaoutputUrl = document.getElementById('lhaoutputUrl');
+        lhaoutputUrl.style.display = 'block';
+        lhaoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download LHA';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const lhadownloadLink = document.getElementById('lhadownloadLink');
+        lhadownloadLink.href = url;
+        lhadownloadLink.style.display = 'block';
+        lhadownloadLink.innerText = ' Download LHA';
+        lhadownloadLink.className = 'Erath'; // Apply Erath class for styling
+        lhadownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const lhacopyUrlBtn = document.getElementById('lhacopyUrlBtn');
+        lhacopyUrlBtn.style.display = 'block';
+        lhacopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        lhacopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your TBZ</h2>
-<input type="file" id="fileInput" accept=".tbz">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="tbzfileInput" accept=".tbz">
+<button id="tbzencryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="tbzoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download TBZ</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="tbzdownloadLink" style="display:none;">Download TBZ</a>
+<button id="tbzcopyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('tbzencryptBtn').addEventListener('click', function() {
+    const tbzfileInput = document.getElementById('tbzfileInput');
+    if (tbzfileInput.files.length === 0) {
         alert("Please select a TBZ file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = tbzfileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/tbz/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/tbz/" + base64Data;
+        const tbzoutputUrl = document.getElementById('tbzoutputUrl');
+        tbzoutputUrl.style.display = 'block';
+        tbzoutputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download TBZ';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const tbzdownloadLink = document.getElementById('tbzdownloadLink');
+        tbzdownloadLink.href = url;
+        tbzdownloadLink.style.display = 'block';
+        tbzdownloadLink.innerText = ' Download TBZ';
+        tbzdownloadLink.className = 'Erath'; // Apply Erath class for styling
+        tbzdownloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const tbzcopyUrlBtn = document.getElementById('tbzcopyUrlBtn');
+        tbzcopyUrlBtn.style.display = 'block';
+        tbzcopyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        tbzcopyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {

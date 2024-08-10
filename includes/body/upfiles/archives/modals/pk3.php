@@ -7,13 +7,13 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload your PK3</h2>
-<input type="file" id="fileInput" accept=".pk3">
-<button id="encryptBtn">Upload</button>
+<input type="file" id="pk3fileInput" accept=".pk3">
+<button id="pk3encryptBtn">Upload</button>
 <br><br>
-<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<textarea id="pk3outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
 <br>
-<a id="downloadLink" style="display:none;">Download PK3</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="pk3downloadLink" style="display:none;">Download PK3</a>
+<button id="pk3copyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
 window.onload = function() {
@@ -21,33 +21,33 @@ window.onload = function() {
     const currentUrl = window.location.href;
 };
 
-document.getElementById('encryptBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length === 0) {
+document.getElementById('pk3encryptBtn').addEventListener('click', function() {
+    const pk3fileInput = document.getElementById('pk3fileInput');
+    if (pk3fileInput.files.length === 0) {
         alert("Please select a PK3 file.");
         return;
     }
-    const file = fileInput.files[0];
+    const file = pk3fileInput.files[0];
     const reader = new FileReader();
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/archives/pk3/" + base64Data;
-        const outputUrl = document.getElementById('outputUrl');
-        outputUrl.style.display = 'block';
-        outputUrl.value = url;
+        const url = "https://erath.vercel.app/pk3/" + base64Data;
+        const pk3outputUrl = document.getElementById('pk3outputUrl');
+        pk3outputUrl.style.display = 'block';
+        pk3outputUrl.value = url;
         
-        const downloadLink = document.getElementById('downloadLink');
-        downloadLink.href = url;
-        downloadLink.style.display = 'block';
-        downloadLink.innerText = ' Download PK3';
-        downloadLink.className = 'Erath'; // Apply Erath class for styling
-        downloadLink.target = "_blank"; // Open link in a new tab
+        const pk3downloadLink = document.getElementById('pk3downloadLink');
+        pk3downloadLink.href = url;
+        pk3downloadLink.style.display = 'block';
+        pk3downloadLink.innerText = ' Download PK3';
+        pk3downloadLink.className = 'Erath'; // Apply Erath class for styling
+        pk3downloadLink.target = "_blank"; // Open link in a new tab
         
-        const copyUrlBtn = document.getElementById('copyUrlBtn');
-        copyUrlBtn.style.display = 'block';
-        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-        copyUrlBtn.onclick = function() {
+        const pk3copyUrlBtn = document.getElementById('pk3copyUrlBtn');
+        pk3copyUrlBtn.style.display = 'block';
+        pk3copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        pk3copyUrlBtn.onclick = function() {
             navigator.clipboard.writeText(url).then(() => {
                 alert('URL copied to clipboard!');
             }, () => {
