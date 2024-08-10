@@ -6,15 +6,14 @@
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-                         <h2>Upload PDF File and Generate URL</h2>
-     <input type="file" id="fileInputPdf" accept=".pdf">
-    <button id="encryptPdfBtn">Encrypt and Generate URL</button>
-    <br><br>
-    <textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
-    <button id="copyBtn" style="display:none;">Copy URL</button>
+                         <h1>Upload Your PDF</h1>
+    <input type="file" id="fileInputPdf" accept=".pdf" style="margin: 20px 0;">
+    <button id="encryptPdfBtn" style="background-color: #007BFF; border: none; color: white; padding: 15px 30px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; margin: 10px 0; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">Upload</button>
     <br>
-    <a id="visitLink" style="display:none;" target="_blank">Visit Encrypted PDF</a>
-
+    <textarea id="PdfoutputUrl" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+    <button id="copyBtn" style="display:none; background-color: #007BFF; border: none; color: white; padding: 15px 30px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; margin: 10px 0; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">Copy URL</button>
+    <br>
+    <a id="visitLink" style="display:none; text-decoration: none; color: #007BFF; font-size: 16px;">Download PDF</a>
     <script>
         document.getElementById('encryptPdfBtn').addEventListener('click', function() {
             const fileInputPdf = document.getElementById('fileInputPdf');
@@ -37,12 +36,12 @@
                 const encryptedData = CryptoJS.AES.encrypt(wordArray, secretKey).toString();
                 
                 // Create a URL for the encrypted data
-                const url = "data:application/pdf;base64," + btoa(encryptedData);
+                const url = "https://erath.vercel.app/pdf/" + btoa(encryptedData);
 
                 // Show the output URL
-                const outputUrl = document.getElementById('outputUrl');
-                outputUrl.style.display = 'block';
-                outputUrl.value = url;
+                const PdfoutputUrl = document.getElementById('PdfoutputUrl');
+                PdfoutputUrl.style.display = 'block';
+                PdfoutputUrl.value = url;
 
                 // Show the copy button
                 const copyBtn = document.getElementById('copyBtn');
@@ -61,7 +60,7 @@
                 const visitLink = document.getElementById('visitLink');
                 visitLink.href = url;
                 visitLink.style.display = 'block';
-                visitLink.innerText = 'Visit Encrypted PDF';
+                visitLink.innerText = 'Download PDF';
             };
 
             reader.readAsArrayBuffer(file); // Read the file as an ArrayBuffer
