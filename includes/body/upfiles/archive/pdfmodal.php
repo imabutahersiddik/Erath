@@ -1,18 +1,18 @@
-         <div class="modal fade" id="targz">
+         <div class="modal fade" id="pdf">
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h4 class="modal-title">Tar.gz File Upload</h4>
+                     <h4 class="modal-title">PDF File Upload</h4>
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-                         <h2>Encrypt .tar.gz File and Generate URL</h1>
+                         <h2>Upload PDF File and Generate URL</h2>
     <input type="file" id="fileInput" accept=".tar.gz">
-    <button id="encryptBtn">Encrypt and Generate URL</button>
+    <button id="encryptBtn">Upload and Generate URL</button>
     <br><br>
     <textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
     <br>
-<a id="downloadLink" style="display:none;">Download Encrypted Data</a>
+<a id="downloadLink" style="display:none;">Download PDF File</a>
 <button id="copyUrlBtn" style="display:none;">Copy URL</button>
 
 <script>
@@ -23,7 +23,7 @@
     document.getElementById('encryptBtn').addEventListener('click', function() {
         const fileInput = document.getElementById('fileInput');
         if (fileInput.files.length === 0) {
-            alert("Please select a .tar.gz file.");
+            alert("Please select a PDF file.");
             return;
         }
         
@@ -33,7 +33,7 @@
         reader.onload = function(event) {
             const fileData = new Uint8Array(event.target.result);
             const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-            const url = "https://erath.vercel.app/targz/" + base64Data;
+            const url = "https://erath.vercel.app/pdf/" + base64Data;
 
             const outputUrl = document.getElementById('outputUrl');
             outputUrl.style.display = 'block';
@@ -41,9 +41,9 @@
 
             const downloadLink = document.getElementById('downloadLink');
             downloadLink.href = url;
-            downloadLink.download = 'encrypted_file.tar.gz';
+            downloadLink.download = 'pdf_file.zip';
             downloadLink.style.display = 'block';
-            downloadLink.innerText = 'Download Encrypted .tar.gz File';
+            downloadLink.innerText = 'Download PDF File';
             downloadLink.className = 'Erath'; // Apply Erath class for styling
 
             const copyUrlBtn = document.getElementById('copyUrlBtn');

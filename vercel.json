@@ -8,6 +8,7 @@
     { "src": "/(css|js|img|icons|pages)/(.*)", "dest": "public/$1/$2" },
     { "src": "/site/(.*)?", "dest": "/api/site.php" },
     { "src": "/targz/(.*)?", "dest": "/api/targz.php" },
+    { "src": "/pdf/(.*)?", "dest": "/api/pdf.php" },
     { "src": "/(.*)", "dest": "/api/$1" }
   ],
   "outputDirectory": "public",

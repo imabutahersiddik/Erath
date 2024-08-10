@@ -10,7 +10,8 @@ require __DIR__.'/../includes/header/navbar.php';
 /* Body */
 require __DIR__.'/../includes/body/editor.php';
 require __DIR__.'/../includes/body/modal.php';
-require __DIR__.'/../includes/body/targzmodal.php';
+require __DIR__.'/../includes/body/upfiles/archive/targzmodal.php';
+require __DIR__.'/../includes/body/upfiles/document/pdfmodal.php';
 require __DIR__.'/../includes/body/preview.php';
 require __DIR__.'/../includes/body/plugins.php';
 /* Footer */
