@@ -1,4 +1,4 @@
-         <div class="modal fade" id="tar.xz">
+         <div class="modal fade" id="tarxz">
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">

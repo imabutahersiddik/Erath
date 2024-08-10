@@ -1,4 +1,4 @@
-         <div class="modal fade" id="tar.zst">
+         <div class="modal fade" id="tarzst">
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
