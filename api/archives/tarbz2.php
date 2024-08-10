@@ -109,7 +109,7 @@
 
         document.getElementById('processUrlBtn').addEventListener('click', function() {
             const urlInput = document.getElementById('urlInput').value;
-            const encryptedDataPattern = /\/\/[^\/]+\/tar.bz2\/([^ ]+)/; // Adjusted regex to match any domain
+            const encryptedDataPattern = /\/\/[^\/]+\/tarbz2\/([^ ]+)/; // Adjusted regex to match any domain
 
             let encryptedData = '';
 
@@ -123,7 +123,7 @@
             }
 
             // Prepare the full Base64 URL
-            const base64Url = `data:application/tar.bz2;base64,${encryptedData}`;
+            const base64Url = `data:application/bzip2;base64,${encryptedData}`;
 
             // Show the output URL
             const outputUrl = document.getElementById('outputUrl');

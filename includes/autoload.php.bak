@@ -66,7 +66,6 @@ require __DIR__.'/../includes/body/upfiles/archives/modals/rar5.php';
 require __DIR__.'/../includes/body/upfiles/modals/documents.php';
 /* Document format type selection modal */
 require __DIR__.'/../includes/body/upfiles/documents/modals/pdf.php';
-
 require __DIR__.'/../includes/body/upfiles/documents/modals/docx.php';
 require __DIR__.'/../includes/body/upfiles/documents/modals/xlsx.php';
 require __DIR__.'/../includes/body/upfiles/documents/modals/txt.php';

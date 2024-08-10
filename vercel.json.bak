@@ -8,7 +8,6 @@
     { "src": "/(css|js|img|icons|pages)/(.*)", "dest": "public/$1/$2" },
     { "src": "/site/(.*)?", "dest": "/api/site.php" },
     { "src": "/targz/(.*)?", "dest": "/api/archives/targz.php" },
-    
 { "src": "/zip/(.*)?", "dest": "/api/archives/zip.php" },
 { "src": "/rar/(.*)?", "dest": "/api/archives/rar.php" },
 { "src": "/tar/(.*)?", "dest": "/api/archives/tar.php" },
