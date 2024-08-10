@@ -13,9 +13,9 @@ require __DIR__.'/../includes/body/modal.php';
 require __DIR__.'/../includes/body/upfilesmodal.php';
 /* Format Selection Modal */
 require __DIR__.'/../includes/body/upfiles/archivemodal.php';
-require __DIR__.'/../includes/body/upfiles/documentmodal.php';
 /* Archive format type selection modal */
 require __DIR__.'/../includes/body/upfiles/archive/targzmodal.php';
+require __DIR__.'/../includes/body/upfiles/documentmodal.php';
 /* Document format type selection modal */
 require __DIR__.'/../includes/body/upfiles/document/pdfmodal.php';
 require __DIR__.'/../includes/body/preview.php';

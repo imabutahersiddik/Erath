@@ -1,24 +1,24 @@
-         <div class="modal fade" id="pdf">
+         <div class="modal fade" id="targz">
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h4 class="modal-title">PDF File Upload</h4>
+                     <h4 class="modal-title">Tar.gz File Upload</h4>
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-                         <h2>Upload PDF File and Generate URL</h2>
+                         <h2>Upload Tar.gz File and Generate URL</h2>
     <input type="file" id="fileInput" accept=".tar.gz">
     <button id="encryptBtn">Upload and Generate URL</button>
     <br><br>
     <textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
     <br>
-    <a id="downloadLink" style="display:none;">Download PDF File</a>
+    <a id="downloadLink" style="display:none;">Download Tar.gz File</a>
 
     <script>
         document.getElementById('encryptBtn').addEventListener('click', function() {
             const fileInput = document.getElementById('fileInput');
             if (fileInput.files.length === 0) {
-                alert("Please select a PDF file.");
+                alert("Please select a Tar.gz file.");
                 return;
             }
             
@@ -32,7 +32,7 @@
                 const base64Data = btoa(String.fromCharCode.apply(null, fileData));
                 
                 // Create a URL for the Base64 data
-                const url = "data:application/pdf;base64," + base64Data;
+                const url = "data:application/gzip;base64," + base64Data;
 
                 // Show the output URL
                 const outputUrl = document.getElementById('outputUrl');
@@ -42,9 +42,9 @@
                 // Create a download link
                 const downloadLink = document.getElementById('downloadLink');
                 downloadLink.href = url;
-                downloadLink.download = 'pdf_file.zip'; // Change this if you want a different filename
+                downloadLink.download = 'targz_file.zip'; // Change this if you want a different filename
                 downloadLink.style.display = 'block';
-                downloadLink.innerText = 'Download Pdf File';
+                downloadLink.innerText = 'Download Tar.gz File';
             };
 
             reader.readAsArrayBuffer(file); // Read the file as an ArrayBuffer

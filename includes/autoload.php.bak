@@ -10,7 +10,7 @@ require __DIR__.'/../includes/header/navbar.php';
 /* Body */
 require __DIR__.'/../includes/body/editor.php';
 require __DIR__.'/../includes/body/modal.php';
-require __DIR__.'/../includes/body/upfiles/upfilesmodal.php';
+require __DIR__.'/../includes/body/upfilesmodal.php';
 /* Format Selection Modal */
 require __DIR__.'/../includes/body/upfiles/archivemodal.php';
 require __DIR__.'/../includes/body/upfiles/documentmodal.php';
