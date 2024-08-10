@@ -1,4 +1,4 @@
-         <div class="modal fade" id="archivemodal">
+         <div class="modal fade" id="archives">
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">

@@ -9,15 +9,16 @@ require __DIR__.'/../includes/header/navbar.php';
 
 /* Body */
 require __DIR__.'/../includes/body/editor.php';
-require __DIR__.'/../includes/body/modal.php';
-require __DIR__.'/../includes/body/upfilesmodal.php';
-/* Format Selection Modal */
-require __DIR__.'/../includes/body/upfiles/archivemodal.php';
+require __DIR__.'/../includes/body/modals/modal.php';
+require __DIR__.'/../includes/body/modals/upfiles.php';
+/* Archives format Modal */
+require __DIR__.'/../includes/body/upfiles/modals/archives.php';
 /* Archive format type selection modal */
-require __DIR__.'/../includes/body/upfiles/archive/targzmodal.php';
-require __DIR__.'/../includes/body/upfiles/documentmodal.php';
+require __DIR__.'/../includes/body/upfiles/archives/modals/targz.php';
+/* Documents format Modal */
+require __DIR__.'/../includes/body/upfiles/modals/documents.php';
 /* Document format type selection modal */
-require __DIR__.'/../includes/body/upfiles/document/pdfmodal.php';
+require __DIR__.'/../includes/body/upfiles/documents/modals/pdf.php';
 require __DIR__.'/../includes/body/preview.php';
 require __DIR__.'/../includes/body/plugins.php';
 /* Footer */

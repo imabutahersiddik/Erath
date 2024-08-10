@@ -1,18 +1,15 @@
-         <div class="modal fade" id="documentmodal">
+         <div class="modal fade" id="upfiles">
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h4 class="modal-title">Select Document to Upload</h4>
-                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  </div>
-                  <div class="modal-body">
-<!-- Document Type Buttons -->
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #00BCD4; color: white; transition: background-color 0.3s;" onclick="document.getElementById('pdf').style.display='block'">Upload PDF</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #3F51B5; color: white; transition: background-color 0.3s;" onclick="document.getElementById('docx').style.display='block'">Upload DOCX</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #673AB7; color: white; transition: background-color 0.3s;" onclick="document.getElementById('xlsx').style.display='block'">Upload XLSX</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #9C27B0; color: white; transition: background-color 0.3s;" onclick="document.getElementById('txt').style.display='block'">Upload TXT</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FFC107; color: black; transition: background-color 0.3s;" onclick="document.getElementById('csv').style.display='block'">Upload CSV</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FF5722; color: white; transition: background-color 0.3s;" onclick="document.getElementById('pptx').style.display='block'">Upload PPTX</button>
+                     <h4 class="modal-title">Select File Type to Upload</h4>
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+<div class="modal-body">
+<!-- File Type Buttons -->
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #4CAF50; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#archives">Archives</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #2196F3; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#documents">Documents</button>
+</div>
                   </div>
                </div>
             </div>

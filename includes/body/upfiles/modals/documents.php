@@ -1,66 +1,18 @@
-         <div class="modal fade" id="targz">
+         <div class="modal fade" id="documents">
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h4 class="modal-title">Tar.gz File Upload</h4>
+                     <h4 class="modal-title">Select Document to Upload</h4>
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-                         <h2>Encrypt .tar.gz File and Generate URL</h2>
-    <input type="file" id="fileInput" accept=".tar.gz">
-    <button id="encryptBtn">Encrypt and Generate URL</button>
-    <br><br>
-    <textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
-    <br>
-<a id="downloadLink" style="display:none;">Download Encrypted Data</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
-
-<script>
-    window.onload = function() {
-    // Get the current page URL
-    const currentUrl = window.location.href;
-    };
-    document.getElementById('encryptBtn').addEventListener('click', function() {
-        const fileInput = document.getElementById('fileInput');
-        if (fileInput.files.length === 0) {
-            alert("Please select a .tar.gz file.");
-            return;
-        }
-        
-        const file = fileInput.files[0];
-        const reader = new FileReader();
-
-        reader.onload = function(event) {
-            const fileData = new Uint8Array(event.target.result);
-            const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-            const url = "https://erath.vercel.app/targz/" + base64Data;
-
-            const outputUrl = document.getElementById('outputUrl');
-            outputUrl.style.display = 'block';
-            outputUrl.value = url;
-
-            const downloadLink = document.getElementById('downloadLink');
-            downloadLink.href = url;
-            downloadLink.download = 'encrypted_file.tar.gz';
-            downloadLink.style.display = 'block';
-            downloadLink.innerText = 'Download Encrypted .tar.gz File';
-            downloadLink.className = 'Erath'; // Apply Erath class for styling
-
-            const copyUrlBtn = document.getElementById('copyUrlBtn');
-            copyUrlBtn.style.display = 'block';
-            copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-            copyUrlBtn.onclick = function() {
-                navigator.clipboard.writeText(url).then(() => {
-                    alert('URL copied to clipboard!');
-                }, () => {
-                    alert('Failed to copy the URL.');
-                });
-            };
-        };
-
-        reader.readAsArrayBuffer(file);
-    });
-</script>
+<!-- Document Type Buttons -->
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #00BCD4; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#pdf">Upload PDF</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #3F51B5; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#docx">Upload DOCX</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #673AB7; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#xlsx">Upload XLSX</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #9C27B0; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#txt">Upload TXT</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FFC107; color: black; transition: background-color 0.3s;" data-toggle="modal" data-target="#csv">Upload CSV</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FF5722; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#pptx">Upload PPTX</button>
                   </div>
                </div>
             </div>
