@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decrypt .tar.gz File</title>
+    <title>Download TBZ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,15 +64,43 @@
 </head>
 <body>
     <div class="container">
-        <h1>Decrypt .tar.gz File from URL</h1>
+        <h1>Download TBZ</h1>
         <input type="text" id="urlInput" placeholder="Paste URL here...">
         <button id="processUrlBtn">Process URL</button>
         <br><br>
         <textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Decrypted data will appear here..."></textarea>
         <br>
-        <a id="downloadLink" style="display:none;">Download .tar.gz File</a>
+        <a id="downloadLink" style="display:none;">Download</a>
     </div>
-
+    <div class="instructions">
+    <h2>Instructions to Extract Your File</h2>
+    <ol>
+        <li>
+            <strong>Download the tbz File:</strong>
+            After clicking the download link, a file with a random number and the tbz extension will be saved to your device.
+        </li>
+        <li>
+            <strong>Open the tbz File:</strong>
+            Use an archiving tool (like WinRAR, 7-Zip, or any other compatible software) to open the downloaded tbz file.
+        </li>
+        <li>
+            <strong>Locate the .bin File:</strong>
+            Inside the tbz file, you will find a .bin file. This file contains your original content.
+        </li>
+        <li>
+            <strong>Rename the .bin File:</strong>
+            Right-click on the .bin file and choose to rename it. Change the file extension from .bin to .tbz. For example, if the file is named <code>random_number.bin</code>, rename it to <code>filename.tbz</code>.
+        </li>
+        <li>
+            <strong>Extract the .tbz File:</strong>
+            Now, use the archiving tool again to extract the newly renamed <code>filename.tbz</code> file. This will reveal the original file content.
+        </li>
+        <li>
+            <strong>Access Your Original File:</strong>
+            After extraction, you will find your original file content in the extracted folder. You can now open or use it as needed.
+        </li>
+    </ol>
+    </div>
     <script>
         // Set the current page URL in the input field when the page loads
         window.onload = function() {
@@ -81,7 +109,7 @@
 
         document.getElementById('processUrlBtn').addEventListener('click', function() {
             const urlInput = document.getElementById('urlInput').value;
-            const encryptedDataPattern = /\/\/[^\/]+\/targz\/([^ ]+)/; // Adjusted regex to match any domain
+            const encryptedDataPattern = /\/\/[^\/]+\/tbz\/([^ ]+)/; // Adjusted regex to match any domain
 
             let encryptedData = '';
 
@@ -95,7 +123,7 @@
             }
 
             // Prepare the full Base64 URL
-            const base64Url = `data:application/gzip;base64,${encryptedData}`;
+            const base64Url = `data:application/tbz;base64,${encryptedData}`;
 
             // Show the output URL
             const outputUrl = document.getElementById('outputUrl');
@@ -105,9 +133,9 @@
             // Create a download link
             const downloadLink = document.getElementById('downloadLink');
             downloadLink.href = base64Url;
-            downloadLink.download = 'downloaded_file.tar.gz'; // Change this if you want a different filename
+            downloadLink.download = 'downloaded_file.tbz'; // Change this if you want a different filename
             downloadLink.style.display = 'block';
-            downloadLink.innerText = 'Download .tar.gz File';
+            downloadLink.innerText = 'Download .tbz File';
         });
     </script>
 </body>

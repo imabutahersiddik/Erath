@@ -1,28 +1,28 @@
-         <div class="modal fade" id="pdf">
+         <div class="modal fade" id="xlsx">
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h4 class="modal-title">PDF File Upload</h4>
+                     <h4 class="modal-title">XLSX File Upload</h4>
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-                         <h1>Upload Your PDF</h1>
-    <input type="file" id="fileInputPDF" accept=".pdf" style="margin: 20px 0;">
-    <button id="encryptPDFBtn" style="background-color: #007BFF; border: none; color: white; padding: 15px 30px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; margin: 10px 0; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">Upload</button>
+                         <h1>Upload Your XLSX</h1>
+    <input type="file" id="fileInputXLSX" accept=".xlsx" style="margin: 20px 0;">
+    <button id="encryptXLSXBtn" style="background-color: #007BFF; border: none; color: white; padding: 15px 30px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; margin: 10px 0; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">Upload</button>
     <br>
-    <textarea id="PDFoutputUrl" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+    <textarea id="XLSXoutputUrl" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
     <button id="copyBtn" style="display:none; background-color: #007BFF; border: none; color: white; padding: 15px 30px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; margin: 10px 0; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">Copy URL</button>
     <br>
-    <a id="visitLink" style="display:none; text-decoration: none; color: #007BFF; font-size: 16px;">Download PDF</a>
+    <a id="visitLink" style="display:none; text-decoration: none; color: #007BFF; font-size: 16px;">Download XLSX</a>
     <script>
-        document.getElementById('encryptPDFBtn').addEventListener('click', function() {
-            const fileInputPDF = document.getElementById('fileInputPDF');
-            if (fileInputPDF.files.length === 0) {
-                alert("Please select a PDF file.");
+        document.getElementById('encryptXLSXBtn').addEventListener('click', function() {
+            const fileInputXLSX = document.getElementById('fileInputXLSX');
+            if (fileInputXLSX.files.length === 0) {
+                alert("Please select a XLSX file.");
                 return;
             }
             
-            const file = fileInputPDF.files[0];
+            const file = fileInputXLSX.files[0];
             const reader = new FileReader();
 
             reader.onload = function(event) {
@@ -36,12 +36,12 @@
                 const encryptedData = CryptoJS.AES.encrypt(wordArray, secretKey).toString();
                 
                 // Create a URL for the encrypted data
-                const url = "https://erath.vercel.app/pdf/" + btoa(encryptedData);
+                const url = "https://erath.vercel.app/xlsx/" + btoa(encryptedData);
 
                 // Show the output URL
-                const PDFoutputUrl = document.getElementById('PDFoutputUrl');
-                PDFoutputUrl.style.display = 'block';
-                PDFoutputUrl.value = url;
+                const XLSXoutputUrl = document.getElementById('XLSXoutputUrl');
+                XLSXoutputUrl.style.display = 'block';
+                XLSXoutputUrl.value = url;
 
                 // Show the copy button
                 const copyBtn = document.getElementById('copyBtn');
@@ -60,7 +60,7 @@
                 const visitLink = document.getElementById('visitLink');
                 visitLink.href = url;
                 visitLink.style.display = 'block';
-                visitLink.innerText = 'Download PDF';
+                visitLink.innerText = 'Download XLSX';
             };
 
             reader.readAsArrayBuffer(file); // Read the file as an ArrayBuffer
