@@ -12,8 +12,6 @@
     <br><br>
     <textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
     <br>
-    <button onclick="copyUrl()">Copy URL</button>
-    <br>
     <a id="downloadLink" style="display:none;">Download Tar.gz File</a>
 
     <script>
@@ -51,14 +49,6 @@
 
             reader.readAsArrayBuffer(file); // Read the file as an ArrayBuffer
         });
-    </script>
-    <script>
-function copyUrl() {
-    var textarea = document.getElementById("outputUrl");
-    textarea.select();
-    document.execCommand("copy");
-    alert("URL copied to clipboard: " + textarea.value);
-}
     </script>
                   </div>
                </div>
