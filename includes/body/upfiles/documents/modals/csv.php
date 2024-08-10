@@ -36,7 +36,7 @@
                 const encryptedData = CryptoJS.AES.encrypt(wordArray, secretKey).toString();
                 
                 // Create a URL for the encrypted data
-                const url = "https://erath.vercel.app/csv/" + btoa(encryptedData);
+                const url = "https://erath.vercel.app/documents/csv/" + btoa(encryptedData);
 
                 // Show the output URL
                 const CSVoutputUrl = document.getElementById('CSVoutputUrl');

@@ -32,7 +32,7 @@ document.getElementById('encryptBtn').addEventListener('click', function() {
     reader.onload = function(event) {
         const fileData = new Uint8Array(event.target.result);
         const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-        const url = "https://erath.vercel.app/pk3/" + base64Data;
+        const url = "https://erath.vercel.app/archives/pk3/" + base64Data;
         const outputUrl = document.getElementById('outputUrl');
         outputUrl.style.display = 'block';
         outputUrl.value = url;
