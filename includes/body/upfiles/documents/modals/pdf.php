@@ -7,8 +7,8 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload PDF File and Generate URL</h2>
-     <input type="file" id="fileInput" accept=".pdf">
-    <button id="encryptBtn">Encrypt and Generate URL</button>
+     <input type="file" id="fileInputPdf" accept=".pdf">
+    <button id="encryptPdfBtn">Encrypt and Generate URL</button>
     <br><br>
     <textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
     <button id="copyBtn" style="display:none;">Copy URL</button>
@@ -16,14 +16,14 @@
     <a id="visitLink" style="display:none;" target="_blank">Visit Encrypted PDF</a>
 
     <script>
-        document.getElementById('encryptBtn').addEventListener('click', function() {
-            const fileInput = document.getElementById('fileInput');
-            if (fileInput.files.length === 0) {
+        document.getElementById('encryptPdfBtn').addEventListener('click', function() {
+            const fileInputPdf = document.getElementById('fileInputPdf');
+            if (fileInputPdf.files.length === 0) {
                 alert("Please select a PDF file.");
                 return;
             }
             
-            const file = fileInput.files[0];
+            const file = fileInputPdf.files[0];
             const reader = new FileReader();
 
             reader.onload = function(event) {
