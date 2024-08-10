@@ -41,7 +41,7 @@
 
             const downloadLink = document.getElementById('downloadLink');
             downloadLink.href = url;
-            downloadLink.download = 'targz_file.zip';
+            downloadLink.download = 'targz_file.tar.gz';
             downloadLink.style.display = 'block';
             downloadLink.innerText = 'Download TAR.GZ File';
             downloadLink.className = 'Erath'; // Apply Erath class for styling
