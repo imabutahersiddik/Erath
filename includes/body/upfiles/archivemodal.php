@@ -1,4 +1,4 @@
-         <div class="modal fade" id="pdf">
+         <div class="modal fade" id="archivemodal">
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">

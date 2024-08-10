@@ -6,7 +6,13 @@
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-                         datahere
+<!-- Document Type Buttons -->
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #00BCD4; color: white; transition: background-color 0.3s;" onclick="document.getElementById('pdf').style.display='block'">Upload PDF</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #3F51B5; color: white; transition: background-color 0.3s;" onclick="document.getElementById('docx').style.display='block'">Upload DOCX</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #673AB7; color: white; transition: background-color 0.3s;" onclick="document.getElementById('xlsx').style.display='block'">Upload XLSX</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #9C27B0; color: white; transition: background-color 0.3s;" onclick="document.getElementById('txt').style.display='block'">Upload TXT</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FFC107; color: black; transition: background-color 0.3s;" onclick="document.getElementById('csv').style.display='block'">Upload CSV</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FF5722; color: white; transition: background-color 0.3s;" onclick="document.getElementById('pptx').style.display='block'">Upload PPTX</button>
                   </div>
                </div>
             </div>
