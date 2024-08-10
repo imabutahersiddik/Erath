@@ -1,4 +1,4 @@
-         <div class="modal fade" id="pdf">
+         <div class="modal fade" id="upfilesmodal">
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
@@ -7,8 +7,8 @@
 </div>
 <div class="modal-body">
 <!-- File Type Buttons -->
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #4CAF50; color: white; transition: background-color 0.3s;" onclick="document.getElementById('zip').style.display='block'">Archives</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #2196F3; color: white; transition: background-color 0.3s;" onclick="document.getElementById('rar').style.display='block'">Documents</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #4CAF50; color: white; transition: background-color 0.3s;" onclick="document.getElementById('archives').style.display='block'">Archives</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #2196F3; color: white; transition: background-color 0.3s;" onclick="document.getElementById('documents').style.display='block'">Documents</button>
 </div>
                   </div>
                </div>

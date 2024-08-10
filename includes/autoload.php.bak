@@ -11,9 +11,12 @@ require __DIR__.'/../includes/header/navbar.php';
 require __DIR__.'/../includes/body/editor.php';
 require __DIR__.'/../includes/body/modal.php';
 require __DIR__.'/../includes/body/upfiles/upfilesmodal.php';
+/* Format Selection Modal */
 require __DIR__.'/../includes/body/upfiles/archivemodal.php';
 require __DIR__.'/../includes/body/upfiles/documentmodal.php';
+/* Archive format type selection modal */
 require __DIR__.'/../includes/body/upfiles/archive/targzmodal.php';
+/* Document format type selection modal */
 require __DIR__.'/../includes/body/upfiles/document/pdfmodal.php';
 require __DIR__.'/../includes/body/preview.php';
 require __DIR__.'/../includes/body/plugins.php';
