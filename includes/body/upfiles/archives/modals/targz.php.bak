@@ -6,67 +6,57 @@
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-                         <h2>Upload TAR.GZ File</h2>
-    <input type="file" id="targzfileInput" accept=".tar.gz">
-    <button id="targzencryptBtn">Upload</button>
-    <br><br>
-    <textarea id="targzoutputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
-    <br>
+                         <h2>Upload your TAR.GZ</h2>
+<input type="file" id="fileInput" accept=".tar.gz">
+<button id="encryptBtn">Upload</button>
+<br><br>
+<textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+<br>
+<a id="downloadLink" style="display:none;" target="_blank">Download TAR.GZ</a>
 <button id="copyUrlBtn" style="display:none;">Copy URL</button>
-<a id="visitLink" style="display:none; text-decoration: none; color: #007BFF; font-size: 16px;">Download TAR.GZ</a>
 
 <script>
-    window.onload = function() {
+window.onload = function() {
     // Get the current page URL
     const currentUrl = window.location.href;
-    };
-    document.getElementById('targzencryptBtn').addEventListener('click', function() {
-        const targzfileInput = document.getElementById('targzfileInput');
-        if (targzfileInput.files.length === 0) {
-            alert("Please select a TAR.GZ file.");
-            return;
-        }
+};
+
+document.getElementById('encryptBtn').addEventListener('click', function() {
+    const fileInput = document.getElementById('fileInput');
+    if (fileInput.files.length === 0) {
+        alert("Please select a TAR.GZ file.");
+        return;
+    }
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        const fileData = new Uint8Array(event.target.result);
+        const base64Data = btoa(String.fromCharCode.apply(null, fileData));
+        const url = "https://erath.vercel.app/targz/" + base64Data;
+        const outputUrl = document.getElementById('outputUrl');
+        outputUrl.style.display = 'block';
+        outputUrl.value = url;
         
-        const file = targzfileInput.files[0];
-        const reader = new FileReader();
-
-        reader.onload = function(event) {
-            const fileData = new Uint8Array(event.target.result);
-            const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-            const url = "https://erath.vercel.app/targz/" + base64Data;
-
-            const targzoutputUrl = document.getElementById('targzoutputUrl');
-            targzoutputUrl.style.display = 'block';
-            targzoutputUrl.value = url;
-
-            const downloadLink = document.getElementById('downloadLink');
-            downloadLink.href = url;
-            downloadLink.download = 'targz_file.tar.gz';
-            downloadLink.style.display = 'block';
-            downloadLink.innerText = 'Download TAR.GZ File';
-            downloadLink.className = 'Erath'; // Apply Erath class for styling
-
-            const copyUrlBtn = document.getElementById('copyUrlBtn');
-            copyUrlBtn.style.display = 'block';
-            copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-            copyUrlBtn.onclick = function() {
-                navigator.clipboard.writeText(url).then(() => {
-                    alert('URL copied to clipboard!');
-                }, () => {
-                    alert('Failed to copy the URL.');
-                });
-            };
+        const downloadLink = document.getElementById('downloadLink');
+        downloadLink.href = url;
+        downloadLink.style.display = 'block';
+        downloadLink.innerText = 'Visit to Download TAR.GZ File';
+        downloadLink.className = 'Erath'; // Apply Erath class for styling
+        downloadLink.target = "_blank"; // Open link in a new tab
+        
+        const copyUrlBtn = document.getElementById('copyUrlBtn');
+        copyUrlBtn.style.display = 'block';
+        copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
+        copyUrlBtn.onclick = function() {
+            navigator.clipboard.writeText(url).then(() => {
+                alert('URL copied to clipboard!');
+            }, () => {
+                alert('Failed to copy the URL.');
+            });
         };
-        
-         // Show the visit link
-                const visitLink = document.getElementById('visitLink');
-                visitLink.href = url;
-                visitLink.style.display = 'block';
-                visitLink.innerText = 'Download TAR.GZ';
-            };
-
-        reader.readAsArrayBuffer(file);
-    });
+    };
+    reader.readAsArrayBuffer(file);
+});
 </script>
                   </div>
                </div>

@@ -102,4 +102,4 @@ document.getElementById('encryptBtn').addEventListener('click', function() {
                </div>
             </div>
          </div>
-      </div>
+      </div> 
