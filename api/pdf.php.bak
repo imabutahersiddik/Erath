@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download PDF File</title>
+    <title>Download Pdf File</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,21 +64,16 @@
 </head>
 <body>
     <div class="container">
-        <h1>Download PDF</h1>
+        <h1>Download Pdf File from URL</h1>
         <input type="text" id="urlInput" placeholder="Paste URL here...">
         <button id="processUrlBtn">Process URL</button>
         <br><br>
         <textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Decrypted data will appear here..."></textarea>
         <br>
-        <a id="downloadLink" style="display:none;">Download PDF File</a>
+        <a id="downloadLink" style="display:none;">Download Pdf File</a>
     </div>
 
     <script>
-        // Set the current page URL in the input field when the page loads
-        window.onload = function() {
-            document.getElementById('urlInput').value = window.location.href;
-        };
-
         document.getElementById('processUrlBtn').addEventListener('click', function() {
             const urlInput = document.getElementById('urlInput').value;
             const encryptedDataPattern = /\/\/[^\/]+\/pdf\/([^ ]+)/; // Adjusted regex to match any domain
@@ -107,7 +102,7 @@
             downloadLink.href = base64Url;
             downloadLink.download = 'downloaded_file.zip'; // Change this if you want a different filename
             downloadLink.style.display = 'block';
-            downloadLink.innerText = 'Download PDF File';
+            downloadLink.innerText = 'Download Pdf File';
         });
     </script>
 </body>
