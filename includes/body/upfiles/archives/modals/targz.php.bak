@@ -2,18 +2,18 @@
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h4 class="modal-title">Tar.gz File Upload</h4>
+                     <h4 class="modal-title">TAR.GZ File Upload</h4>
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-                         <h2>Upload Tar.gz File and Generate URL</h2>
+                         <h2>Upload TAR.GZ File</h2>
     <input type="file" id="fileInput" accept=".tar.gz">
-    <button id="encryptBtn">Upload and Generate URL</button>
+    <button id="encryptBtn">Upload</button>
     <br><br>
     <textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
     <br>
-<a id="downloadLink" style="display:none;">Download Tar.gz File</a>
 <button id="copyUrlBtn" style="display:none;">Copy URL</button>
+<a id="visitLink" style="display:none; text-decoration: none; color: #007BFF; font-size: 16px;">Download TAR.GZ</a>
 
 <script>
     window.onload = function() {
@@ -23,7 +23,7 @@
     document.getElementById('encryptBtn').addEventListener('click', function() {
         const fileInput = document.getElementById('fileInput');
         if (fileInput.files.length === 0) {
-            alert("Please select a Tar.gz file.");
+            alert("Please select a TAR.GZ file.");
             return;
         }
         
@@ -43,7 +43,7 @@
             downloadLink.href = url;
             downloadLink.download = 'targz_file.zip';
             downloadLink.style.display = 'block';
-            downloadLink.innerText = 'Download Tar.gz File';
+            downloadLink.innerText = 'Download TAR.GZ File';
             downloadLink.className = 'Erath'; // Apply Erath class for styling
 
             const copyUrlBtn = document.getElementById('copyUrlBtn');
