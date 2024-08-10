@@ -7,16 +7,15 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload PDF File and Generate URL</h2>
-    <input type="file" id="fileInput" accept=".pdf">
-    <button id="encryptBtn">Upload and Generate URL</button>
+     <input type="file" id="fileInput" accept=".pdf">
+    <button id="encryptBtn">Encrypt and Generate URL</button>
     <br><br>
     <textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
-    <br>
     <button id="copyBtn" style="display:none;">Copy URL</button>
     <br>
-    <a id="visitLink" style="display:none;">Download PDF</a>
+    <a id="visitLink" style="display:none;" target="_blank">Visit Encrypted PDF</a>
 
-<script>
+    <script>
         document.getElementById('encryptBtn').addEventListener('click', function() {
             const fileInput = document.getElementById('fileInput');
             if (fileInput.files.length === 0) {
