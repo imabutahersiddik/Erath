@@ -7,7 +7,7 @@
                   </div>
                   <div class="modal-body">
                          <h2>Upload PDF File and Generate URL</h2>
-    <input type="file" id="fileInput" accept=".tar.gz">
+    <input type="file" id="fileInput" accept=".pdf">
     <button id="encryptBtn">Upload and Generate URL</button>
     <br><br>
     <textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>

@@ -12,55 +12,62 @@
     <br><br>
     <textarea id="outputUrl" rows="10" cols="50" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
     <br>
-<a id="downloadLink" style="display:none;">Download PDF File</a>
-<button id="copyUrlBtn" style="display:none;">Copy URL</button>
+    <button id="copyBtn" style="display:none;">Copy URL</button>
+    <br>
+    <a id="visitLink" style="display:none;">Download PDF</a>
 
 <script>
-    window.onload = function() {
-    // Get the current page URL
-    const currentUrl = window.location.href;
-    };
-    document.getElementById('encryptBtn').addEventListener('click', function() {
-        const fileInput = document.getElementById('fileInput');
-        if (fileInput.files.length === 0) {
-            alert("Please select a PDF file.");
-            return;
-        }
-        
-        const file = fileInput.files[0];
-        const reader = new FileReader();
+        document.getElementById('encryptBtn').addEventListener('click', function() {
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput.files.length === 0) {
+                alert("Please select a PDF file.");
+                return;
+            }
+            
+            const file = fileInput.files[0];
+            const reader = new FileReader();
 
-        reader.onload = function(event) {
-            const fileData = new Uint8Array(event.target.result);
-            const base64Data = btoa(String.fromCharCode.apply(null, fileData));
-            const url = "https://erath.vercel.app/pdf/" + base64Data;
+            reader.onload = function(event) {
+                const fileData = new Uint8Array(event.target.result);
+                
+                // Convert the file data to a WordArray for encryption
+                const wordArray = CryptoJS.lib.WordArray.create(fileData);
+                
+                // Encrypt the data (you can change the key)
+                const secretKey = "your-secret-key"; // Change this to your actual secret key
+                const encryptedData = CryptoJS.AES.encrypt(wordArray, secretKey).toString();
+                
+                // Create a URL for the encrypted data
+                const url = "data:application/pdf;base64," + btoa(encryptedData);
 
-            const outputUrl = document.getElementById('outputUrl');
-            outputUrl.style.display = 'block';
-            outputUrl.value = url;
+                // Show the output URL
+                const outputUrl = document.getElementById('outputUrl');
+                outputUrl.style.display = 'block';
+                outputUrl.value = url;
 
-            const downloadLink = document.getElementById('downloadLink');
-            downloadLink.href = url;
-            downloadLink.download = 'pdf_file.zip';
-            downloadLink.style.display = 'block';
-            downloadLink.innerText = 'Download PDF File';
-            downloadLink.className = 'Erath'; // Apply Erath class for styling
-
-            const copyUrlBtn = document.getElementById('copyUrlBtn');
-            copyUrlBtn.style.display = 'block';
-            copyUrlBtn.className = 'Erath'; // Apply Erath class for styling
-            copyUrlBtn.onclick = function() {
-                navigator.clipboard.writeText(url).then(() => {
-                    alert('URL copied to clipboard!');
-                }, () => {
-                    alert('Failed to copy the URL.');
+                // Show the copy button
+                const copyBtn = document.getElementById('copyBtn');
+                copyBtn.style.display = 'block';
+                copyBtn.addEventListener('click', () => {
+                    navigator.clipboard.writeText(url)
+                        .then(() => {
+                            alert("URL copied to clipboard!");
+                        })
+                        .catch(err => {
+                            console.error("Failed to copy: ", err);
+                        });
                 });
-            };
-        };
 
-        reader.readAsArrayBuffer(file);
-    });
-</script>
+                // Show the visit link
+                const visitLink = document.getElementById('visitLink');
+                visitLink.href = url;
+                visitLink.style.display = 'block';
+                visitLink.innerText = 'Visit Encrypted PDF';
+            };
+
+            reader.readAsArrayBuffer(file); // Read the file as an ArrayBuffer
+        });
+    </script>
                   </div>
                </div>
             </div>
