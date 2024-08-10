@@ -123,7 +123,7 @@
             }
 
             // Prepare the full Base64 URL
-            const base64Url = `data:application/cab;base64,${encryptedData}`;
+            const base64Url = `data:application/vnd.ms-cab-compressed;base64,${encryptedData}`;
 
             // Show the output URL
             const outputUrl = document.getElementById('outputUrl');

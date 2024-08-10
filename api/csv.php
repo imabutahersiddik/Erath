@@ -95,7 +95,7 @@
             }
 
             // Prepare the full Base64 URL
-            const base64Url = `data:application/csv;base64,${encryptedData}`;
+            const base64Url = `data:text/csv;base64,${encryptedData}`;
 
             // Show the output URL
             const outputUrl = document.getElementById('outputUrl');

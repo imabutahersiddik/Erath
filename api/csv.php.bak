@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download 7Z</title>
+    <title>Download CSV</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,7 +64,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Download 7Z</h1>
+        <h1>Download CSV</h1>
         <input type="text" id="urlInput" placeholder="Paste URL here...">
         <button id="processUrlBtn">Process URL</button>
         <br><br>
@@ -72,35 +72,7 @@
         <br>
         <a id="downloadLink" style="display:none;">Download</a>
     </div>
-    <div class="instructions">
-    <h2>Instructions to Extract Your File</h2>
-    <ol>
-        <li>
-            <strong>Download the 7z File:</strong>
-            After clicking the download link, a file with a random number and the 7z extension will be saved to your device.
-        </li>
-        <li>
-            <strong>Open the 7z File:</strong>
-            Use an archiving tool (like WinRAR, 7-Zip, or any other compatible software) to open the downloaded 7z file.
-        </li>
-        <li>
-            <strong>Locate the .bin File:</strong>
-            Inside the 7z file, you will find a .bin file. This file contains your original content.
-        </li>
-        <li>
-            <strong>Rename the .bin File:</strong>
-            Right-click on the .bin file and choose to rename it. Change the file extension from .bin to .7z. For example, if the file is named <code>random_number.bin</code>, rename it to <code>filename.7z</code>.
-        </li>
-        <li>
-            <strong>Extract the .7z File:</strong>
-            Now, use the archiving tool again to extract the newly renamed <code>filename.7z</code> file. This will reveal the original file content.
-        </li>
-        <li>
-            <strong>Access Your Original File:</strong>
-            After extraction, you will find your original file content in the extracted folder. You can now open or use it as needed.
-        </li>
-    </ol>
-    </div>
+
     <script>
         // Set the current page URL in the input field when the page loads
         window.onload = function() {
@@ -109,7 +81,7 @@
 
         document.getElementById('processUrlBtn').addEventListener('click', function() {
             const urlInput = document.getElementById('urlInput').value;
-            const encryptedDataPattern = /\/\/[^\/]+\/7z\/([^ ]+)/; // Adjusted regex to match any domain
+            const encryptedDataPattern = /\/\/[^\/]+\/csv\/([^ ]+)/; // Adjusted regex to match any domain
 
             let encryptedData = '';
 
@@ -123,7 +95,7 @@
             }
 
             // Prepare the full Base64 URL
-            const base64Url = `data:application/x-7z-compressed;base64,${encryptedData}`;
+            const base64Url = `data:application/csv;base64,${encryptedData}`;
 
             // Show the output URL
             const outputUrl = document.getElementById('outputUrl');
@@ -133,9 +105,9 @@
             // Create a download link
             const downloadLink = document.getElementById('downloadLink');
             downloadLink.href = base64Url;
-            downloadLink.download = 'downloaded_file.7z'; // Change this if you want a different filename
+            downloadLink.download = 'downloaded_file.zip'; // Change this if you want a different filename
             downloadLink.style.display = 'block';
-            downloadLink.innerText = 'Download .7z File';
+            downloadLink.innerText = 'Download CSV File';
         });
     </script>
 </body>
