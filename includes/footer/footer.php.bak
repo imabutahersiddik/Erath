@@ -4,22 +4,6 @@
       <div class="col-md-12 text-center">
       <div class="uses">
         <div class="text-center label-uses">Used on Erath</div>
-        <i class="icon fa fa-eth"></i>
-			<div class="title">Crypto Currency</div>
-			<p>If you prefer to support us with cryptocurrency, you can send us Ethereum, USDT, BUSD, BNB to the following address:</p>
-			<p style="font-size: 14px; font-weight: 600;">0xDcc69c50463556Fd1CC45480feB2CF4eaE7d05C8</p>
-			<button onclick="copyToClipboard('0xDcc69c50463556Fd1CC45480feB2CF4eaE7d05C8')" class="button">Copy address</button>
-			<p>Bitcoin:</p>
-			<p style="font-size: 14px; font-weight: 600;">bc1qfvxhe95k9jl8nvy49zy50vngqkq7yjnqmgzmr0</p>
-			<button onclick="copyToClipboard('bc1qfvxhe95k9jl8nvy49zy50vngqkq7yjnqmgzmr0')" class="button">Copy address</button>
-		</div>
-    </div>
-  </div>  
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-      <div class="uses">
-        <div class="text-center label-uses">Used on Erath</div>
         <div class="cr-list">
           <a href="https://getbootstrap.com" target="_blank">
             <img src="https://cdn.jsdelivr.net/gh/imabutahersiddik/decentralized-web@main/public/img/bootstrap.png" alt="Bootstrap" />

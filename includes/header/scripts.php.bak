@@ -9,3 +9,4 @@
 <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
  <script defer src="https://erath.vercel.app/_vercel/insights/script.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/imabutahersiddik/Erath@main/public/js/sensor.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/imabutahersiddik/Erath@main/public/js/files_upload_sensor.js"></script>

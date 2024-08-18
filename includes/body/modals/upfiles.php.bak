@@ -9,8 +9,6 @@
 <!-- File Type Buttons -->
 <button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #4CAF50; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#archives">Archives</button>
 <button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #2196F3; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#documents">Documents</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #1A8EAE; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#images">Images</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #333333; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#videos">Videos</button>
 </div>
                   </div>
                </div>
