@@ -1,4 +1,4 @@
-        // Get all button elements in the document
+// Get all button elements in the document
         const buttons = document.querySelectorAll('button');
 
         // List of words to check for
@@ -85,10 +85,14 @@
             'adultery'
         ];
 
+        // Get forbiddenWords element
+        const forbiddenWords = document.getElementById("forbiddenWords");
+        const messageDiv = document.getElementById("message");
+        const closeButton = document.querySelector(".forbiddenWordsclose");
+
         // Attach event listener to each button
         buttons.forEach(button => {
             button.addEventListener('click', function(event) {
-                const messageDiv = document.getElementById('message');
                 const inputs = document.querySelectorAll('input'); // Get all input elements in the document
 
                 // Check if any input value contains forbidden words
@@ -98,9 +102,22 @@
 
                 if (containsForbiddenWord) {
                     messageDiv.textContent = 'Error: Connection refused, Check internet connection.';
+                    forbiddenWords.style.display = "block"; // Show the forbiddenWords
                     event.preventDefault(); // Prevent form submission
                 } else {
                     messageDiv.textContent = ''; // Clear any previous messages
                 }
             });
         });
+
+        // Close the forbiddenWords when the user clicks on <span> (x)
+        closeButton.onclick = function() {
+            forbiddenWords.style.display = "none";
+        }
+
+        // Close the forbiddenWords when the user clicks anywhere outside of the forbiddenWords
+        window.onclick = function(event) {
+            if (event.target === forbiddenWords) {
+                forbiddenWords.style.display = "none";
+            }
+        }
