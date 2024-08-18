@@ -11,7 +11,7 @@
     <button id="encryptTXTBtn" style="background-color: #007BFF; border: none; color: white; padding: 15px 30px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; margin: 10px 0; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">Upload</button>
     <br>
     <textarea id="TXToutputUrl" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
-    <button id="copyBtn" style="display:none; background-color: #007BFF; border: none; color: white; padding: 15px 30px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; margin: 10px 0; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">Copy URL</button>
+    <button id="copyBtntxt" style="display:none; background-color: #007BFF; border: none; color: white; padding: 15px 30px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; margin: 10px 0; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">Copy URL</button>
     <br>
     <a id="visitLink" style="display:none; text-decoration: none; color: #007BFF; font-size: 16px;">Download TXT</a>
     <script>
@@ -44,9 +44,9 @@
                 TXToutputUrl.value = url;
 
                 // Show the copy button
-                const copyBtn = document.getElementById('copyBtn');
-                copyBtn.style.display = 'block';
-                copyBtn.addEventListener('click', () => {
+                const copyBtntxt = document.getElementById('copyBtntxt');
+                copyBtntxt.style.display = 'block';
+                copyBtntxt.addEventListener('click', () => {
                     navigator.clipboard.writeText(url)
                         .then(() => {
                             alert("URL copied to clipboard!");
