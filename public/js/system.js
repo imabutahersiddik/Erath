@@ -57,7 +57,7 @@ function encrypt() {
          
              // Displaying encrypted URL to user
              var url = window.location.origin + window.location.pathname;
-             document.getElementById('encrypted-url').innerHTML = '<p>Your Decentrealized Web URL:</p><pre>' + url + '</pre>';
+             document.getElementById('encrypted-url').innerHTML = '<p>Your Web Page URL:</p><pre>' + url + '</pre>';
          
              // Decrypt and display the HTML code
              var decrypted = CryptoJS.AES.decrypt(encryptedHtml['encrypted-html'], "ALLAH");

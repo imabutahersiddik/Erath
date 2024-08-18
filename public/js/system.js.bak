@@ -9,7 +9,7 @@ function encrypt() {
         var url = window.location.origin + path;
 
         // Displaying encrypted URL to user
-        document.getElementById('encrypted-url').innerHTML = '<p>Your Decentralized Web URL:</p><pre>' + url + '</pre>';
+        document.getElementById('encrypted-url').innerHTML = '<p>Your Erath URL:</p><pre>' + url + '</pre>';
          
         // Displaying encrypted HTML to user
         document.getElementById('encrypted-data').innerHTML = '<p>Your Encrypted HTML:</p><pre>' + encrypted + '</pre>'; 
