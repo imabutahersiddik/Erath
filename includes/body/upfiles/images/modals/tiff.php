@@ -1,34 +1,28 @@
-         <div class="modal fade" id="txt">
+         <div class="modal fade" id="tiff">
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h4 class="modal-title">TXT File Upload</h4>
+                     <h4 class="modal-title">TIFF File Upload</h4>
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-                         <h1>Upload Your TXT</h1>
-    <input type="file" id="fileInputTXT" accept=".txt" style="margin: 20px 0;">
-    <button id="encryptTXTBtn" style="background-color: #007BFF; border: none; color: white; padding: 15px 30px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; margin: 10px 0; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">Upload</button>
+                         <h1>Upload Your TIFF</h1>
+    <input type="file" id="fileInputTIFF" accept=".tiff" style="margin: 20px 0;">
+    <button id="encryptTIFFBtn" style="background-color: #007BFF; border: none; color: white; padding: 15px 30px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; margin: 10px 0; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">Upload</button>
     <br>
-    <textarea id="TXToutputUrl" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
-    <button id="copyBtntxt" style="display:none; background-color: #007BFF; border: none; color: white; padding: 15px 30px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; margin: 10px 0; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">Copy URL</button>
+    <textarea id="TIFFoutputUrl" style="display:none;" placeholder="Encrypted data will appear here..."></textarea>
+    <button id="copyBtntiff" style="display:none; background-color: #007BFF; border: none; color: white; padding: 15px 30px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; margin: 10px 0; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">Copy URL</button>
     <br>
-    <a id="visitLink" style="display:none; text-decoration: none; color: #007BFF; font-size: 16px;">Download TXT</a>
-    
-<!-- Forbidden words Modal Structure -->
-    <div id="forbiddenWords">
-        <span class="forbiddenWordsclose" style="cursor:pointer;">&times; Close</span>
-        <p id="message"></p>
-    </div>
+    <a id="visitLink" style="display:none; text-decoration: none; color: #007BFF; font-size: 16px;">Download TIFF</a>
     <script>
-        document.getElementById('encryptTXTBtn').addEventListener('click', function() {
-            const fileInputTXT = document.getElementById('fileInputTXT');
-            if (fileInputTXT.files.length === 0) {
-                alert("Please select a TXT file.");
+        document.getElementById('encryptTIFFBtn').addEventListener('click', function() {
+            const fileInputTIFF = document.getElementById('fileInputTIFF');
+            if (fileInputTIFF.files.length === 0) {
+                alert("Please select a TIFF file.");
                 return;
             }
             
-            const file = fileInputTXT.files[0];
+            const file = fileInputTIFF.files[0];
             const reader = new FileReader();
 
             reader.onload = function(event) {
@@ -42,17 +36,17 @@
                 const encryptedData = CryptoJS.AES.encrypt(wordArray, secretKey).toString();
                 
                 // Create a URL for the encrypted data
-                const url = "https://erath.vercel.app/txt/" + btoa(encryptedData);
+                const url = "https://erath.vercel.app/tiff/" + btoa(encryptedData);
 
                 // Show the output URL
-                const TXToutputUrl = document.getElementById('TXToutputUrl');
-                TXToutputUrl.style.display = 'block';
-                TXToutputUrl.value = url;
+                const TIFFoutputUrl = document.getElementById('TIFFoutputUrl');
+                TIFFoutputUrl.style.display = 'block';
+                TIFFoutputUrl.value = url;
 
                 // Show the copy button
-                const copyBtntxt = document.getElementById('copyBtntxt');
-                copyBtntxt.style.display = 'block';
-                copyBtntxt.addEventListener('click', () => {
+                const copyBtntiff = document.getElementById('copyBtntiff');
+                copyBtntiff.style.display = 'block';
+                copyBtntiff.addEventListener('click', () => {
                     navigator.clipboard.writeText(url)
                         .then(() => {
                             alert("URL copied to clipboard!");
@@ -66,7 +60,7 @@
                 const visitLink = document.getElementById('visitLink');
                 visitLink.href = url;
                 visitLink.style.display = 'block';
-                visitLink.innerText = 'Download TXT';
+                visitLink.innerText = 'Download TIFF';
             };
 
             reader.readAsArrayBuffer(file); // Read the file as an ArrayBuffer

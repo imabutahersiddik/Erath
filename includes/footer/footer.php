@@ -80,6 +80,5 @@
 			alert('Address copied to clipboard');
 		} 
 </script>
-<script src="https://cdn.jsdelivr.net/gh/imabutahersiddik/Erath@main/public/js/files_upload_sensor.js"></script>
 </body>
 </html>

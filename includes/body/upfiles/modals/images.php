@@ -1,18 +1,20 @@
-         <div class="modal fade" id="documents">
+         <div class="modal fade" id="images">
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h4 class="modal-title">Select Document format to Upload</h4>
+                     <h4 class="modal-title">Select Image format to Upload</h4>
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-<!-- Document Type Buttons -->
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #00BCD4; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#pdf">Upload PDF</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #3F51B5; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#docx">Upload DOCX</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #673AB7; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#xlsx">Upload XLSX</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #9C27B0; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#txt">Upload TXT</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FFC107; color: black; transition: background-color 0.3s;" data-toggle="modal" data-target="#csv">Upload CSV</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FF5722; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#pptx">Upload PPTX</button>
+<!-- Image Type Buttons -->
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #00BCD4; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#jpeg">Upload JPEG</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #3F51B5; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#png">Upload PNG</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #673AB7; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#webp">Upload WEBP</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #9C27B0; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#gif">Upload GIF</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FFC107; color: black; transition: background-color 0.3s;" data-toggle="modal" data-target="#bmp">Upload BMP</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FF8122; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#tiff">Upload TIFF</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FF9422; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#svg">Upload SVG</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FF1422; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#heic">Upload HEIC</button>
                   </div>
                </div>
             </div>

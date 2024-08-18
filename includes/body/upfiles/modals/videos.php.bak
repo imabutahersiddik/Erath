@@ -1,18 +1,20 @@
-         <div class="modal fade" id="documents">
+         <div class="modal fade" id="videos">
             <div class="modal-dialog">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h4 class="modal-title">Select Document format to Upload</h4>
+                     <h4 class="modal-title">Select Video to Upload</h4>
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-<!-- Document Type Buttons -->
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #00BCD4; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#pdf">Upload PDF</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #3F51B5; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#docx">Upload DOCX</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #673AB7; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#xlsx">Upload XLSX</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #9C27B0; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#txt">Upload TXT</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FFC107; color: black; transition: background-color 0.3s;" data-toggle="modal" data-target="#csv">Upload CSV</button>
-<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FF5722; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#pptx">Upload PPTX</button>
+<!-- Video Type Buttons -->
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #00BCD4; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#mp4">Upload MP4</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #3F51B5; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#avi">Upload AVI</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #673AB7; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#mov">Upload MOV</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FF1422; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#mkv">Upload MKV</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #9C27B0; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#wmv">Upload WMV</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FFC107; color: black; transition: background-color 0.3s;" data-toggle="modal" data-target="#mpeg">Upload MPEG</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FF8122; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#webm">Upload WEBM</button>
+<button style="padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; background-color: #FF9422; color: white; transition: background-color 0.3s;" data-toggle="modal" data-target="#3gp">Upload 3GP</button>
                   </div>
                </div>
             </div>
