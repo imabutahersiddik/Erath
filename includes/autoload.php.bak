@@ -70,6 +70,24 @@ require __DIR__.'/../includes/body/upfiles/documents/modals/xlsx.php';
 require __DIR__.'/../includes/body/upfiles/documents/modals/txt.php';
 require __DIR__.'/../includes/body/upfiles/documents/modals/csv.php';
 require __DIR__.'/../includes/body/upfiles/documents/modals/pptx.php';
+/* Images format type selection modal */
+require __DIR__.'/../includes/body/upfiles/images/modals/jpeg.php';
+require __DIR__.'/../includes/body/upfiles/images/modals/png.php';
+require __DIR__.'/../includes/body/upfiles/images/modals/gif.php';
+require __DIR__.'/../includes/body/upfiles/images/modals/bmp.php';
+require __DIR__.'/../includes/body/upfiles/images/modals/tiff.php';
+require __DIR__.'/../includes/body/upfiles/images/modals/svg.php';
+require __DIR__.'/../includes/body/upfiles/images/modals/webp.php';
+require __DIR__.'/../includes/body/upfiles/images/modals/heic.php';
+/* Videos format type selection modal */
+require __DIR__.'/../includes/body/upfiles/videos/modals/mp4.php';
+require __DIR__.'/../includes/body/upfiles/videos/modals/avi.php';
+require __DIR__.'/../includes/body/upfiles/videos/modals/mov.php';
+require __DIR__.'/../includes/body/upfiles/videos/modals/wmv.php';
+require __DIR__.'/../includes/body/upfiles/videos/modals/mkv.php';
+require __DIR__.'/../includes/body/upfiles/videos/modals/flv.php';
+require __DIR__.'/../includes/body/upfiles/videos/modals/webm.php';
+require __DIR__.'/../includes/body/upfiles/videos/modals/3gp.php';
 require __DIR__.'/../includes/body/preview.php';
 require __DIR__.'/../includes/body/plugins.php';
 /* Footer */
