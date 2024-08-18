@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download LZOP</title>
+    <title>Download RAR</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -64,7 +64,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Download LZOP</h1>
+        <h1>Download RAR</h1>
         <input type="text" id="urlInput" placeholder="Paste URL here...">
         <button id="processUrlBtn">Process URL</button>
         <br><br>
@@ -76,24 +76,24 @@
     <h2>Instructions to Extract Your File</h2>
     <ol>
         <li>
-            <strong>Download the lzop File:</strong>
-            After clicking the download link, a file with a random number and the lzop extension will be saved to your device.
+            <strong>Download the rar File:</strong>
+            After clicking the download link, a file with a random number and the rar extension will be saved to your device.
         </li>
         <li>
-            <strong>Open the lzop File:</strong>
-            Use an archiving tool (like WinRAR, 7-Zip, or any other compatible software) to open the downloaded lzop file.
+            <strong>Open the rar File:</strong>
+            Use an archiving tool (like WinRAR, 7-Zip, or any other compatible software) to open the downloaded rar file.
         </li>
         <li>
             <strong>Locate the .bin File:</strong>
-            Inside the lzop file, you will find a .bin file. This file contains your original content.
+            Inside the rar file, you will find a .bin file. This file contains your original content.
         </li>
         <li>
             <strong>Rename the .bin File:</strong>
-            Right-click on the .bin file and choose to rename it. Change the file extension from .bin to .lzop. For example, if the file is named <code>random_number.bin</code>, rename it to <code>filename.lzop</code>.
+            Right-click on the .bin file and choose to rename it. Change the file extension from .bin to .rar. For example, if the file is named <code>random_number.bin</code>, rename it to <code>filename.rar</code>.
         </li>
         <li>
-            <strong>Extract the .lzop File:</strong>
-            Now, use the archiving tool again to extract the newly renamed <code>filename.lzop</code> file. This will reveal the original file content.
+            <strong>Extract the .rar File:</strong>
+            Now, use the archiving tool again to extract the newly renamed <code>filename.rar</code> file. This will reveal the original file content.
         </li>
         <li>
             <strong>Access Your Original File:</strong>
@@ -109,7 +109,7 @@
 
         document.getElementById('processUrlBtn').addEventListener('click', function() {
             const urlInput = document.getElementById('urlInput').value;
-            const encryptedDataPattern = /\/\/[^\/]+\/lzop\/([^ ]+)/; // Adjusted regex to match any domain
+            const encryptedDataPattern = /\/\/[^\/]+\/rar\/([^ ]+)/; // Adjusted regex to match any domain
 
             let encryptedData = '';
 
@@ -123,7 +123,7 @@
             }
 
             // Prepare the full Base64 URL
-            const base64Url = `data:application/x-lzop;base64,${encryptedData}`;
+            const base64Url = `data:application/rar;base64,${encryptedData}`;
 
             // Show the output URL
             const outputUrl = document.getElementById('outputUrl');
@@ -133,9 +133,9 @@
             // Create a download link
             const downloadLink = document.getElementById('downloadLink');
             downloadLink.href = base64Url;
-            downloadLink.download = 'downloaded_file.lzop'; // Change this if you want a different filename
+            downloadLink.download = 'downloaded_file.rar'; // Change this if you want a different filename
             downloadLink.style.display = 'block';
-            downloadLink.innerText = 'Download .lzop File';
+            downloadLink.innerText = 'Download .rar File';
         });
     </script>
 </body>

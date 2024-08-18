@@ -123,7 +123,7 @@
             }
 
             // Prepare the full Base64 URL
-            const base64Url = `data:application/hqx;base64,${encryptedData}`;
+            const base64Url = `data:application/mac-binhex40;base64,${encryptedData}`;
 
             // Show the output URL
             const outputUrl = document.getElementById('outputUrl');

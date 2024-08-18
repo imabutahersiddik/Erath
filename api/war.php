@@ -123,7 +123,7 @@
             }
 
             // Prepare the full Base64 URL
-            const base64Url = `data:application/war;base64,${encryptedData}`;
+            const base64Url = `data:application/java-archive;base64,${encryptedData}`;
 
             // Show the output URL
             const outputUrl = document.getElementById('outputUrl');
