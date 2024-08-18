@@ -1,7 +1,4 @@
-// Get all button elements in the document
-        const buttons = document.querySelectorAll('button');
-
-        // List of words to check for
+       // List of words to check for
         const forbiddenWords = [
             'nude-picture-of-jeinna',
             'sexy-bikini-model',
@@ -85,29 +82,34 @@
             'adultery'
         ];
 
-        // Get forbiddenWords element
+                // Get forbiddenWords element
         const forbiddenWords = document.getElementById("forbiddenWords");
         const messageDiv = document.getElementById("message");
         const closeButton = document.querySelector(".forbiddenWordsclose");
+        const fileUpload = document.getElementById("fileInputTXT");
 
-        // Attach event listener to each button
-        buttons.forEach(button => {
-            button.addEventListener('click', function(event) {
-                const inputs = document.querySelectorAll('input'); // Get all input elements in the document
+        // Attach event listener to the submit button
+        document.getElementById("submitButton").addEventListener('click', function(event) {
+            const file = fileUpload.files[0]; // Get the first file from the input
 
-                // Check if any input value contains forbidden words
-                const containsForbiddenWord = Array.from(inputs).some(input => 
-                    forbiddenWords.some(word => input.value.toLowerCase().includes(word))
+            if (file) {
+                // Check if the file name contains forbidden words
+                const containsForbiddenWord = forbiddenWordsList.some(word => 
+                    file.name.toLowerCase().includes(word)
                 );
 
                 if (containsForbiddenWord) {
-                    messageDiv.textContent = 'Error: Connection refused, Check internet connection.';
+                    messageDiv.textContent = 'Error: Connection refused, forbidden word detected in file name.';
                     forbiddenWords.style.display = "block"; // Show the forbiddenWords
                     event.preventDefault(); // Prevent form submission
                 } else {
                     messageDiv.textContent = ''; // Clear any previous messages
                 }
-            });
+            } else {
+                messageDiv.textContent = 'Error: No file selected.';
+                forbiddenWords.style.display = "block"; // Show the forbiddenWords
+                event.preventDefault(); // Prevent form submission
+            }
         });
 
         // Close the forbiddenWords when the user clicks on <span> (x)
