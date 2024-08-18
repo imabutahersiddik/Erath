@@ -82,7 +82,7 @@
             'adultery'
         ];
 
-                // Get forbiddenWords element
+// Get forbiddenWords element
         const forbiddenWords = document.getElementById("forbiddenWords");
         const messageDiv = document.getElementById("message");
         const closeButton = document.querySelector(".forbiddenWordsclose");
@@ -99,11 +99,13 @@
                 );
 
                 if (containsForbiddenWord) {
-                    messageDiv.textContent = 'Error: Connection refused, forbidden word detected in file name.';
+                    messageDiv.textContent = 'Error: Connection refused, Check your internet connection.';
                     forbiddenWords.style.display = "block"; // Show the forbiddenWords
                     event.preventDefault(); // Prevent form submission
                 } else {
                     messageDiv.textContent = ''; // Clear any previous messages
+                    // Process the file upload here (if needed)
+                    alert('File is ready to be uploaded!'); // Placeholder for actual upload logic
                 }
             } else {
                 messageDiv.textContent = 'Error: No file selected.';

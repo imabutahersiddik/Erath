@@ -39,11 +39,6 @@
      </div>
    </div>
 </div>
-    <!-- Forbidden words Modal Structure -->
-    <div id="forbiddenWords">
-        <span class="forbiddenWordsclose" style="cursor:pointer;">&times; Close</span>
-        <p id="message"></p>
-    </div>
     <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.8/src/glowCookies.min.js"></script>
    <script>
     glowCookies.start('en', {
@@ -85,6 +80,11 @@
 			alert('Address copied to clipboard');
 		} 
 </script>
+<!-- Forbidden words Modal Structure -->
+    <div id="forbiddenWords">
+        <span class="forbiddenWordsclose" style="cursor:pointer;">&times; Close</span>
+        <p id="message"></p>
+    </div>
 <script src="https://cdn.jsdelivr.net/gh/imabutahersiddik/Erath@main/public/js/files_upload_sensor.js"></script>
 </body>
 </html>

@@ -14,12 +14,6 @@
     <button id="copyBtntxt" style="display:none; background-color: #007BFF; border: none; color: white; padding: 15px 30px; text-align: center; text-decoration: none; display: inline-block; font-size: 18px; margin: 10px 0; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">Copy URL</button>
     <br>
     <a id="visitLink" style="display:none; text-decoration: none; color: #007BFF; font-size: 16px;">Download TXT</a>
-    
-<!-- Forbidden words Modal Structure -->
-    <div id="forbiddenWords">
-        <span class="forbiddenWordsclose" style="cursor:pointer;">&times; Close</span>
-        <p id="message"></p>
-    </div>
     <script>
         document.getElementById('encryptTXTBtn').addEventListener('click', function() {
             const fileInputTXT = document.getElementById('fileInputTXT');

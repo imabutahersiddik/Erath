@@ -89,7 +89,7 @@
         const fileUpload = document.getElementById("fileInputTXT");
 
         // Attach event listener to the submit button
-        document.getElementById("submitButton").addEventListener('click', function(event) {
+        document.getElementById("encryptTXTBtn").addEventListener('click', function(event) {
             const file = fileUpload.files[0]; // Get the first file from the input
 
             if (file) {
