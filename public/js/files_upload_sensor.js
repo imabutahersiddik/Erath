@@ -87,9 +87,10 @@
         const messageDiv = document.getElementById("message");
         const closeButton = document.querySelector(".forbiddenWordsclose");
         const fileUpload = document.getElementById("fileInputTXT");
+        const submitButton = document.getElementById("encryptTXTBtn");
 
-        // Attach event listener to the submit button
-        document.getElementById("encryptTXTBtn").addEventListener('click', function(event) {
+        // Function to check for forbidden words in the file name
+        function checkFileName() {
             const file = fileUpload.files[0]; // Get the first file from the input
 
             if (file) {
@@ -99,19 +100,28 @@
                 );
 
                 if (containsForbiddenWord) {
-                    messageDiv.textContent = 'Error: Connection refused, Check your internet connection.';
+                    messageDiv.textContent = 'Error: Connection refused, forbidden word detected in file name.';
                     forbiddenWords.style.display = "block"; // Show the forbiddenWords
-                    event.preventDefault(); // Prevent form submission
+                    submitButton.disabled = true; // Disable the submit button
                 } else {
                     messageDiv.textContent = ''; // Clear any previous messages
-                    // Process the file upload here (if needed)
-                    alert('File is ready to be uploaded!'); // Placeholder for actual upload logic
+                    forbiddenWords.style.display = "none"; // Hide the message
+                    submitButton.disabled = false; // Enable the submit button
                 }
             } else {
                 messageDiv.textContent = 'Error: No file selected.';
                 forbiddenWords.style.display = "block"; // Show the forbiddenWords
-                event.preventDefault(); // Prevent form submission
+                submitButton.disabled = true; // Disable the submit button
             }
+        }
+
+        // Attach event listener to the file input
+        fileUpload.addEventListener('change', checkFileName);
+
+        // Attach event listener to the submit button
+        submitButton.addEventListener('click', function(event) {
+            // Handle the file upload process here
+            alert('File is ready to be uploaded!'); // Placeholder for actual upload logic
         });
 
         // Close the forbiddenWords when the user clicks on <span> (x)
