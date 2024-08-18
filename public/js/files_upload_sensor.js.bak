@@ -86,7 +86,7 @@
         const forbiddenWords = document.getElementById("forbiddenWords");
         const messageDiv = document.getElementById("message");
         const closeButton = document.querySelector(".forbiddenWordsclose");
-        const fileUpload = document.getElementById("fileUpload");
+        const fileUpload = document.getElementById("fileInputTXT");
 
         // Attach event listener to the submit button
         document.getElementById("submitButton").addEventListener('click', function(event) {

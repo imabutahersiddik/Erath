@@ -40,11 +40,9 @@
    </div>
 </div>
     <!-- Forbidden words Modal Structure -->
-    <div id="forbiddenWords" class="forbiddenWords">
-        <div class="forbiddenWords-content">
-            <span class="forbiddenWordsclose">&times;</span>
-            <p id="message"></p>
-        </div>
+    <div id="forbiddenWords">
+        <span class="forbiddenWordsclose" style="cursor:pointer;">&times; Close</span>
+        <p id="message"></p>
     </div>
     <script src="https://cdn.jsdelivr.net/gh/manucaralmo/GlowCookies@3.1.8/src/glowCookies.min.js"></script>
    <script>
