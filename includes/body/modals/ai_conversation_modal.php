@@ -328,3 +328,124 @@
     // Load conversations on page load
     loadConversationsFromStorage();
 </script>
+<script>
+// Create a style element
+const style = document.createElement('style');
+
+// Set the CSS content
+style.textContent = `
+.aiConversationModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .aimodal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .aimodal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .aimodal-header h5 {
+            margin: 0;
+            flex-grow: 1;
+        }
+        .search-form-group {
+            margin-bottom: 15px;
+        }
+        .conversation-list {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .conversation-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .delete-icon {
+            display: none;
+            cursor: pointer;
+            color: red;
+        }
+        .conversation-item:hover .delete-icon {
+            display: inline;
+        }
+        #conversationMessages {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .prompt-item {
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .prompt-item:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .input-group {
+            display: flex;
+            margin-top: 10px;
+        }
+        #messageInput {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+        .response-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        .response-item button {
+            margin-left: 10px;
+            background-color: #dc3545; /* Red for delete */
+        }
+        .response-item button:hover {
+            background-color: #c82333; /* Darker red on hover */
+        }
+        .edit-title {
+            flex-grow: 1;
+            border: none;
+            padding: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+        #swapAIButton {
+            margin-left: 10px;
+        }
+        .aipagination {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+`;
+
+// Append the style element to the head of the document
+document.head.appendChild(style);
+</script>
