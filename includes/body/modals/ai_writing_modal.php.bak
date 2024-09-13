@@ -13,7 +13,10 @@
                     <label for="aiSelect">Select AI Service:</label>
                     <select class="form-control" id="aiSelect">
                         <option value="gemini">Gemini</option>
+                        <!-- The Anthropic option is hidden by commenting it out
                         <option value="anthropic">Anthropic</option>
+                        -->
+                        <option value="mistral">Mistral</option> <!-- Added Mistral option -->
                     </select>
                 </div>
                 <div class="form-group">
@@ -30,6 +33,8 @@
                     </select>
                 </div>
                 <textarea id="aiOutput" rows="5" class="form-control" placeholder="AI-generated text will appear here..."></textarea>
+                <div id="error-message" style="color: red; margin-top: 10px;"></div> <!-- Error message display -->
+                <div id="console-output" style="max-height: 150px; overflow-y: auto; margin-top: 10px; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px;"></div> <!-- Console output for logging -->
             </div>
             <div class="modal-footer">
                 <button id="generateTextButton" class="btn btn-success">Generate Text</button>
