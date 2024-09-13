@@ -72,21 +72,21 @@
     });
 
     // Show extra fields when a prompt is selected
-    document.querySelectorAll('.prompt-item').forEach(item => {
-        item.addEventListener('click', function() {
-            const selectedPrompt = this.getAttribute('data-prompt');
-            document.getElementById('extraTextInput').value = ''; // Clear previous extra text
-            document.getElementById('selectedPromptText').innerText = selectedPrompt; // Show selected prompt
-            document.getElementById('selectedPrompt').style.display = 'block'; // Show selected prompt
-            document.getElementById('extraTextContainer').style.display = 'block'; // Show extra fields
-            document.getElementById('generateTextButton').style.display = 'inline-block'; // Show generate button
-            document.getElementById('promptSearch').value = ''; // Clear search bar
-            filterPrompts(); // Reset prompt filtering
+document.querySelectorAll('.prompt-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const selectedPrompt = this.getAttribute('data-prompt');
+        document.getElementById('extraTextInput').value = ''; // Clear previous extra text
+        document.getElementById('selectedPromptText').innerText = selectedPrompt; // Show selected prompt
+        document.getElementById('selectedPrompt').style.display = 'block'; // Show selected prompt
+        document.getElementById('extraTextContainer').style.display = 'block'; // Show extra fields
+        document.getElementById('generateTextButton').style.display = 'inline-block'; // Show generate button
+        document.getElementById('promptSearch').value = ''; // Clear search bar
+        filterPrompts(); // Reset prompt filtering
 
-            // Hide prompt container
-            document.getElementById('promptContainer').style.display = 'none';
-        });
+        // Hide prompt container
+        document.getElementById('promptContainer').style.display = 'none'; // Hide the prompt container
     });
+});
 
     // Close the selected prompt and show the prompt list
     document.getElementById('closePromptButton').addEventListener('click', function() {

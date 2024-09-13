@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-group">
+                <div class="search-form-group">
                     <label for="promptSearch">Search Prompts:</label>
                     <input type="text" id="promptSearch" class="form-control" placeholder="Search for a prompt...">
                 </div>
@@ -71,7 +71,9 @@
         setCookie('apiKey', this.value, 365 * 10); // Store for 10 years
     });
 
-    // Show extra fields when a prompt is selected
+let isPromptHidden = false; // Flag to track if the prompt list has been hidden
+
+// Show extra fields when a prompt is selected
 document.querySelectorAll('.prompt-item').forEach(item => {
     item.addEventListener('click', function() {
         const selectedPrompt = this.getAttribute('data-prompt');
@@ -83,9 +85,31 @@ document.querySelectorAll('.prompt-item').forEach(item => {
         document.getElementById('promptSearch').value = ''; // Clear search bar
         filterPrompts(); // Reset prompt filtering
 
-        // Hide prompt container
-        document.getElementById('promptContainer').style.display = 'none'; // Hide the prompt container
+        // Hide prompt container and search form group
+        document.getElementById('promptContainer').style.display = 'none'; // Hide prompt list
+        document.querySelector('.search-form-group').style.display = 'none'; // Hide search form group
+        isPromptHidden = true; // Update the flag to indicate the prompt list is hidden
     });
+});
+
+// Close the selected prompt and show the prompt list
+document.getElementById('closePromptButton').addEventListener('click', function() {
+    document.getElementById('selectedPrompt').style.display = 'none'; // Hide selected prompt
+    document.getElementById('extraTextContainer').style.display = 'none'; // Hide extra fields
+    document.getElementById('promptContainer').style.display = 'block'; // Show prompt list
+    document.getElementById('generateTextButton').style.display = 'none'; // Hide generate button
+    document.querySelector('.search-form-group').style.display = 'block'; // Show search form group
+    isPromptHidden = false; // Reset the flag to allow hiding again
+});
+
+// Close the selected prompt and show the prompt list
+document.getElementById('closePromptButton').addEventListener('click', function() {
+    document.getElementById('selectedPrompt').style.display = 'none'; // Hide selected prompt
+    document.getElementById('extraTextContainer').style.display = 'none'; // Hide extra fields
+    document.getElementById('promptContainer').style.display = 'block'; // Show prompt list
+    document.getElementById('generateTextButton').style.display = 'none'; // Hide generate button
+    document.getElementById('promptSearch').style.display = 'block'; // Show search bar
+    isPromptHidden = false; // Reset the flag to allow hiding again
 });
 
     // Close the selected prompt and show the prompt list
@@ -285,4 +309,5 @@ document.querySelectorAll('.prompt-item').forEach(item => {
             return parts[0] === name ? decodeURIComponent(parts[1]) : r;
         }, '');
     }
+    
 </script>
