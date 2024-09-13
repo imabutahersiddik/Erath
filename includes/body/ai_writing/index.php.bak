@@ -1,5 +1,4 @@
 <?php
-header('Content-Type: application/json');
 
 $requestBody = file_get_contents('php://input');
 $data = json_decode($requestBody, true);
@@ -18,18 +17,22 @@ if ($aiService === 'gemini') {
 echo json_encode(['generated_text' => $generatedText]);
 
 function callGeminiAPI($prompt) {
-    $apiKey = 'YOUR_GEMINI_API_KEY'; // Replace with your Gemini API key
-    $url = 'https://api.gemini.com/v1/ai/generate'; // Replace with the actual Gemini API endpoint
+    $apiKey = getenv('GEMINI_API_KEY'); // Get the API key from environment variable
+    $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=' . $apiKey;
 
     $data = [
-        'prompt' => $prompt,
-        'max_tokens' => 100, // Adjust as needed
+        'contents' => [
+            [
+                'parts' => [
+                    ['text' => $prompt]
+                ]
+            ]
+        ]
     ];
 
     $options = [
         'http' => [
-            'header'  => "Content-Type: application/json\r\n" .
-                         "Authorization: Bearer $apiKey\r\n",
+            'header'  => "Content-Type: application/json\r\n",
             'method'  => 'POST',
             'content' => json_encode($data),
         ],
@@ -43,22 +46,26 @@ function callGeminiAPI($prompt) {
     }
 
     $responseData = json_decode($response, true);
-    return $responseData['generated_text'] ?? "No text generated.";
+    return $responseData['contents'][0]['parts'][0]['text'] ?? "No text generated.";
 }
 
 function callAnthropicAPI($prompt) {
-    $apiKey = 'YOUR_ANTHROPIC_API_KEY'; // Replace with your Anthropic API key
-    $url = 'https://api.anthropic.com/v1/ai/generate'; // Replace with the actual Anthropic API endpoint
+    $apiKey = getenv('ANTHROPIC_API_KEY'); // Get the API key from environment variable
+    $url = 'https://api.anthropic.com/v1/messages';
 
     $data = [
-        'prompt' => $prompt,
-        'max_tokens' => 100, // Adjust as needed
+        'model' => 'claude-3-5-sonnet-20240620', // Specify the model to use
+        'max_tokens' => 1024,
+        'messages' => [
+            ['role' => 'user', 'content' => $prompt]
+        ]
     ];
 
     $options = [
         'http' => [
-            'header'  => "Content-Type: application/json\r\n" .
-                         "Authorization: Bearer $apiKey\r\n",
+            'header'  => "x-api-key: $apiKey\r\n" .
+                         "anthropic-version: 2023-06-01\r\n" .
+                         "Content-Type: application/json\r\n",
             'method'  => 'POST',
             'content' => json_encode($data),
         ],
@@ -72,6 +79,6 @@ function callAnthropicAPI($prompt) {
     }
 
     $responseData = json_decode($response, true);
-    return $responseData['generated_text'] ?? "No text generated.";
+    return $responseData['completion'] ?? "No text generated."; // Adjust based on actual response structure
 }
 ?>

@@ -1,18 +1,19 @@
 <?php
-header('Content-Type: application/json');
 
 $requestBody = file_get_contents('php://input');
 $data = json_decode($requestBody, true);
 
-$aiService = $data['aiService'];
-$prompt = $data['prompt'];
+$aiService = $data['aiService'] ?? null; // Use null coalescing operator to avoid undefined index notice
+$prompt = $data['prompt'] ?? null; // Use null coalescing operator to avoid undefined index notice
 
 $generatedText = '';
 
-if ($aiService === 'gemini') {
+if ($aiService === 'gemini' && $prompt) {
     $generatedText = callGeminiAPI($prompt);
-} elseif ($aiService === 'anthropic') {
+} elseif ($aiService === 'anthropic' && $prompt) {
     $generatedText = callAnthropicAPI($prompt);
+} else {
+    $generatedText = "Invalid AI service or prompt.";
 }
 
 echo json_encode(['generated_text' => $generatedText]);
@@ -47,7 +48,8 @@ function callGeminiAPI($prompt) {
     }
 
     $responseData = json_decode($response, true);
-    return $responseData['contents'][0]['parts'][0]['text'] ?? "No text generated.";
+    // Check if the response structure is valid before accessing
+    return isset($responseData['contents'][0]['parts'][0]['text']) ? $responseData['contents'][0]['parts'][0]['text'] : "No text generated.";
 }
 
 function callAnthropicAPI($prompt) {
@@ -80,6 +82,7 @@ function callAnthropicAPI($prompt) {
     }
 
     $responseData = json_decode($response, true);
-    return $responseData['completion'] ?? "No text generated."; // Adjust based on actual response structure
+    // Check if the response structure is valid before accessing
+    return isset($responseData['completion']) ? $responseData['completion'] : "No text generated."; // Adjust based on actual response structure
 }
 ?>
