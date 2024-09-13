@@ -3,7 +3,9 @@
     <div class="modal-dialog" role="document" style="max-width: 800px;">
         <div class="aimodal-content">
             <div class="aimodal-header">
-                <h5>AI Conversation <span class="close-button" id="closeaimodalButton">&times;</span></h5>
+                <h5>AI Conversation</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="search-form-group">
                 <label for="aiSelect">Select AI Model:</label>

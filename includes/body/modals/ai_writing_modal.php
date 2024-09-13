@@ -139,8 +139,6 @@
     });
 
 let isPromptHidden = false; // Flag to track if the prompt list has been hidden
-
-// Show extra fields when a prompt is selected
 // Show extra fields when a prompt is selected
 document.querySelectorAll('.prompt-item').forEach(item => {
     item.addEventListener('click', handlePromptSelection);
@@ -160,7 +158,6 @@ function handlePromptSelection() {
     // Hide prompt container and search form group
     document.getElementById('promptContainer').style.display = 'none'; // Hide prompt list
     document.querySelector('.search-form-group').style.display = 'none'; // Hide search form group
-    isPromptHidden = true; // Update the flag to indicate the prompt list is hidden
 }
 
 // Close the selected prompt and show the prompt list
