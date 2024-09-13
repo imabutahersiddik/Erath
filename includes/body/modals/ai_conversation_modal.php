@@ -1,169 +1,253 @@
-<!-- AI Conversation Modal -->
-<div class="modal fade" id="aiConversationModal" tabindex="-1" role="dialog" aria-labelledby="aiConversationModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
+<div class="modal" id="aiConversationModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5>AI Chat <span class="close-button" id="closeModalButton">&times;</span></h5>
+        </div>
+        <div class="search-form-group">
+            <label for="aiSelect">Select AI Model:</label>
+            <select id="aiSelect">
+                <option value="gemini">Gemini</option>
+                <option value="mistral" selected>Mistral</option>
+            </select>
+        </div>
+        <div class="search-form-group">
+            <label for="apiKeyInput">API Key:</label>
+            <input type="text" id="apiKeyInput" placeholder="Paste your API key here..." />
+        </div>
+        <nav>
+            <h5>Recent Conversations</h5>
+            <div class="conversation-list" id="conversationList">
+                <!-- Conversations will be dynamically added here -->
+            </div>
+            <div class="pagination">
+                <button id="prevPageButton" style="display: none;">Previous</button>
+                <button id="nextPageButton" style="display: none;">Next</button>
+            </div>
+        </nav>
+        <div class="search-form-group">
+            <input type="text" id="promptSearch" placeholder="Search prompts..." />
+            <span class="close-button" id="closePromptButton">&times;</span>
+        </div>
+        <div id="promptContainer" class="d-flex flex-wrap mb-3">
+            <div class="prompt-item" data-prompt="How's the weather today?">Weather</div>
+            <div class="prompt-item" data-prompt="Tell me a joke.">Joke</div>
+            <div class="prompt-item" data-prompt="What's the latest news?">News</div>
+            <div class="prompt-item" data-prompt="Give me a recipe.">Recipe</div>
+        </div>
+        <div id="conversationContainer" style="display: none;">
             <div class="modal-header">
-                <h5 class="modal-title" id="aiConversationModalLabel">AI Conversation</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <input type="text" id="conversationTitle" class="edit-title" />
+                <button id="closeConversationButton" class="close-button">Close</button>
             </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="promptSearch">Search Prompts:</label>
-                    <input type="text" id="promptSearch" class="form-control" placeholder="Search for a prompt...">
-                </div>
-                <div id="selectedPrompt" style="font-weight: bold; margin-bottom: 10px; display: none;">
-                    <span id="selectedPromptText"></span>
-                    <button type="button" class="close" id="closePromptButton">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div> <!-- Display selected prompt -->
-                <div id="promptContainer" class="d-flex flex-wrap mb-3">
-                    <!-- Prompts will be dynamically added here -->
-                    <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a story about a brave knight.">Brave Knight</div>
-                    <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Describe a futuristic city.">Futuristic City</div>
-                    <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a poem about nature.">Nature Poem</div>
-                </div>
-                <div id="conversationContainer" style="display: none;">
-                    <div id="conversationTitle" style="font-weight: bold; margin-bottom: 10px;"></div>
-                    <div id="conversationMessages"></div>
-                    <div class="form-group">
-                        <label for="userInput">Your Message:</label>
-                        <textarea id="userInput" rows="3" class="form-control" placeholder="Type your message here..."></textarea>
-                    </div>
-                    <button id="sendMessageButton" class="btn btn-primary">Send</button>
-                </div>
-                <div id="error-message" style="color: red; margin-top: 10px;"></div> <!-- Error message display -->
-                <div id="console-output" style="max-height: 150px; overflow-y: auto; margin-top: 10px; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px;"></div> <!-- Console output for logging -->
+            <div id="conversationMessages">
+                <!-- Messages will be dynamically added here -->
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <div class="input-group">
+                <textarea id="messageInput" rows="3" placeholder="Type your message..."></textarea>
+                <button id="sendMessageButton"><i class="fas fa-paper-plane"></i> Send</button>
+                <button id="swapAIButton"><i class="fas fa-exchange-alt"></i> Swap AI</button>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    let showConsoleOutput = true; // Set to false to disable console output
-    const conversations = []; // Store conversations
+    let conversations = [];
+    let currentConversation = null;
+    let currentAI = 'mistral'; // Default AI model
+    const conversationsPerPage = 5; // Number of conversations to show per page
+    let currentPage = 1; // Current page number
 
-    // Load API key from cookies
-    document.addEventListener('DOMContentLoaded', () => {
-        const apiKey = getCookie('apiKey');
-        if (apiKey) {
-            document.getElementById('apiKeyInput').value = apiKey;
+    // Open modal
+    document.getElementById('openModalButton').addEventListener('click', function() {
+        document.getElementById('aiChatModal').style.display = 'block';
+    });
+
+    // Close modal
+    document.getElementById('closeModalButton').addEventListener('click', function() {
+        document.getElementById('aiChatModal').style.display = 'none';
+    });
+
+    // Close prompt section
+    document.getElementById('closePromptButton').addEventListener('click', function() {
+        document.getElementById('promptContainer').style.display = 'none';
+    });
+
+    // Close conversation
+    document.getElementById('closeConversationButton').addEventListener('click', function() {
+        document.getElementById('conversationContainer').style.display = 'none';
+        document.getElementById('promptContainer').style.display = 'block'; // Show prompt list again
+    });
+
+    // Load conversations from local storage
+    function loadConversationsFromStorage() {
+        const storedConversations = JSON.parse(localStorage.getItem('conversations')) || [];
+        conversations = storedConversations;
+        renderConversations();
+    }
+
+    // Render conversations with pagination
+    function renderConversations() {
+        const conversationList = document.getElementById('conversationList');
+        conversationList.innerHTML = '';
+
+        const startIndex = (currentPage - 1) * conversationsPerPage;
+        const endIndex = startIndex + conversationsPerPage;
+        const conversationsToRender = conversations.slice(startIndex, endIndex);
+
+        conversationsToRender.forEach((conv, index) => {
+            const convItem = document.createElement('div');
+            convItem.className = 'conversation-item';
+            convItem.innerHTML = `
+                <span onclick="openConversation(${startIndex + index})">${conv.title}</span>
+                <div>
+                    <i class="fas fa-trash delete-icon" onclick="deleteConversation(${startIndex + index})"></i>
+                </div>
+            `;
+            conversationList.appendChild(convItem);
+        });
+
+        // Show or hide pagination buttons
+        document.getElementById('prevPageButton').style.display = currentPage > 1 ? 'inline-block' : 'none';
+        document.getElementById('nextPageButton').style.display = endIndex < conversations.length ? 'inline-block' : 'none';
+    }
+
+    // Previous page button
+    document.getElementById('prevPageButton').addEventListener('click', function() {
+        if (currentPage > 1) {
+            currentPage--;
+            renderConversations();
         }
     });
 
-    // Save API key to cookies
-    document.getElementById('apiKeyInput').addEventListener('input', function() {
-        setCookie('apiKey', this.value, 365 * 10); // Store for 10 years
+    // Next page button
+    document.getElementById('nextPageButton').addEventListener('click', function() {
+        if (currentPage * conversationsPerPage < conversations.length) {
+            currentPage++;
+            renderConversations();
+        }
     });
 
-    // Show extra fields when a prompt is selected
+    // Open a conversation for continuing
+    function openConversation(index) {
+        currentConversation = conversations[index];
+        document.getElementById('conversationTitle').value = currentConversation.title;
+        document.getElementById('conversationMessages').innerHTML = '';
+        currentConversation.messages.forEach(msg => {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'response-item';
+            msgDiv.innerHTML = `
+                <strong>${msg.role.charAt(0).toUpperCase() + msg.role.slice(1)}:</strong> ${msg.content}
+                <button onclick="editResponse(${index}, '${msg.role}', '${msg.content}')"><i class="fas fa-edit"></i></button>
+                <button onclick="deleteResponse(${index}, '${msg.role}', '${msg.content}')"><i class="fas fa-trash"></i></button>
+            `;
+            document.getElementById('conversationMessages').appendChild(msgDiv);
+        });
+        document.getElementById('conversationContainer').style.display = 'block';
+        document.getElementById('promptContainer').style.display = 'none';
+    }
+
+    // Start a new conversation
     document.querySelectorAll('.prompt-item').forEach(item => {
         item.addEventListener('click', function() {
-            const selectedPrompt = this.getAttribute('data-prompt');
-            document.getElementById('selectedPromptText').innerText = selectedPrompt; // Show selected prompt
-            document.getElementById('selectedPrompt').style.display = 'block'; // Show selected prompt
-            document.getElementById('promptContainer').style.display = 'none'; // Hide prompt list
-            document.getElementById('conversationContainer').style.display = 'block'; // Show conversation fields
-
-            // Set conversation title with current date and time
-            const currentDate = new Date();
-            const options = { timeZoneName: 'short', hour: '2-digit', minute: '2-digit', hour12: false };
-            const dateString = currentDate.toLocaleString('en-US', options);
-            document.getElementById('conversationTitle').innerText = `Conversation: ${selectedPrompt} | ${dateString}`;
-
-            // Initialize the conversation with the starting prompt
-            addMessageToConversation(`AI: ${selectedPrompt}`, true);
+            const prompt = this.getAttribute('data-prompt');
+            const title = `${prompt} - ${new Date().toLocaleString()}`;
+            currentConversation = { title, messages: [] };
+            conversations.push(currentConversation);
+            document.getElementById('conversationTitle').value = title;
+            document.getElementById('conversationContainer').style.display = 'block';
+            document.getElementById('promptContainer').style.display = 'none';
+            document.getElementById('conversationMessages').innerHTML = `<div><strong>${prompt}</strong></div>`;
+            renderConversations();
         });
     });
 
-    // Close the selected prompt and show the prompt list
-    document.getElementById('closePromptButton').addEventListener('click', function() {
-        document.getElementById('selectedPrompt').style.display = 'none'; // Hide selected prompt
-        document.getElementById('extraTextContainer').style.display = 'none'; // Hide extra fields
-        document.getElementById('conversationContainer').style.display = 'none'; // Hide conversation fields
-        document.getElementById('promptContainer').style.display = 'block'; // Show prompt list
-        document.getElementById('userInput').value = ''; // Clear user input
-    });
-
-    // Filter prompts based on search input
-    document.getElementById('promptSearch').addEventListener('input', filterPrompts);
-
-    function filterPrompts() {
-        const searchValue = document.getElementById('promptSearch').value.toLowerCase();
-        document.querySelectorAll('.prompt-item').forEach(item => {
-            const promptText = item.textContent.toLowerCase();
-            item.style.display = promptText.includes(searchValue) ? 'block' : 'none';
-        });
-    }
-
-    // Send message and generate response
+    // Send message
     document.getElementById('sendMessageButton').addEventListener('click', async function() {
-        const userInput = document.getElementById('userInput').value.trim(); // Get user input
-        if (!userInput) return; // Prevent sending empty messages
+        const messageInput = document.getElementById('messageInput');
+        const userMessage = messageInput.value.trim();
+        if (!userMessage) return;
 
-        addMessageToConversation(`You: ${userInput}`, false); // Add user message to conversation
+        // Add user message to conversation
+        currentConversation.messages.push({ role: 'user', content: userMessage });
+        document.getElementById('conversationMessages').innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
+        messageInput.value = '';
 
-        const selectedPrompt = document.getElementById('selectedPromptText').innerText;
-        const combinedText = `${selectedPrompt} ${userInput}`.trim(); // Combine prompt and user input
+        // Get the selected AI model and API key
+        const apiKey = document.getElementById('apiKeyInput').value.trim();
+        currentAI = document.getElementById('aiSelect').value;
 
-        const selectedAI = document.getElementById('aiSelect').value;
-        const apiKey = document.getElementById('apiKeyInput').value.trim(); // Get the API key from the input
-        document.getElementById('error-message').innerText = ''; // Clear previous error messages
-
-        let generatedText = '';
+        // Generate AI response
+        let aiResponse = '';
         try {
-            if (selectedAI === 'gemini') {
-                generatedText = await generateTextWithGemini(combinedText, apiKey);
-            } else if (selectedAI === 'mistral') {
-                generatedText = await generateTextWithMistral(combinedText, apiKey);
+            if (currentAI === 'gemini') {
+                aiResponse = await generateTextWithGemini(userMessage, apiKey);
+            } else if (currentAI === 'mistral') {
+                aiResponse = await generateTextWithMistral(userMessage, apiKey);
             }
-
-            addMessageToConversation(`AI: ${generatedText}`, true); // Add AI response to conversation
+            currentConversation.messages.push({ role: 'ai', content: aiResponse });
+            document.getElementById('conversationMessages').innerHTML += `<div><strong>AI:</strong> ${aiResponse}</div>`;
+            renderConversations();
+            saveConversationsToStorage();
         } catch (error) {
-            console.error('Error generating text:', error);
-            document.getElementById('error-message').innerText = "Error generating text: " + error.message; // Display error message
-            logMessage("Error:", error.message); // Log the error message to the console output
+            console.error('Error generating AI response:', error);
+            document.getElementById('conversationMessages').innerHTML += `<div style="color: red;"><strong>Error:</strong> ${error.message}</div>`;
         }
-
-        document.getElementById('userInput').value = ''; // Clear user input
     });
 
-    function addMessageToConversation(message, isAI) {
-        const messageContainer = document.createElement('div');
-        messageContainer.className = isAI ? 'ai-message' : 'user-message';
-        messageContainer.innerText = message;
-
-        // Add edit and delete buttons for user messages
-        if (!isAI) {
-            const editButton = document.createElement('button');
-            editButton.innerHTML = '<i class="fas fa-edit"></i>'; // FontAwesome edit icon
-            editButton.className = 'btn btn-link';
-            editButton.onclick = function() {
-                const newMessage = prompt("Edit your message:", message);
-                if (newMessage !== null) {
-                    messageContainer.innerText = newMessage;
+    // Edit user or AI response
+    function editResponse(convIndex, role, content) {
+        const newContent = prompt("Edit your message:", content);
+        if (newContent) {
+            conversations[convIndex].messages = conversations[convIndex].messages.map(msg => {
+                if (msg.role === role && msg.content === content) {
+                    return { ...msg, content: newContent };
                 }
-            };
-
-            const deleteButton = document.createElement('button');
-            deleteButton.innerHTML = '<i class="fas fa-trash"></i>'; // FontAwesome delete icon
-            deleteButton.className = 'btn btn-link';
-            deleteButton.onclick = function() {
-                messageContainer.remove();
-            };
-
-            messageContainer.appendChild(editButton);
-            messageContainer.appendChild(deleteButton);
+                return msg;
+            });
+            renderConversations();
+            loadConversationMessages(convIndex);
+            saveConversationsToStorage();
         }
-
-        document.getElementById('conversationMessages').appendChild(messageContainer);
     }
 
+    // Delete user or AI response
+    function deleteResponse(convIndex, role, content) {
+        conversations[convIndex].messages = conversations[convIndex].messages.filter(msg => !(msg.role === role && msg.content === content));
+        renderConversations();
+        loadConversationMessages(convIndex);
+        saveConversationsToStorage();
+    }
+
+    // Delete conversation
+    function deleteConversation(index) {
+        conversations.splice(index, 1);
+        renderConversations();
+        saveConversationsToStorage();
+    }
+
+    // Load conversation messages
+    function loadConversationMessages(index) {
+        const messagesContainer = document.getElementById('conversationMessages');
+        messagesContainer.innerHTML = '';
+        conversations[index].messages.forEach(msg => {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'response-item';
+            msgDiv.innerHTML = `
+                <strong>${msg.role.charAt(0).toUpperCase() + msg.role.slice(1)}:</strong> ${msg.content}
+                <button onclick="editResponse(${index}, '${msg.role}', '${msg.content}')"><i class="fas fa-edit"></i></button>
+                <button onclick="deleteResponse(${index}, '${msg.role}', '${msg.content}')"><i class="fas fa-trash"></i></button>
+            `;
+            messagesContainer.appendChild(msgDiv);
+        });
+    }
+
+    // Save conversations to local storage
+    function saveConversationsToStorage() {
+        localStorage.setItem('conversations', JSON.stringify(conversations));
+    }
+
+    // AI generation functions
     async function generateTextWithGemini(prompt, apiKey) {
         const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
@@ -189,8 +273,6 @@
             }
 
             const responseData = await response.json();
-            logMessage("Response Data:", responseData); // Log the message to the UI
-
             if (
                 responseData.candidates &&
                 Array.isArray(responseData.candidates) &&
@@ -202,57 +284,18 @@
             ) {
                 return responseData.candidates[0].content.parts[0].text || "No text generated.";
             } else {
-                logMessage("Unexpected response structure:", responseData); // Log the message to the UI
                 return "No text generated.";
             }
         } catch (error) {
-            logMessage("Error:", error.message); // Log the error message to the UI
             throw new Error(`Failed to fetch from Gemini API: ${error.message}`);
         }
     }
 
-    // Function for generating text using Mistral API
     async function generateTextWithMistral(prompt, apiKey) {
         const url = 'https://api.mistral.ai/v1/chat/completions';
 
         const data = {
-            model: 'mistral-large-latest', // Specify the model to use
-            messages: [
-                { role: 'user', content: prompt } // Use the prompt as the user's message
-            ]
-        };
-
-        try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${apiKey}`,
-                    'Content-Type': 'application/json' // Ensure the content type is set
-                },
-                body: JSON.stringify(data) // Send the data as a JSON string
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(`Mistral API error: ${errorData.error.message || response.statusText}`);
-            }
-
-            const responseData = await response.json(); // Parse the response data
-            return responseData.choices[0].message.content || "No text generated."; // Extract generated text
-        } catch (error) {
-            console.error('Error calling Mistral API:', error);
-            throw new Error("Error calling Mistral API: " + error.message);
-        }
-    }
-
-    // Uncomment this function if you want to enable Anthropic API again
-    /*
-    async function generateTextWithAnthropic(prompt, apiKey) {
-        const url = 'https://api.anthropic.com/v1/messages';
-
-        const data = {
-            model: 'claude-3-5-sonnet-20240620', // Specify the model to use
-            max_tokens: 1024,
+            model: 'mistral-large-latest',
             messages: [
                 { role: 'user', content: prompt }
             ]
@@ -262,43 +305,24 @@
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
-                    'x-api-key': apiKey,
-                    'anthropic-version': '2023-06-01',
+                    'Authorization': `Bearer ${apiKey}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data) // Send the data as a JSON string
+                body: JSON.stringify(data)
             });
 
-            const responseData = await response.json(); // Parse the response data
-            return responseData.completion || "No text generated."; // Adjust based on actual response structure
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`Mistral API error: ${errorData.error.message || response.statusText}`);
+            }
+
+            const responseData = await response.json();
+            return responseData.choices[0].message.content || "No text generated.";
         } catch (error) {
-            console.error('Error calling Anthropic API:', error);
-            throw new Error("Error calling Anthropic API: " + error.message);
-        }
-    }
-    */
-
-    function logMessage(...args) {
-        const consoleOutput = document.getElementById('console-output');
-        const message = args.map(arg => JSON.stringify(arg)).join(' ');
-        const messageElement = document.createElement('div');
-        messageElement.textContent = message;
-
-        if (showConsoleOutput) {
-            consoleOutput.appendChild(messageElement);
+            throw new Error("Error calling Mistral API: " + error.message);
         }
     }
 
-    // Cookie handling functions
-    function setCookie(name, value, days) {
-        const expires = days ? "; expires=" + new Date(Date.now() + days * 864e5).toUTCString() : "";
-        document.cookie = name + "=" + (value || "") + expires + "; path=/";
-    }
-
-    function getCookie(name) {
-        return document.cookie.split('; ').reduce((r, v) => {
-            const parts = v.split('=');
-            return parts[0] === name ? decodeURIComponent(parts[1]) : r;
-        }, '');
-    }
+    // Load conversations on page load
+    loadConversationsFromStorage();
 </script>
