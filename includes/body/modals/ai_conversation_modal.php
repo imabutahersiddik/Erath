@@ -1,7 +1,7 @@
-<div class="modal" id="aiConversationModal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5>AI Chat <span class="close-button" id="closeModalButton">&times;</span></h5>
+<div class="aimodal" id="aiConversationModal">
+    <div class="aimodal-content">
+        <div class="aimodal-header">
+            <h5>AI Conversation <span class="close-button" id="closeaimodalButton">&times;</span></h5>
         </div>
         <div class="search-form-group">
             <label for="aiSelect">Select AI Model:</label>
@@ -19,7 +19,7 @@
             <div class="conversation-list" id="conversationList">
                 <!-- Conversations will be dynamically added here -->
             </div>
-            <div class="pagination">
+            <div class="aipagination">
                 <button id="prevPageButton" style="display: none;">Previous</button>
                 <button id="nextPageButton" style="display: none;">Next</button>
             </div>
@@ -35,7 +35,7 @@
             <div class="prompt-item" data-prompt="Give me a recipe.">Recipe</div>
         </div>
         <div id="conversationContainer" style="display: none;">
-            <div class="modal-header">
+            <div class="aimodal-header">
                 <input type="text" id="conversationTitle" class="edit-title" />
                 <button id="closeConversationButton" class="close-button">Close</button>
             </div>
@@ -58,14 +58,14 @@
     const conversationsPerPage = 5; // Number of conversations to show per page
     let currentPage = 1; // Current page number
 
-    // Open modal
-    document.getElementById('openModalButton').addEventListener('click', function() {
-        document.getElementById('aiChatModal').style.display = 'block';
+    // Open aimodal
+    document.getElementById('openaimodalButton').addEventListener('click', function() {
+        document.getElementById('aiConversationModal').style.display = 'block';
     });
 
-    // Close modal
-    document.getElementById('closeModalButton').addEventListener('click', function() {
-        document.getElementById('aiChatModal').style.display = 'none';
+    // Close aimodal
+    document.getElementById('closeaimodalButton').addEventListener('click', function() {
+        document.getElementById('aiConversationModal').style.display = 'none';
     });
 
     // Close prompt section
