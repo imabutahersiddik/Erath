@@ -1,53 +1,54 @@
 <!-- AI Conversation Modal -->
 <div class="modal fade" id="aiConversationModal" tabindex="-1" role="dialog" aria-labelledby="aiConversationModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document" style="max-width: 800px;">
-    <div class="aimodal-content">
-        <div class="aimodal-header">
-            <h5>AI Conversation <span class="close-button" id="closeaimodalButton">&times;</span></h5>
-        </div>
-        <div class="search-form-group">
-            <label for="aiSelect">Select AI Model:</label>
-            <select id="aiSelect">
-                <option value="gemini">Gemini</option>
-                <option value="mistral" selected>Mistral</option>
-            </select>
-        </div>
-        <div class="search-form-group">
-            <label for="apiKeyInput">API Key:</label>
-            <input type="text" id="apiKeyInput" placeholder="Paste your API key here..." />
-        </div>
-        <nav>
-            <h5>Recent Conversations</h5>
-            <div class="conversation-list" id="conversationList">
-                <!-- Conversations will be dynamically added here -->
-            </div>
-            <div class="aipagination">
-                <button id="prevPageButton" style="display: none;">Previous</button>
-                <button id="nextPageButton" style="display: none;">Next</button>
-            </div>
-        </nav>
-        <div class="search-form-group">
-            <input type="text" id="promptSearch" placeholder="Search prompts..." />
-            <span class="close-button" id="closePromptButton">&times;</span>
-        </div>
-        <div id="promptContainer" class="d-flex flex-wrap mb-3">
-            <div class="prompt-item" data-prompt="How's the weather today?">Weather</div>
-            <div class="prompt-item" data-prompt="Tell me a joke.">Joke</div>
-            <div class="prompt-item" data-prompt="What's the latest news?">News</div>
-            <div class="prompt-item" data-prompt="Give me a recipe.">Recipe</div>
-        </div>
-        <div id="conversationContainer" style="display: none;">
+        <div class="aimodal-content">
             <div class="aimodal-header">
-                <input type="text" id="conversationTitle" class="edit-title" />
-                <button id="closeConversationButton" class="close-button">Close</button>
+                <h5>AI Conversation <span class="close-button" id="closeaimodalButton">&times;</span></h5>
             </div>
-            <div id="conversationMessages">
-                <!-- Messages will be dynamically added here -->
+            <div class="search-form-group">
+                <label for="aiSelect">Select AI Model:</label>
+                <select id="aiSelect">
+                    <option value="gemini">Gemini</option>
+                    <option value="mistral" selected>Mistral</option>
+                </select>
             </div>
-            <div class="input-group">
-                <textarea id="messageInput" rows="3" placeholder="Type your message..."></textarea>
-                <button id="sendMessageButton"><i class="fas fa-paper-plane"></i> Send</button>
-                <button id="swapAIButton"><i class="fas fa-exchange-alt"></i> Swap AI</button>
+            <div class="search-form-group">
+                <label for="apiKeyInput">API Key:</label>
+                <input type="text" id="apiKeyInput" placeholder="Paste your API key here..." />
+            </div>
+            <nav>
+                <h5>Recent Conversations</h5>
+                <div class="conversation-list" id="conversationList">
+                    <!-- Conversations will be dynamically added here -->
+                </div>
+                <div class="aipagination">
+                    <button id="prevPageButton" style="display: none;">Previous</button>
+                    <button id="nextPageButton" style="display: none;">Next</button>
+                </div>
+            </nav>
+            <div class="search-form-group">
+                <input type="text" id="promptSearch" placeholder="Search prompts..." />
+                <span class="close-button" id="closePromptButton">&times;</span>
+            </div>
+            <div id="promptContainer" class="d-flex flex-wrap mb-3">
+                <div class="prompt-item" data-prompt="How's the weather today?">Weather</div>
+                <div class="prompt-item" data-prompt="Tell me a joke.">Joke</div>
+                <div class="prompt-item" data-prompt="What's the latest news?">News</div>
+                <div class="prompt-item" data-prompt="Give me a recipe.">Recipe</div>
+            </div>
+            <div id="conversationContainer" style="display: none;">
+                <div class="aimodal-header">
+                    <input type="text" id="conversationTitle" class="edit-title" />
+                    <button id="closeConversationButton" class="close-button">Close</button>
+                </div>
+                <div id="conversationMessages">
+                    <!-- Messages will be dynamically added here -->
+                </div>
+                <div class="input-group">
+                    <textarea id="messageInput" rows="3" placeholder="Type your message..."></textarea>
+                    <button id="sendMessageButton"><i class="fas fa-paper-plane"></i> Send</button>
+                    <button id="swapAIButton"><i class="fas fa-exchange-alt"></i> Swap AI</button>
+                </div>
             </div>
         </div>
     </div>
