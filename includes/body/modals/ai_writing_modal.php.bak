@@ -32,6 +32,10 @@
                         <!-- Add more prompts as needed -->
                     </select>
                 </div>
+                <div class="form-group">
+                    <label for="extraTextInput">Add Extra Text:</label>
+                    <textarea id="extraTextInput" rows="3" class="form-control" placeholder="Add any additional text here..."></textarea>
+                </div>
                 <textarea id="aiOutput" rows="5" class="form-control" placeholder="AI-generated text will appear here..."></textarea>
                 <div id="error-message" style="color: red; margin-top: 10px;"></div> <!-- Error message display -->
                 <div id="console-output" style="max-height: 150px; overflow-y: auto; margin-top: 10px; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px;"></div> <!-- Console output for logging -->
@@ -46,25 +50,31 @@
 </div>
 
 <script>
+    let showConsoleOutput = false; // Set to false to disable console output
+
     document.getElementById('generateTextButton').addEventListener('click', async function() {
         const selectedPrompt = document.getElementById('promptSelect').value;
+        const extraText = document.getElementById('extraTextInput').value.trim(); // Get extra text from input
         const selectedAI = document.getElementById('aiSelect').value;
         const apiKey = document.getElementById('apiKeyInput').value.trim(); // Get the API key from the input
         document.getElementById('error-message').innerText = ''; // Clear previous error messages
 
+        // Combine the selected prompt with the extra text
+        const combinedText = `${selectedPrompt} ${extraText}`.trim();
+
         let generatedText = '';
         try {
             if (selectedAI === 'gemini') {
-                generatedText = await generateTextWithGemini(selectedPrompt, apiKey);
+                generatedText = await generateTextWithGemini(combinedText, apiKey);
             } 
             // Uncomment the following block if you want to enable Anthropic again
             /*
             else if (selectedAI === 'anthropic') {
-                generatedText = await generateTextWithAnthropic(selectedPrompt, apiKey);
+                generatedText = await generateTextWithAnthropic(combinedText, apiKey);
             }
             */
             else if (selectedAI === 'mistral') {
-                generatedText = await generateTextWithMistral(selectedPrompt, apiKey);
+                generatedText = await generateTextWithMistral(combinedText, apiKey);
             }
 
             document.getElementById('aiOutput').value = generatedText;
@@ -84,37 +94,49 @@
     });
 
     async function generateTextWithGemini(prompt, apiKey) {
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
-        const data = {
-            contents: [
-                {
-                    parts: [
-                        { text: prompt }
-                    ]
-                }
-            ]
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [{
+                        text: prompt,
+                    }],
+                }],
+            }),
         };
 
         try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-
+            const response = await fetch(url, requestOptions);
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(`Gemini API error: ${errorData.error.message || response.statusText}`);
             }
 
             const responseData = await response.json();
-            return responseData.contents[0].parts[0].text || "No text generated.";
+            logMessage("Response Data:", responseData); // Log the message to the UI
+
+            if (
+                responseData.candidates &&
+                Array.isArray(responseData.candidates) &&
+                responseData.candidates.length > 0 &&
+                responseData.candidates[0].content &&
+                responseData.candidates[0].content.parts &&
+                Array.isArray(responseData.candidates[0].content.parts) &&
+                responseData.candidates[0].content.parts.length > 0
+            ) {
+                return responseData.candidates[0].content.parts[0].text || "No text generated.";
+            } else {
+                logMessage("Unexpected response structure:", responseData); // Log the message to the UI
+                return "No text generated.";
+            }
         } catch (error) {
-            console.error('Error calling Gemini API:', error);
-            throw new Error("Error calling Gemini API: " + error.message);
+            logMessage("Error:", error.message); // Log the error message to the UI
+            throw new Error(`Failed to fetch from Gemini API: ${error.message}`);
         }
     }
 
@@ -190,6 +212,9 @@
         const message = args.map(arg => JSON.stringify(arg)).join(' ');
         const messageElement = document.createElement('div');
         messageElement.textContent = message;
-        consoleOutput.appendChild(messageElement);
+
+        if (showConsoleOutput) {
+            consoleOutput.appendChild(messageElement);
+        }
     }
 </script>

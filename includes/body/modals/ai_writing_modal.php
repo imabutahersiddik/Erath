@@ -10,34 +10,42 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="aiSelect">Select AI Service:</label>
-                    <select class="form-control" id="aiSelect">
-                        <option value="gemini">Gemini</option>
-                        <!-- The Anthropic option is hidden by commenting it out
-                        <option value="anthropic">Anthropic</option>
-                        -->
-                        <option value="mistral">Mistral</option> <!-- Added Mistral option -->
-                    </select>
+                    <label for="promptSearch">Search Prompts:</label>
+                    <input type="text" id="promptSearch" class="form-control" placeholder="Search for a prompt...">
                 </div>
-                <div class="form-group">
-                    <label for="apiKeyInput">Enter Your API Key:</label>
-                    <input type="text" class="form-control" id="apiKeyInput" placeholder="Enter API Key">
+                <div id="promptContainer" class="d-flex flex-wrap mb-3">
+                    <!-- Prompts will be dynamically added here -->
+                    <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a story about a brave knight.">Brave Knight</div>
+                    <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Describe a futuristic city.">Futuristic City</div>
+                    <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a poem about nature.">Nature Poem</div>
+                    <!-- Add more prompts as needed -->
                 </div>
-                <div class="form-group">
-                    <label for="promptSelect">Select a Prompt:</label>
-                    <select class="form-control" id="promptSelect">
-                        <option value="Write a story about a brave knight.">Brave Knight</option>
-                        <option value="Describe a futuristic city.">Futuristic City</option>
-                        <option value="Write a poem about nature.">Nature Poem</option>
-                        <!-- Add more prompts as needed -->
-                    </select>
+                <div id="extraTextContainer" style="display: none;">
+                    <div class="form-group">
+                        <label for="extraTextInput">Add Extra Text:</label>
+                        <textarea id="extraTextInput" rows="3" class="form-control" placeholder="Add any additional text here..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="aiSelect">Select AI Service:</label>
+                        <select class="form-control" id="aiSelect">
+                            <option value="gemini">Gemini</option>
+                            <!-- The Anthropic option is hidden by commenting it out
+                            <option value="anthropic">Anthropic</option>
+                            -->
+                            <option value="mistral">Mistral</option> <!-- Added Mistral option -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="apiKeyInput">Enter Your API Key:</label>
+                        <input type="text" class="form-control" id="apiKeyInput" placeholder="Enter API Key">
+                    </div>
+                    <textarea id="aiOutput" rows="5" class="form-control" placeholder="AI-generated text will appear here..."></textarea>
+                    <div id="error-message" style="color: red; margin-top: 10px;"></div> <!-- Error message display -->
+                    <div id="console-output" style="max-height: 150px; overflow-y: auto; margin-top: 10px; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px;"></div> <!-- Console output for logging -->
                 </div>
-                <textarea id="aiOutput" rows="5" class="form-control" placeholder="AI-generated text will appear here..."></textarea>
-                <div id="error-message" style="color: red; margin-top: 10px;"></div> <!-- Error message display -->
-                <div id="console-output" style="max-height: 150px; overflow-y: auto; margin-top: 10px; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px;"></div> <!-- Console output for logging -->
             </div>
             <div class="modal-footer">
-                <button id="generateTextButton" class="btn btn-success">Generate Text</button>
+                <button id="generateTextButton" class="btn btn-success" style="display: none;">Generate Text</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button id="insertTextButton" class="btn btn-primary" style="display: none;">Insert Text</button>
             </div>
@@ -46,28 +54,54 @@
 </div>
 
 <script>
-    // Check if the URL contains the 'debug' parameter
-    const isDebugMode = new URLSearchParams(window.location.search).has('debug');
+    let showConsoleOutput = false; // Set to false to disable console output
+
+    // Show extra fields when a prompt is selected
+    document.querySelectorAll('.prompt-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const selectedPrompt = this.getAttribute('data-prompt');
+            document.getElementById('extraTextInput').value = ''; // Clear previous extra text
+            document.getElementById('extraTextContainer').style.display = 'block'; // Show extra fields
+            document.getElementById('generateTextButton').style.display = 'inline-block'; // Show generate button
+            document.getElementById('promptSearch').value = ''; // Clear search bar
+            filterPrompts(); // Reset prompt filtering
+        });
+    });
+
+    // Filter prompts based on search input
+    document.getElementById('promptSearch').addEventListener('input', filterPrompts);
+
+    function filterPrompts() {
+        const searchValue = document.getElementById('promptSearch').value.toLowerCase();
+        document.querySelectorAll('.prompt-item').forEach(item => {
+            const promptText = item.textContent.toLowerCase();
+            item.style.display = promptText.includes(searchValue) ? 'block' : 'none';
+        });
+    }
 
     document.getElementById('generateTextButton').addEventListener('click', async function() {
-        const selectedPrompt = document.getElementById('promptSelect').value;
+        const selectedPrompt = document.querySelector('.prompt-item.active')?.getAttribute('data-prompt');
+        const extraText = document.getElementById('extraTextInput').value.trim(); // Get extra text from input
         const selectedAI = document.getElementById('aiSelect').value;
         const apiKey = document.getElementById('apiKeyInput').value.trim(); // Get the API key from the input
         document.getElementById('error-message').innerText = ''; // Clear previous error messages
 
+        // Combine the selected prompt with the extra text
+        const combinedText = `${selectedPrompt} ${extraText}`.trim();
+
         let generatedText = '';
         try {
             if (selectedAI === 'gemini') {
-                generatedText = await generateTextWithGemini(selectedPrompt, apiKey);
+                generatedText = await generateTextWithGemini(combinedText, apiKey);
             } 
             // Uncomment the following block if you want to enable Anthropic again
             /*
             else if (selectedAI === 'anthropic') {
-                generatedText = await generateTextWithAnthropic(selectedPrompt, apiKey);
+                generatedText = await generateTextWithAnthropic(combinedText, apiKey);
             }
             */
             else if (selectedAI === 'mistral') {
-                generatedText = await generateTextWithMistral(selectedPrompt, apiKey);
+                generatedText = await generateTextWithMistral(combinedText, apiKey);
             }
 
             document.getElementById('aiOutput').value = generatedText;
@@ -75,9 +109,7 @@
         } catch (error) {
             console.error('Error generating text:', error);
             document.getElementById('error-message').innerText = "Error generating text: " + error.message; // Display error message
-            if (isDebugMode) {
-                logMessage("Error:", error.message); // Log the error message to the console output if in debug mode
-            }
+            logMessage("Error:", error.message); // Log the error message to the console output
         }
     });
 
@@ -113,7 +145,7 @@
             }
 
             const responseData = await response.json();
-            logMessage("Response Data:", responseData); // Log the message to the UI if in debug mode
+            logMessage("Response Data:", responseData); // Log the message to the UI
 
             if (
                 responseData.candidates &&
@@ -126,11 +158,11 @@
             ) {
                 return responseData.candidates[0].content.parts[0].text || "No text generated.";
             } else {
-                logMessage("Unexpected response structure:", responseData); // Log the message to the UI if in debug mode
+                logMessage("Unexpected response structure:", responseData); // Log the message to the UI
                 return "No text generated.";
             }
         } catch (error) {
-            logMessage("Error:", error.message); // Log the error message to the UI if in debug mode
+            logMessage("Error:", error.message); // Log the error message to the UI
             throw new Error(`Failed to fetch from Gemini API: ${error.message}`);
         }
     }
@@ -207,6 +239,9 @@
         const message = args.map(arg => JSON.stringify(arg)).join(' ');
         const messageElement = document.createElement('div');
         messageElement.textContent = message;
-        consoleOutput.appendChild(messageElement);
+
+        if (showConsoleOutput) {
+            consoleOutput.appendChild(messageElement);
+        }
     }
 </script>
