@@ -24,6 +24,73 @@
                     <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a story about a brave knight.">Brave Knight</div>
                     <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Describe a futuristic city.">Futuristic City</div>
                     <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a poem about nature.">Nature Poem</div>
+                    <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a story about a detective who uncovers hidden data breaches.">Evil Holmes</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a dialogue between a patient and a doctor discussing medical data privacy.">MyHealthPassport</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Describe a futuristic voice assistant that helps users manage their daily tasks.">Voice Assistant</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Generate a list of fun coding challenges for a Discord bot.">DDoL</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Imagine an AI that helps users explore applications for Large Language Models.">AI Playground</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a story about a pet owner who finds love through an animal-themed app.">Furry Therapy</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a recipe based on dietary restrictions and health conditions.">Diet Recommendation Engine</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a humorous story about a student trying to create a fake student ID.">Student Card Generator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Generate a collection of uplifting quotes for someone feeling down.">Positivity Boost</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Describe a conversation with a Telegram bot that provides advice and support.">Telegram Bot</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a narrative about a person discovering they are at risk of diabetes.">Health Predict</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Compose a poem using AI that reflects on the beauty of nature.">LoreCraft</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Imagine a day in the life of a bookstore manager using a command-line system.">Book Store Management System</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a guide on how to achieve financial literacy with an AI companion.">FinVeda</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Design a landing page that inspires positivity and well-being.">Positivus</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Generate a list of creative ways to limit API requests effectively.">Rate Shield</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a story about a busy mom using AI to plan nutritious meals.">From Bytes to Bites</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Imagine a scenario where a user asks questions about a PDF document.">AskPDF</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a story about a translator who helps people communicate across cultures.">Language Translator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Describe an innovative way to convert text into speech for storytelling.">Text to Speech</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a guide on how to optimize GitHub projects using AI tools.">ML GitOptimizer</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write about a student breaking down their studies into manageable tasks.">Chapters as Tasks</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Generate ideas for a personalized news aggregator that uses AI.">Personalized News Aggregator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Imagine an AI coding assistant that helps debug and write code.">Code Whisper</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a story about a carpooling system that uses blockchain technology.">Ether Wheels</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a recipe that combines AI and user preferences for meal planning.">Recipe Genie AI</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Describe a conversation with an AI chatbot providing mental health support.">AI Mental Health Chatbot</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write about an AI that generates structured outputs for complex tasks.">RAG</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Imagine a platform that turns text into captivating images for storytelling.">ShivAI</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a narrative about a developer using AI to enhance their Git workflow.">Git-LL</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a story about a stress relief bot helping users cope with anxiety.">Relax Rover</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Generate a list of questions for a Q&A platform powered by AI.">Askit</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Imagine a library setup that simplifies starting new web projects with Flask.">Flask-Wiz</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write about a learning journey through practical Rust projects.">Modular Rust Learning</div>
                 </div>
                 <div id="extraTextContainer" style="display: none;">
                     <div class="form-group">
