@@ -17,10 +17,6 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="apiKeyInput">Enter Your API Key:</label>
-                    <input type="text" class="form-control" id="apiKeyInput" placeholder="Enter API Key">
-                </div>
-                <div class="form-group">
                     <label for="promptSelect">Select a Prompt:</label>
                     <select class="form-control" id="promptSelect">
                         <option value="Write a story about a brave knight.">Brave Knight</option>
