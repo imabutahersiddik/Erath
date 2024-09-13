@@ -13,12 +13,17 @@
                     <label for="promptSearch">Search Prompts:</label>
                     <input type="text" id="promptSearch" class="form-control" placeholder="Search for a prompt...">
                 </div>
+                <div id="selectedPrompt" style="font-weight: bold; margin-bottom: 10px; display: none;">
+                    <span id="selectedPromptText"></span>
+                    <button type="button" class="close" id="closePromptButton">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div> <!-- Display selected prompt -->
                 <div id="promptContainer" class="d-flex flex-wrap mb-3">
                     <!-- Prompts will be dynamically added here -->
                     <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a story about a brave knight.">Brave Knight</div>
                     <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Describe a futuristic city.">Futuristic City</div>
                     <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a poem about nature.">Nature Poem</div>
-                    <!-- Add more prompts as needed -->
                 </div>
                 <div id="extraTextContainer" style="display: none;">
                     <div class="form-group">
@@ -29,9 +34,6 @@
                         <label for="aiSelect">Select AI Service:</label>
                         <select class="form-control" id="aiSelect">
                             <option value="gemini">Gemini</option>
-                            <!-- The Anthropic option is hidden by commenting it out
-                            <option value="anthropic">Anthropic</option>
-                            -->
                             <option value="mistral">Mistral</option> <!-- Added Mistral option -->
                         </select>
                     </div>
@@ -56,16 +58,42 @@
 <script>
     let showConsoleOutput = false; // Set to false to disable console output
 
+    // Load API key from cookies
+    document.addEventListener('DOMContentLoaded', () => {
+        const apiKey = getCookie('apiKey');
+        if (apiKey) {
+            document.getElementById('apiKeyInput').value = apiKey;
+        }
+    });
+
+    // Save API key to cookies
+    document.getElementById('apiKeyInput').addEventListener('input', function() {
+        setCookie('apiKey', this.value, 365 * 10); // Store for 10 years
+    });
+
     // Show extra fields when a prompt is selected
     document.querySelectorAll('.prompt-item').forEach(item => {
         item.addEventListener('click', function() {
             const selectedPrompt = this.getAttribute('data-prompt');
             document.getElementById('extraTextInput').value = ''; // Clear previous extra text
+            document.getElementById('selectedPromptText').innerText = selectedPrompt; // Show selected prompt
+            document.getElementById('selectedPrompt').style.display = 'block'; // Show selected prompt
             document.getElementById('extraTextContainer').style.display = 'block'; // Show extra fields
             document.getElementById('generateTextButton').style.display = 'inline-block'; // Show generate button
             document.getElementById('promptSearch').value = ''; // Clear search bar
             filterPrompts(); // Reset prompt filtering
+
+            // Hide prompt container
+            document.getElementById('promptContainer').style.display = 'none';
         });
+    });
+
+    // Close the selected prompt and show the prompt list
+    document.getElementById('closePromptButton').addEventListener('click', function() {
+        document.getElementById('selectedPrompt').style.display = 'none'; // Hide selected prompt
+        document.getElementById('extraTextContainer').style.display = 'none'; // Hide extra fields
+        document.getElementById('promptContainer').style.display = 'block'; // Show prompt list
+        document.getElementById('generateTextButton').style.display = 'none'; // Hide generate button
     });
 
     // Filter prompts based on search input
@@ -80,7 +108,7 @@
     }
 
     document.getElementById('generateTextButton').addEventListener('click', async function() {
-        const selectedPrompt = document.querySelector('.prompt-item.active')?.getAttribute('data-prompt');
+        const selectedPrompt = document.getElementById('selectedPromptText').innerText;
         const extraText = document.getElementById('extraTextInput').value.trim(); // Get extra text from input
         const selectedAI = document.getElementById('aiSelect').value;
         const apiKey = document.getElementById('apiKeyInput').value.trim(); // Get the API key from the input
@@ -243,5 +271,18 @@
         if (showConsoleOutput) {
             consoleOutput.appendChild(messageElement);
         }
+    }
+
+    // Cookie handling functions
+    function setCookie(name, value, days) {
+        const expires = days ? "; expires=" + new Date(Date.now() + days * 864e5).toUTCString() : "";
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+        return document.cookie.split('; ').reduce((r, v) => {
+            const parts = v.split('=');
+            return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+        }, '');
     }
 </script>
