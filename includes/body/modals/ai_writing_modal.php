@@ -46,6 +46,9 @@
 </div>
 
 <script>
+    // Check if the URL contains the 'debug' parameter
+    const isDebugMode = new URLSearchParams(window.location.search).has('debug');
+
     document.getElementById('generateTextButton').addEventListener('click', async function() {
         const selectedPrompt = document.getElementById('promptSelect').value;
         const selectedAI = document.getElementById('aiSelect').value;
@@ -72,7 +75,9 @@
         } catch (error) {
             console.error('Error generating text:', error);
             document.getElementById('error-message').innerText = "Error generating text: " + error.message; // Display error message
-            logMessage("Error:", error.message); // Log the error message to the console output
+            if (isDebugMode) {
+                logMessage("Error:", error.message); // Log the error message to the console output if in debug mode
+            }
         }
     });
 
@@ -84,37 +89,49 @@
     });
 
     async function generateTextWithGemini(prompt, apiKey) {
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
-        const data = {
-            contents: [
-                {
-                    parts: [
-                        { text: prompt }
-                    ]
-                }
-            ]
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [{
+                        text: prompt,
+                    }],
+                }],
+            }),
         };
 
         try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-
+            const response = await fetch(url, requestOptions);
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(`Gemini API error: ${errorData.error.message || response.statusText}`);
             }
 
             const responseData = await response.json();
-            return responseData.contents[0].parts[0].text || "No text generated.";
+            logMessage("Response Data:", responseData); // Log the message to the UI if in debug mode
+
+            if (
+                responseData.candidates &&
+                Array.isArray(responseData.candidates) &&
+                responseData.candidates.length > 0 &&
+                responseData.candidates[0].content &&
+                responseData.candidates[0].content.parts &&
+                Array.isArray(responseData.candidates[0].content.parts) &&
+                responseData.candidates[0].content.parts.length > 0
+            ) {
+                return responseData.candidates[0].content.parts[0].text || "No text generated.";
+            } else {
+                logMessage("Unexpected response structure:", responseData); // Log the message to the UI if in debug mode
+                return "No text generated.";
+            }
         } catch (error) {
-            console.error('Error calling Gemini API:', error);
-            throw new Error("Error calling Gemini API: " + error.message);
+            logMessage("Error:", error.message); // Log the error message to the UI if in debug mode
+            throw new Error(`Failed to fetch from Gemini API: ${error.message}`);
         }
     }
 
