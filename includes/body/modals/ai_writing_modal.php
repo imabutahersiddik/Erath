@@ -141,62 +141,52 @@
 let isPromptHidden = false; // Flag to track if the prompt list has been hidden
 
 // Show extra fields when a prompt is selected
+// Show extra fields when a prompt is selected
 document.querySelectorAll('.prompt-item').forEach(item => {
-    item.addEventListener('click', function() {
-        const selectedPrompt = this.getAttribute('data-prompt');
-        document.getElementById('extraTextInput').value = ''; // Clear previous extra text
-        document.getElementById('selectedPromptText').innerText = selectedPrompt; // Show selected prompt
-        document.getElementById('selectedPrompt').style.display = 'block'; // Show selected prompt
-        document.getElementById('extraTextContainer').style.display = 'block'; // Show extra fields
-        document.getElementById('generateTextButton').style.display = 'inline-block'; // Show generate button
-        document.getElementById('promptSearch').value = ''; // Clear search bar
-        filterPrompts(); // Reset prompt filtering
-
-        // Hide prompt container and search form group
-        document.getElementById('promptContainer').style.display = 'none'; // Hide prompt list
-        document.querySelector('.search-form-group').style.display = 'none'; // Hide search form group
-        isPromptHidden = true; // Update the flag to indicate the prompt list is hidden
-    });
+    item.addEventListener('click', handlePromptSelection);
 });
 
+// Function to handle prompt selection
+function handlePromptSelection() {
+    const selectedPrompt = this.getAttribute('data-prompt');
+    document.getElementById('extraTextInput').value = ''; // Clear previous extra text
+    document.getElementById('selectedPromptText').innerText = selectedPrompt; // Show selected prompt
+    document.getElementById('selectedPrompt').style.display = 'block'; // Show selected prompt
+    document.getElementById('extraTextContainer').style.display = 'block'; // Show extra fields
+    document.getElementById('generateTextButton').style.display = 'inline-block'; // Show generate button
+    document.getElementById('promptSearch').value = ''; // Clear search bar
+    filterPrompts(); // Reset prompt filtering
+
+    // Hide prompt container and search form group
+    document.getElementById('promptContainer').style.display = 'none'; // Hide prompt list
+    document.querySelector('.search-form-group').style.display = 'none'; // Hide search form group
+    isPromptHidden = true; // Update the flag to indicate the prompt list is hidden
+}
+
 // Close the selected prompt and show the prompt list
-document.getElementById('closePromptButton').addEventListener('click', function() {
+document.getElementById('closePromptButton').addEventListener('click', handleClosePrompt);
+
+// Function to handle closing the selected prompt
+function handleClosePrompt() {
     document.getElementById('selectedPrompt').style.display = 'none'; // Hide selected prompt
     document.getElementById('extraTextContainer').style.display = 'none'; // Hide extra fields
     document.getElementById('promptContainer').style.display = 'block'; // Show prompt list
     document.getElementById('generateTextButton').style.display = 'none'; // Hide generate button
     document.querySelector('.search-form-group').style.display = 'block'; // Show search form group
     isPromptHidden = false; // Reset the flag to allow hiding again
-});
+}
 
-// Close the selected prompt and show the prompt list
-document.getElementById('closePromptButton').addEventListener('click', function() {
-    document.getElementById('selectedPrompt').style.display = 'none'; // Hide selected prompt
-    document.getElementById('extraTextContainer').style.display = 'none'; // Hide extra fields
-    document.getElementById('promptContainer').style.display = 'block'; // Show prompt list
-    document.getElementById('generateTextButton').style.display = 'none'; // Hide generate button
-    document.getElementById('promptSearch').style.display = 'block'; // Show search bar
-    isPromptHidden = false; // Reset the flag to allow hiding again
-});
+// Filter prompts based on search input
+document.getElementById('promptSearch').addEventListener('input', filterPrompts);
 
-    // Close the selected prompt and show the prompt list
-    document.getElementById('closePromptButton').addEventListener('click', function() {
-        document.getElementById('selectedPrompt').style.display = 'none'; // Hide selected prompt
-        document.getElementById('extraTextContainer').style.display = 'none'; // Hide extra fields
-        document.getElementById('promptContainer').style.display = 'block'; // Show prompt list
-        document.getElementById('generateTextButton').style.display = 'none'; // Hide generate button
+// Function to filter prompts
+function filterPrompts() {
+    const searchValue = document.getElementById('promptSearch').value.toLowerCase();
+    document.querySelectorAll('.prompt-item').forEach(item => {
+        const promptText = item.textContent.toLowerCase();
+        item.style.display = promptText.includes(searchValue) ? 'block' : 'none';
     });
-
-    // Filter prompts based on search input
-    document.getElementById('promptSearch').addEventListener('input', filterPrompts);
-
-    function filterPrompts() {
-        const searchValue = document.getElementById('promptSearch').value.toLowerCase();
-        document.querySelectorAll('.prompt-item').forEach(item => {
-            const promptText = item.textContent.toLowerCase();
-            item.style.display = promptText.includes(searchValue) ? 'block' : 'none';
-        });
-    }
+}
 
     document.getElementById('generateTextButton').addEventListener('click', async function() {
         const selectedPrompt = document.getElementById('selectedPromptText').innerText;
