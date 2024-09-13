@@ -7,6 +7,7 @@
                <button id="link-btn" class="btn btn-secondary" onclick="addLink()">Links</button>
                <button id="image-btn" class="btn btn-secondary" onclick="addImage()">Images</button>             
                <button class="btn btn-secondary" data-toggle="modal" data-target="#upfiles">Upload Files</button>
+<button class="btn btn-secondary" data-toggle="modal" data-target="#aiWritingModal">Write with AI</button>
                <button class="btn btn-secondary" data-toggle="modal" data-target="#help">Help</button>
             </div>
          </div>

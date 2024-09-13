@@ -1,0 +1,77 @@
+<?php
+header('Content-Type: application/json');
+
+$requestBody = file_get_contents('php://input');
+$data = json_decode($requestBody, true);
+
+$aiService = $data['aiService'];
+$prompt = $data['prompt'];
+
+$generatedText = '';
+
+if ($aiService === 'gemini') {
+    $generatedText = callGeminiAPI($prompt);
+} elseif ($aiService === 'anthropic') {
+    $generatedText = callAnthropicAPI($prompt);
+}
+
+echo json_encode(['generated_text' => $generatedText]);
+
+function callGeminiAPI($prompt) {
+    $apiKey = 'YOUR_GEMINI_API_KEY'; // Replace with your Gemini API key
+    $url = 'https://api.gemini.com/v1/ai/generate'; // Replace with the actual Gemini API endpoint
+
+    $data = [
+        'prompt' => $prompt,
+        'max_tokens' => 100, // Adjust as needed
+    ];
+
+    $options = [
+        'http' => [
+            'header'  => "Content-Type: application/json\r\n" .
+                         "Authorization: Bearer $apiKey\r\n",
+            'method'  => 'POST',
+            'content' => json_encode($data),
+        ],
+    ];
+
+    $context  = stream_context_create($options);
+    $response = file_get_contents($url, false, $context);
+
+    if ($response === FALSE) {
+        return "Error calling Gemini API.";
+    }
+
+    $responseData = json_decode($response, true);
+    return $responseData['generated_text'] ?? "No text generated.";
+}
+
+function callAnthropicAPI($prompt) {
+    $apiKey = 'YOUR_ANTHROPIC_API_KEY'; // Replace with your Anthropic API key
+    $url = 'https://api.anthropic.com/v1/ai/generate'; // Replace with the actual Anthropic API endpoint
+
+    $data = [
+        'prompt' => $prompt,
+        'max_tokens' => 100, // Adjust as needed
+    ];
+
+    $options = [
+        'http' => [
+            'header'  => "Content-Type: application/json\r\n" .
+                         "Authorization: Bearer $apiKey\r\n",
+            'method'  => 'POST',
+            'content' => json_encode($data),
+        ],
+    ];
+
+    $context  = stream_context_create($options);
+    $response = file_get_contents($url, false, $context);
+
+    if ($response === FALSE) {
+        return "Error calling Anthropic API.";
+    }
+
+    $responseData = json_decode($response, true);
+    return $responseData['generated_text'] ?? "No text generated.";
+}
+?>

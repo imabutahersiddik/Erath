@@ -92,6 +92,9 @@ require __DIR__.'/../includes/body/upfiles/videos/modals/mkv.php';
 require __DIR__.'/../includes/body/upfiles/videos/modals/flv.php';
 require __DIR__.'/../includes/body/upfiles/videos/modals/webm.php';
 require __DIR__.'/../includes/body/upfiles/videos/modals/3gp.php';
+/* Ai Writing modal */
+require __DIR__.'/../includes/body/modals/ai_writing_modal.php';
+require __DIR__.'/../includes/body/ai_writing/index.php';
 require __DIR__.'/../includes/body/preview.php';
 require __DIR__.'/../includes/body/plugins.php';
 /* Footer */
