@@ -1,9 +1,9 @@
-<!-- AI Writing Modal -->
-<div class="modal fade" id="aiWritingModal" tabindex="-1" role="dialog" aria-labelledby="aiWritingModalLabel" aria-hidden="true">
+<!-- AI Conversation Modal -->
+<div class="modal fade" id="aiConversationModal" tabindex="-1" role="dialog" aria-labelledby="aiConversationModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="aiWritingModalLabel">Write with AI</h5>
+                <h5 class="modal-title" id="aiConversationModalLabel">AI Conversation</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -25,38 +25,28 @@
                     <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Describe a futuristic city.">Futuristic City</div>
                     <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a poem about nature.">Nature Poem</div>
                 </div>
-                <div id="extraTextContainer" style="display: none;">
+                <div id="conversationContainer" style="display: none;">
+                    <div id="conversationTitle" style="font-weight: bold; margin-bottom: 10px;"></div>
+                    <div id="conversationMessages"></div>
                     <div class="form-group">
-                        <label for="extraTextInput">Add Extra Text:</label>
-                        <textarea id="extraTextInput" rows="3" class="form-control" placeholder="Add any additional text here..."></textarea>
+                        <label for="userInput">Your Message:</label>
+                        <textarea id="userInput" rows="3" class="form-control" placeholder="Type your message here..."></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="aiSelect">Select AI Service:</label>
-                        <select class="form-control" id="aiSelect">
-                            <option value="gemini">Gemini</option>
-                            <option value="mistral">Mistral</option> <!-- Added Mistral option -->
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="apiKeyInput">Enter Your API Key:</label>
-                        <input type="text" class="form-control" id="apiKeyInput" placeholder="Enter API Key">
-                    </div>
-                    <textarea id="aiOutput" rows="5" class="form-control" placeholder="AI-generated text will appear here..."></textarea>
-                    <div id="error-message" style="color: red; margin-top: 10px;"></div> <!-- Error message display -->
-                    <div id="console-output" style="max-height: 150px; overflow-y: auto; margin-top: 10px; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px;"></div> <!-- Console output for logging -->
+                    <button id="sendMessageButton" class="btn btn-primary">Send</button>
                 </div>
+                <div id="error-message" style="color: red; margin-top: 10px;"></div> <!-- Error message display -->
+                <div id="console-output" style="max-height: 150px; overflow-y: auto; margin-top: 10px; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px;"></div> <!-- Console output for logging -->
             </div>
             <div class="modal-footer">
-                <button id="generateTextButton" class="btn btn-success" style="display: none;">Generate Text</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="insertTextButton" class="btn btn-primary" style="display: none;">Insert Text</button>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    let showConsoleOutput = false; // Set to false to disable console output
+    let showConsoleOutput = true; // Set to false to disable console output
+    const conversations = []; // Store conversations
 
     // Load API key from cookies
     document.addEventListener('DOMContentLoaded', () => {
@@ -75,16 +65,19 @@
     document.querySelectorAll('.prompt-item').forEach(item => {
         item.addEventListener('click', function() {
             const selectedPrompt = this.getAttribute('data-prompt');
-            document.getElementById('extraTextInput').value = ''; // Clear previous extra text
             document.getElementById('selectedPromptText').innerText = selectedPrompt; // Show selected prompt
             document.getElementById('selectedPrompt').style.display = 'block'; // Show selected prompt
-            document.getElementById('extraTextContainer').style.display = 'block'; // Show extra fields
-            document.getElementById('generateTextButton').style.display = 'inline-block'; // Show generate button
-            document.getElementById('promptSearch').value = ''; // Clear search bar
-            filterPrompts(); // Reset prompt filtering
+            document.getElementById('promptContainer').style.display = 'none'; // Hide prompt list
+            document.getElementById('conversationContainer').style.display = 'block'; // Show conversation fields
 
-            // Hide prompt container
-            document.getElementById('promptContainer').style.display = 'none';
+            // Set conversation title with current date and time
+            const currentDate = new Date();
+            const options = { timeZoneName: 'short', hour: '2-digit', minute: '2-digit', hour12: false };
+            const dateString = currentDate.toLocaleString('en-US', options);
+            document.getElementById('conversationTitle').innerText = `Conversation: ${selectedPrompt} | ${dateString}`;
+
+            // Initialize the conversation with the starting prompt
+            addMessageToConversation(`AI: ${selectedPrompt}`, true);
         });
     });
 
@@ -92,8 +85,9 @@
     document.getElementById('closePromptButton').addEventListener('click', function() {
         document.getElementById('selectedPrompt').style.display = 'none'; // Hide selected prompt
         document.getElementById('extraTextContainer').style.display = 'none'; // Hide extra fields
+        document.getElementById('conversationContainer').style.display = 'none'; // Hide conversation fields
         document.getElementById('promptContainer').style.display = 'block'; // Show prompt list
-        document.getElementById('generateTextButton').style.display = 'none'; // Hide generate button
+        document.getElementById('userInput').value = ''; // Clear user input
     });
 
     // Filter prompts based on search input
@@ -107,46 +101,68 @@
         });
     }
 
-    document.getElementById('generateTextButton').addEventListener('click', async function() {
+    // Send message and generate response
+    document.getElementById('sendMessageButton').addEventListener('click', async function() {
+        const userInput = document.getElementById('userInput').value.trim(); // Get user input
+        if (!userInput) return; // Prevent sending empty messages
+
+        addMessageToConversation(`You: ${userInput}`, false); // Add user message to conversation
+
         const selectedPrompt = document.getElementById('selectedPromptText').innerText;
-        const extraText = document.getElementById('extraTextInput').value.trim(); // Get extra text from input
+        const combinedText = `${selectedPrompt} ${userInput}`.trim(); // Combine prompt and user input
+
         const selectedAI = document.getElementById('aiSelect').value;
         const apiKey = document.getElementById('apiKeyInput').value.trim(); // Get the API key from the input
         document.getElementById('error-message').innerText = ''; // Clear previous error messages
-
-        // Combine the selected prompt with the extra text
-        const combinedText = `${selectedPrompt} ${extraText}`.trim();
 
         let generatedText = '';
         try {
             if (selectedAI === 'gemini') {
                 generatedText = await generateTextWithGemini(combinedText, apiKey);
-            } 
-            // Uncomment the following block if you want to enable Anthropic again
-            /*
-            else if (selectedAI === 'anthropic') {
-                generatedText = await generateTextWithAnthropic(combinedText, apiKey);
-            }
-            */
-            else if (selectedAI === 'mistral') {
+            } else if (selectedAI === 'mistral') {
                 generatedText = await generateTextWithMistral(combinedText, apiKey);
             }
 
-            document.getElementById('aiOutput').value = generatedText;
-            document.getElementById('insertTextButton').style.display = 'inline-block'; // Show insert button
+            addMessageToConversation(`AI: ${generatedText}`, true); // Add AI response to conversation
         } catch (error) {
             console.error('Error generating text:', error);
             document.getElementById('error-message').innerText = "Error generating text: " + error.message; // Display error message
             logMessage("Error:", error.message); // Log the error message to the console output
         }
+
+        document.getElementById('userInput').value = ''; // Clear user input
     });
 
-    document.getElementById('insertTextButton').addEventListener('click', function() {
-        const generatedText = document.getElementById('aiOutput').value;
-        const editor = document.getElementById('html-code'); // Assuming your editor's textarea has this ID
-        editor.value += generatedText; // Append the generated text
-        $('#aiWritingModal').modal('hide'); // Close the modal
-    });
+    function addMessageToConversation(message, isAI) {
+        const messageContainer = document.createElement('div');
+        messageContainer.className = isAI ? 'ai-message' : 'user-message';
+        messageContainer.innerText = message;
+
+        // Add edit and delete buttons for user messages
+        if (!isAI) {
+            const editButton = document.createElement('button');
+            editButton.innerHTML = '<i class="fas fa-edit"></i>'; // FontAwesome edit icon
+            editButton.className = 'btn btn-link';
+            editButton.onclick = function() {
+                const newMessage = prompt("Edit your message:", message);
+                if (newMessage !== null) {
+                    messageContainer.innerText = newMessage;
+                }
+            };
+
+            const deleteButton = document.createElement('button');
+            deleteButton.innerHTML = '<i class="fas fa-trash"></i>'; // FontAwesome delete icon
+            deleteButton.className = 'btn btn-link';
+            deleteButton.onclick = function() {
+                messageContainer.remove();
+            };
+
+            messageContainer.appendChild(editButton);
+            messageContainer.appendChild(deleteButton);
+        }
+
+        document.getElementById('conversationMessages').appendChild(messageContainer);
+    }
 
     async function generateTextWithGemini(prompt, apiKey) {
         const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
