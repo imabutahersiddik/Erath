@@ -1,4 +1,3 @@
-
 <script>
 // Create a style element
 const style = document.createElement('style');
@@ -172,6 +171,7 @@ style.textContent = `
 // Append the style element to the head of the document
 document.head.appendChild(style);
 </script>
+
 <!-- AI Conversation Modal -->
 <!-- Overlay -->
 <div id="overlay"></div>
@@ -187,8 +187,8 @@ document.head.appendChild(style);
     <div class="search-form-group">
         <label for="aiSelect">Select AI Model:</label>
         <select id="aiSelect">
-            <option value="mistral">Mistral</option>
-            <option value="gemini" selected="selected">Gemini</option>
+            <option value="mistral" selected="selected">Mistral</option>
+            <option value="gemini">Gemini</option>
         </select>
     </div>
     <div class="search-form-group">
@@ -196,8 +196,8 @@ document.head.appendChild(style);
         <input type="text" id="apiKeyInput" placeholder="Paste your API key here...">
     </div>
     <nav>
-    <!-- Button to show the prompts div -->
-<button type="button" class="btn btn-secondary" id="showPromptsButton">Open AI Prompts</button>
+        <!-- Button to show the prompts div -->
+        <button type="button" class="btn btn-secondary" id="showPromptsButton">Open AI Prompts</button>
         <h5>Recent Conversations</h5>
         <div class="conversation-list" id="conversationList">
             <!-- Conversations will be dynamically added here -->
@@ -237,7 +237,6 @@ document.head.appendChild(style);
         <span class="close-button" id="closePromptButton" onclick="closePromptContainer()">×</span>
     </div>
     <div id="promptContainer" class="d-flex flex-wrap mb-3">
-        
         <div class="prompt-item" data-prompt="How's the weather today?">Weather</div>
         <div class="prompt-item" data-prompt="Tell me a joke.">Joke</div>
         <div class="prompt-item" data-prompt="What's the latest news?">News</div>
@@ -341,6 +340,7 @@ document.head.appendChild(style);
 <div class="prompt-item" data-prompt="Create a neighborhood art and culture exchange platform that allows users to showcase local artists, organize events, and promote cultural appreciation within their communities.">Neighborhood Art and Culture Exchange</div>
 
 <div class="prompt-item" data-prompt="Develop a holistic wellness platform that integrates physical, mental, and emotional health resources, offering personalized plans and community support for overall well-being.">Holistic Wellness Platform</div>
+    </div>
 </div>
 
 <script>
@@ -397,6 +397,7 @@ document.head.appendChild(style);
         $('#promptContainer').fadeOut(); // Hide the prompt container
     }
 </script>
+
 <script>
     let conversations = [];
     let currentConversation = null;
@@ -569,7 +570,7 @@ document.head.appendChild(style);
 
     // Load conversation messages
     function loadConversationMessages(index) {
-        const messagesContainer = document.getElementById('conversationMessages');
+                const messagesContainer = document.getElementById('conversationMessages');
         messagesContainer.innerHTML = '';
         conversations[index].messages.forEach(msg => {
             const msgDiv = document.createElement('div');
@@ -664,18 +665,18 @@ document.head.appendChild(style);
         }
     }
 
-        // Filter prompts based on search input
-        document.getElementById('promptSearch').addEventListener('input', filterPrompts);
+    // Filter prompts based on search input
+    document.getElementById('promptSearch').addEventListener('input', filterPrompts);
 
-        // Function to filter prompts
-        function filterPrompts() {
-            const searchValue = document.getElementById('promptSearch').value.toLowerCase();
-            document.querySelectorAll('.prompt-item').forEach(item => {
-                const promptText = item.textContent.toLowerCase();
-                item.style.display = promptText.includes(searchValue) ? 'block' : 'none';
-            });
-        }
-    
+    // Function to filter prompts
+    function filterPrompts() {
+        const searchValue = document.getElementById('promptSearch').value.toLowerCase();
+        document.querySelectorAll('.prompt-item').forEach(item => {
+            const promptText = item.textContent.toLowerCase();
+            item.style.display = promptText.includes(searchValue) ? 'block' : 'none';
+        });
+    }
+
     // Swap AI model functionality
     document.getElementById('swapAIButton').addEventListener('click', function() {
         const aiSelectContainer = document.getElementById('aiSelectContainer');
