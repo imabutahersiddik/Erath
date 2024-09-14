@@ -963,6 +963,7 @@ document.querySelectorAll('.prompt-item').forEach(item => {
 
         // Hide prompt container and search form group
         document.getElementById('promptContainer').style.display = 'none !important'; // Hide prompt list
+        document.getElementById('promptContainer').style.setProperty('display', 'none', 'important');
         document.querySelector('.search-form-group').style.display = 'none'; // Hide search form group
         isPromptHidden = true; // Update the flag to indicate the prompt list is hidden
     });
