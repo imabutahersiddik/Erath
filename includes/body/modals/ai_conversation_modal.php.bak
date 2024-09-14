@@ -63,11 +63,6 @@
     const conversationsPerPage = 5; // Number of conversations to show per page
     let currentPage = 1; // Current page number
 
-    // Open aimodal
-document.getElementById('openaimodalButton').addEventListener('click', function() {
-    document.getElementById('aiConversationModal').style.display = 'block';
-});
-
 // Close aimodal
 document.getElementById('closeaimodalButton').addEventListener('click', closeModal);
 
@@ -94,6 +89,11 @@ document.getElementById('closeConversationButton').addEventListener('click', fun
     document.getElementById('conversationContainer').style.display = 'none';
     document.getElementById('promptContainer').style.display = 'block'; // Show prompt list again
 });
+
+const handleItemClick = (event) => {
+    event.stopPropagation();
+    // Handle your item click logic here
+};
 
     // Load conversations from local storage
     function loadConversationsFromStorage() {

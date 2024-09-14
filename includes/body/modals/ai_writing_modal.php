@@ -14,6 +14,7 @@
                     <input type="text" id="promptSearch" class="form-control" placeholder="Search for a prompt...">
                 </div>
                 <div id="selectedPrompt" style="font-weight: bold; margin-bottom: 10px; display: none;">
+                    <h3 id="selectedPromptHtml"></h3>
                     <span id="selectedPromptText"></span>
                     <button type="button" class="close" id="closePromptButton">
                         <span aria-hidden="true">&times;</span>
@@ -144,6 +145,7 @@ document.querySelectorAll('.prompt-item').forEach(item => {
         const selectedPrompt = this.getAttribute('data-prompt');
         document.getElementById('extraTextInput').value = ''; // Clear previous extra text
         document.getElementById('selectedPromptText').innerText = selectedPrompt; // Show selected prompt
+        document.getElementById('selectedPromptHtml').innerHtml = selectedPrompt; // Show selected prompt
         document.getElementById('selectedPrompt').style.display = 'block'; // Show selected prompt
         document.getElementById('extraTextContainer').style.display = 'block'; // Show extra fields
         document.getElementById('generateTextButton').style.display = 'inline-block'; // Show generate button
@@ -151,7 +153,7 @@ document.querySelectorAll('.prompt-item').forEach(item => {
         filterPrompts(); // Reset prompt filtering
 
         // Hide prompt container and search form group
-        document.getElementById('promptContainer').style.display = 'none'; // Hide prompt list
+        document.getElementById('promptContainer').style.display = 'none !important'; // Hide prompt list
         document.querySelector('.search-form-group').style.display = 'none'; // Hide search form group
         isPromptHidden = true; // Update the flag to indicate the prompt list is hidden
     });
@@ -181,6 +183,7 @@ function filterPrompts() {
 
     document.getElementById('generateTextButton').addEventListener('click', async function() {
         const selectedPrompt = document.getElementById('selectedPromptText').innerText;
+        const selectedPrompt = document.getElementById('selectedPromptHtml').innerText;
         const extraText = document.getElementById('extraTextInput').value.trim(); // Get extra text from input
         const selectedAI = document.getElementById('aiSelect').value;
         const apiKey = document.getElementById('apiKeyInput').value.trim(); // Get the API key from the input

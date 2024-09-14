@@ -1,6 +1,6 @@
 <!-- AI Conversation Modal -->
 <div class="modal fade" id="aiConversationModal" tabindex="-1" role="dialog" aria-labelledby="aiConversationModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document" style="max-width: 800px;">
+    <div class="modal-dialog" role="document" style="max-width: 100%">
         <div class="aimodal-content">
             <div class="aimodal-header">
                 <h5>AI Conversation</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close">

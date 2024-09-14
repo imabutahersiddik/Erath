@@ -4,6 +4,7 @@
          <div class="row">
             <div class="col">
                <button class="btn btn-secondary" data-toggle="collapse" data-target="#headings">Headings</button>
+               <button class="btn btn-secondary" data-toggle="collapse" data-target="#format">Format</button>
                <button id="link-btn" class="btn btn-secondary" onclick="addLink()">Links</button>
                <button id="image-btn" class="btn btn-secondary" onclick="addImage()">Images</button>             
                <button class="btn btn-secondary" data-toggle="modal" data-target="#upfiles">Upload Files</button>
@@ -26,6 +27,16 @@
          </div>
          <div class="row">
             <div class="col">
+               <div id="format" class="collapse">
+                  <button class="btn btn-secondary" onclick="boldText()">Bold</button>
+                  <button class="btn btn-secondary" onclick="italicText()">Italic</button>
+                  <button class="btn btn-secondary" onclick="underlineText()">Underline</button>
+                  <button class="btn btn-secondary" onclick="paragraph()">Paragraph</button>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col">
                <form onsubmit="return false;">
                   <textarea class="textarea" id="html-code" name="html-code" contenteditable="true" rows="10"></textarea>
                   <br><br>
@@ -41,13 +52,3 @@
             </div>
          </div>
          <div id="man-creator-is-one-he-is-allah"></div>
-         <div class="editor-buttons">
-            <div class="row">
-               <div class="col">
-                  <button class="btn btn-primary" onclick="boldText()">Bold</button>
-                  <button class="btn btn-primary" onclick="italicText()">Italic</button>
-                  <button class="btn btn-primary" onclick="underlineText()">Underline</button>
-                  <button class="btn btn-primary" onclick="paragraph()">Paragraph</button>
-               </div>
-            </div>
-         </div>
