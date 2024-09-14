@@ -1,60 +1,72 @@
 <!-- AI Conversation Modal -->
-<div class="modal fade" id="aiConversationModal" tabindex="-1" role="dialog" aria-labelledby="aiConversationModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document" style="max-width: 100%">
-        <div class="aimodal-content">
-            <div class="aimodal-header">
-                <h5>AI Conversation</h5> 
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
-                    <span aria-hidden="true">&#215;</span>
-                </button>
-            </div>
-            <div class="search-form-group">
-                <label for="aiSelect">Select AI Model:</label>
-                <select id="aiSelect">
-                    <option value="gemini">Gemini</option>
-                    <option value="mistral" selected="selected">Mistral</option>
-                </select>
-            </div>
-            <div class="search-form-group">
-                <label for="apiKeyInput">API Key:</label>
-                <input type="text" id="apiKeyInput" placeholder="Paste your API key here..." />
-            </div>
-            <nav>
-                <h5>Recent Conversations</h5>
-                <div class="conversation-list" id="conversationList">
-                    <!-- Conversations will be dynamically added here -->
-                </div>
-                <div class="aipagination">
-                    <button id="prevPageButton" style="display: none;">Previous</button>
-                    <button id="nextPageButton" style="display: none;">Next</button>
-                </div>
-            </nav>
-            <div class="search-form-group">
-                <input type="text" id="promptSearch" placeholder="Search prompts..." onkeyup="filterPrompts()" />
-                <span class="close-button" id="closePromptButton" onclick="closePromptContainer()">&#215;</span>
-            </div>
-            <div id="promptContainer" class="d-flex flex-wrap mb-3">
-                <div class="prompt-item" data-prompt="How's the weather today?">Weather</div>
-                <div class="prompt-item" data-prompt="Tell me a joke.">Joke</div>
-                <div class="prompt-item" data-prompt="What's the latest news?">News</div>
-                <div class="prompt-item" data-prompt="Give me a recipe.">Recipe</div>
-            </div>
-            <div id="conversationContainer" style="display: none;">
-                <div class="aimodal-header">
-                    <input type="text" id="conversationTitle" class="edit-title" />
-                    <button id="closeConversationButton" class="close-button" onclick="closeConversation()">Close</button>
-                </div>
-                <div id="conversationMessages">
-                    <!-- Messages will be dynamically added here -->
-                </div>
-                <div class="input-group">
-                    <textarea id="messageInput" rows="3" placeholder="Type your message..."></textarea>
-                    <button id="sendMessageButton" onclick="sendMessage()"><i class="fas fa-paper-plane"></i> Send</button>
-                    <button id="swapAIButton"><i class="fas fa-exchange-alt"></i> Swap AI</button>
-                </div>
-                <div id="errorContainer" class="error-message"></div>
-            </div>
+<!-- Overlay -->
+<div id="overlay"></div>
+
+<!-- Main AI Conversation Div -->
+<div id="aiConversationModal">
+    <div class="aimodal-header">
+        <h5>AI Conversation</h5>
+        <button type="button" class="close" onclick="closeDiv()">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="search-form-group">
+        <label for="aiSelect">Select AI Model:</label>
+        <select id="aiSelect">
+            <option value="gemini">Gemini</option>
+            <option value="mistral" selected="selected">Mistral</option>
+        </select>
+    </div>
+    <div class="search-form-group">
+        <label for="apiKeyInput">API Key:</label>
+        <input type="text" id="apiKeyInput" placeholder="Paste your API key here...">
+    </div>
+    <nav>
+    <!-- Button to show the prompts div -->
+<button type="button" class="btn btn-secondary" id="showPromptsButton">Open AI Prompts</button>
+        <h5>Recent Conversations</h5>
+        <div class="conversation-list" id="conversationList">
+            <!-- Conversations will be dynamically added here -->
         </div>
+        <div class="aipagination">
+            <button id="prevPageButton" style="display: none;">Previous</button>
+            <button id="nextPageButton" style="display: none;">Next</button>
+        </div>
+    </nav>
+    <div id="conversationContainer" style="display: none;">
+        <div class="aimodal-header">
+            <input type="text" id="conversationTitle" class="edit-title">
+            <button id="closeConversationButton" class="close-button" onclick="closeConversation()">Close</button>
+        </div>
+        <div id="conversationMessages">
+            <!-- Messages will be dynamically added here -->
+        </div>
+        <div class="input-group">
+            <textarea id="messageInput" rows="3" placeholder="Type your message..."></textarea>
+            <button id="sendMessageButton" onclick="sendMessage()">Send</button>
+            <button id="swapAIButton">Swap AI</button>
+        </div>
+        <div id="errorContainer" class="error-message"></div>
+    </div>
+</div>
+
+<!-- Prompts Div -->
+<div id="promptsDiv">
+    <div class="aimodal-header">
+        <h5>AI Prompts</h5>
+        <button type="button" class="close" onclick="closePromptsDiv()">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="search-form-group">
+        <input type="text" id="promptSearch" placeholder="Search prompts..." onkeyup="filterPrompts()">
+        <span class="close-button" id="closePromptButton" onclick="closePromptContainer()">×</span>
+    </div>
+    <div id="promptContainer" class="d-flex flex-wrap mb-3">
+        <div class="prompt-item" data-prompt="How's the weather today?">Weather</div>
+        <div class="prompt-item" data-prompt="Tell me a joke.">Joke</div>
+        <div class="prompt-item" data-prompt="What's the latest news?">News</div>
+        <div class="prompt-item" data-prompt="Give me a recipe.">Recipe</div>
     </div>
 </div>
 
@@ -460,8 +472,107 @@ style.textContent = `
         .error-message {
             color: red;
         }
+        /* Style for the main AI conversation div */
+        #aiConversationDiv {
+            display: none; /* Initially hidden */
+            position: fixed; /* Fixed position */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust for centering */
+            width: 80%; /* Width of the div */
+            max-width: 600px; /* Max width */
+            background-color: white; /* Background color */
+            border: 1px solid #ccc; /* Border */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow */
+            z-index: 1050; /* Ensure it appears above other content */
+            padding: 20px; /* Padding inside the div */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        /* Style for the overlay */
+        #overlay {
+            display: none; /* Initially hidden */
+            position: fixed; /* Fixed position */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            z-index: 1040; /* Ensure it appears below the visible div */
+        }
+
+        /* Style for the prompts div */
+        #promptsDiv {
+            display: none; /* Initially hidden */
+            position: fixed; /* Fixed position */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust for centering */
+            width: 80%; /* Width of the div */
+            max-width: 600px; /* Max width */
+            background-color: white; /* Background color */
+            border: 1px solid #ccc; /* Border */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow */
+            z-index: 1050; /* Ensure it appears above other content */
+            padding: 20px; /* Padding inside the div */
+            border-radius: 5px; /* Rounded corners */
+        }
 `;
 
 // Append the style element to the head of the document
 document.head.appendChild(style);
+</script>
+<script>
+    $(document).ready(function() {
+        // Show the AI conversation div and overlay when the button is clicked
+        $('#showDivButton').on('click', function() {
+            $('#aiConversationModal').fadeIn(); // Show the content div
+            $('#overlay').fadeIn(); // Show the overlay
+        });
+
+        // Show the prompts div and overlay when the button is clicked
+        $('#showPromptsButton').on('click', function() {
+            $('#promptsDiv').fadeIn(); // Show the prompts div
+            $('#overlay').fadeIn(); // Show the overlay
+        });
+
+        // Function to close the AI conversation div and overlay
+        window.closeDiv = function() {
+            $('#aiConversationModal').fadeOut(); // Hide the content div
+            $('#overlay').fadeOut(); // Hide the overlay
+        };
+
+        // Function to close the prompts div and overlay
+        window.closePromptsDiv = function() {
+            $('#promptsDiv').fadeOut(); // Hide the prompts div
+            $('#overlay').fadeOut(); // Hide the overlay
+        };
+
+        // Hide the divs and overlay when the overlay is clicked
+        $('#overlay').on('click', function() {
+            closeDiv(); // Hide the AI conversation div
+            closePromptsDiv(); // Hide the prompts div
+        });
+    });
+
+    // Function to filter prompts based on user input
+    function filterPrompts() {
+        const searchInput = document.getElementById('promptSearch').value.toLowerCase();
+        const prompts = document.querySelectorAll('.prompt-item');
+
+        prompts.forEach(prompt => {
+            const promptText = prompt.textContent.toLowerCase();
+            const promptData = prompt.getAttribute('data-prompt').toLowerCase(); // Get data-prompt attribute
+            if (promptText.includes(searchInput) || promptData.includes(searchInput)) {
+                prompt.style.display = 'block'; // Show matching prompts
+            } else {
+                prompt.style.display = 'none'; // Hide non-matching prompts
+            }
+        });
+    }
+
+    // Function to close the prompt container (if needed)
+    function closePromptContainer() {
+        $('#promptContainer').fadeOut(); // Hide the prompt container
+    }
 </script>
