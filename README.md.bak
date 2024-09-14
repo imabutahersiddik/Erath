@@ -1,7 +1,3 @@
-<p align="center"><img src="/public/img/b-1.png" alt="Storage-less web page hosting" width="480"/></p>
-<p align="center"><img src="/public/img/b-2.png" alt="Storage-less web page hosting" width="480"/></p>
-<p align="center"><img src="/public/img/b-3.png" alt="Storage-less web page hosting" width="480"/></p>
-
 # Storage-less web page hosting
 
 The Storage-less web page hosting represents the evolution of the internet, in which data is rendered secure and immutable. The data is stored in the URL indefinitely, ensuring its perpetual availability. The data is further transformed into an AES-256 string, which serves as the fundamental building block for the secure infrastructure of the Storage-less web page hosting.

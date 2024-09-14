@@ -300,6 +300,46 @@ document.head.appendChild(style);
 <div class="prompt-item" data-prompt="Create a local history exploration app that allows users to discover and share historical facts, photos, and stories about their neighborhoods, fostering community pride.">Local History Exploration App</div>
 
 <div class="prompt-item" data-prompt="Develop a mental wellness chatbot that provides users with mindfulness exercises, coping strategies, and resources based on their emotional state and preferences.">Mental Wellness Chatbot</div>
+
+<div class="prompt-item" data-prompt="Create a decentralized community marketplace that allows users to buy, sell, or trade goods and services locally, with a focus on sustainability and reducing carbon footprints.">Decentralized Community Marketplace</div>
+
+<div class="prompt-item" data-prompt="Develop a personalized learning platform that uses AI to adapt educational content and resources to individual learning styles, preferences, and progress, making education more accessible.">Personalized Learning Platform</div>
+
+<div class="prompt-item" data-prompt="Design a mental health support network app that connects users with trained volunteers for peer support, offers self-help resources, and promotes mental wellness activities.">Mental Health Support Network</div>
+
+<div class="prompt-item" data-prompt="Build a gamified fitness app that encourages users to complete daily physical challenges, track their progress, and earn rewards while fostering a sense of community through team challenges.">Gamified Fitness App</div>
+
+<div class="prompt-item" data-prompt="Create a virtual event platform that allows users to host and attend interactive workshops, webinars, and social events with features for networking, Q&A, and real-time feedback.">Virtual Event Platform</div>
+
+<div class="prompt-item" data-prompt="Develop a food waste reduction app that connects users with local restaurants and grocery stores to offer surplus food at discounted prices, promoting sustainability and community support.">Food Waste Reduction App</div>
+
+<div class="prompt-item" data-prompt="Design a digital citizenship education platform that provides resources and interactive modules on online safety, privacy, and responsible digital behavior for all age groups.">Digital Citizenship Education Platform</div>
+
+<div class="prompt-item" data-prompt="Build a personal productivity assistant that integrates with calendars and task management tools to analyze user habits and suggest personalized strategies for improving focus and efficiency.">Personal Productivity Assistant</div>
+
+<div class="prompt-item" data-prompt="Create a community-driven travel guide app that allows users to share hidden gems, travel tips, and itineraries, fostering a sense of exploration and connection among travelers.">Community-Driven Travel Guide</div>
+
+<div class="prompt-item" data-prompt="Develop a neighborhood wellness initiative platform that connects users with local health resources, fitness classes, and wellness events, promoting healthy living within the community.">Neighborhood Wellness Initiative</div>
+
+<div class="prompt-item" data-prompt="Create a mental health companion app that uses AI to provide personalized coping strategies, mindfulness exercises, and connects users with licensed therapists for virtual support.">Mental Health Companion App</div>
+
+<div class="prompt-item" data-prompt="Develop a community-driven disaster preparedness platform that provides resources, checklists, and local emergency contacts, enabling neighborhoods to collectively prepare for natural disasters.">Disaster Preparedness Platform</div>
+
+<div class="prompt-item" data-prompt="Design an inclusive fitness app that adapts workouts for users with disabilities, offering personalized training plans, virtual coaching, and community support for all fitness levels.">Inclusive Fitness App</div>
+
+<div class="prompt-item" data-prompt="Build a smart recycling assistant that uses image recognition to educate users on proper recycling practices, track their recycling habits, and connect them with local recycling programs.">Smart Recycling Assistant</div>
+
+<div class="prompt-item" data-prompt="Create a digital storytelling platform that allows users to share their personal stories and experiences through multimedia, fostering empathy and understanding within diverse communities.">Digital Storytelling Platform</div>
+
+<div class="prompt-item" data-prompt="Develop a local food sourcing app that connects consumers directly with local farmers and food producers, promoting farm-to-table practices and reducing food miles.">Local Food Sourcing App</div>
+
+<div class="prompt-item" data-prompt="Design a personal finance education platform that gamifies financial literacy, helping users learn about budgeting, investing, and saving through interactive challenges and community support.">Personal Finance Education Platform</div>
+
+<div class="prompt-item" data-prompt="Build a virtual mentorship network that connects youth with professionals in their fields of interest, providing guidance, resources, and opportunities for career exploration.">Virtual Mentorship Network</div>
+
+<div class="prompt-item" data-prompt="Create a neighborhood art and culture exchange platform that allows users to showcase local artists, organize events, and promote cultural appreciation within their communities.">Neighborhood Art and Culture Exchange</div>
+
+<div class="prompt-item" data-prompt="Develop a holistic wellness platform that integrates physical, mental, and emotional health resources, offering personalized plans and community support for overall well-being.">Holistic Wellness Platform</div>
     </div>
 </div>
 

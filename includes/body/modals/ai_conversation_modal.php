@@ -237,6 +237,7 @@ document.head.appendChild(style);
         <span class="close-button" id="closePromptButton" onclick="closePromptContainer()">×</span>
     </div>
     <div id="promptContainer" class="d-flex flex-wrap mb-3">
+        
         <div class="prompt-item" data-prompt="How's the weather today?">Weather</div>
         <div class="prompt-item" data-prompt="Tell me a joke.">Joke</div>
         <div class="prompt-item" data-prompt="What's the latest news?">News</div>
@@ -340,7 +341,6 @@ document.head.appendChild(style);
 <div class="prompt-item" data-prompt="Create a neighborhood art and culture exchange platform that allows users to showcase local artists, organize events, and promote cultural appreciation within their communities.">Neighborhood Art and Culture Exchange</div>
 
 <div class="prompt-item" data-prompt="Develop a holistic wellness platform that integrates physical, mental, and emotional health resources, offering personalized plans and community support for overall well-being.">Holistic Wellness Platform</div>
-    </div>
 </div>
 
 <script>
@@ -400,28 +400,25 @@ document.head.appendChild(style);
 <script>
     let conversations = [];
     let currentConversation = null;
-    let currentAI = 'mistral'; // Default model set to Mistral
-
-    // Open modal
-    document.getElementById('openModalButton').addEventListener('click', function() {
-        document.getElementById('aiChatModal').style.display = 'block';
-    });
+    let currentAI = 'mistral'; // Default AI model
+    const conversationsPerPage = 5; // Number of conversations to show per page
+    let currentPage = 1; // Current page number
 
     // Close modal
-    document.getElementById('closeModalButton').addEventListener('click', function() {
-        document.getElementById('aiChatModal').style.display = 'none';
-    });
+    function closeModal() {
+        document.getElementById('aiConversationModal').style.display = 'none';
+    }
 
     // Close prompt section
-    document.getElementById('closePromptButton').addEventListener('click', function() {
+    function closePromptContainer() {
         document.getElementById('promptContainer').style.display = 'none';
-    });
+    }
 
     // Close conversation
-    document.getElementById('closeConversationButton').addEventListener('click', function() {
+    function closeConversation() {
         document.getElementById('conversationContainer').style.display = 'none';
         document.getElementById('promptContainer').style.display = 'block'; // Show prompt list again
-    });
+    }
 
     // Load conversations from local storage
     function loadConversationsFromStorage() {
@@ -430,35 +427,60 @@ document.head.appendChild(style);
         renderConversations();
     }
 
-    // Render conversations
+    // Render conversations with pagination
     function renderConversations() {
         const conversationList = document.getElementById('conversationList');
         conversationList.innerHTML = '';
-        conversations.forEach((conv, index) => {
+
+        const startIndex = (currentPage - 1) * conversationsPerPage;
+        const endIndex = startIndex + conversationsPerPage;
+        const conversationsToRender = conversations.slice(startIndex, endIndex);
+
+        conversationsToRender.forEach((conv, index) => {
             const convItem = document.createElement('div');
             convItem.className = 'conversation-item';
             convItem.innerHTML = `
-                <span onclick="openConversation(${index})">${conv.title}</span>
+                <span onclick="openConversation(${startIndex + index})">${conv.title}</span>
                 <div>
-                    <i class="fas fa-trash delete-icon" onclick="deleteConversation(${index})"></i>
+                    <i class="fas fa-trash delete-icon" onclick="deleteConversation(${startIndex + index})"></i>
                 </div>
             `;
             conversationList.appendChild(convItem);
         });
+
+        // Show or hide pagination buttons
+        document.getElementById('prevPageButton').style.display = currentPage > 1 ? 'inline-block' : 'none';
+        document.getElementById('nextPageButton').style.display = endIndex < conversations.length ? 'inline-block' : 'none';
     }
+
+    // Previous page button
+    document.getElementById('prevPageButton').addEventListener('click', function() {
+        if (currentPage > 1) {
+            currentPage--;
+            renderConversations();
+        }
+    });
+
+    // Next page button
+    document.getElementById('nextPageButton').addEventListener('click', function() {
+        if (currentPage * conversationsPerPage < conversations.length) {
+            currentPage++;
+            renderConversations();
+        }
+    });
 
     // Open a conversation for continuing
     function openConversation(index) {
         currentConversation = conversations[index];
-        document.getElementById('conversationTitle').innerText = currentConversation.title;
+        document.getElementById('conversationTitle').value = currentConversation.title;
         document.getElementById('conversationMessages').innerHTML = '';
         currentConversation.messages.forEach(msg => {
             const msgDiv = document.createElement('div');
             msgDiv.className = 'response-item';
             msgDiv.innerHTML = `
                 <strong>${msg.role.charAt(0).toUpperCase() + msg.role.slice(1)}:</strong> ${msg.content}
-                <button onclick="editResponse(${index}, '${msg.role}', '${msg.content}')">Edit</button>
-                <button onclick="deleteResponse(${index}, '${msg.role}', '${msg.content}')">Delete</button>
+                <button onclick="editResponse(${index}, '${msg.role}', '${msg.content}')"><i class="fas fa-edit"></i></button>
+                <button onclick="deleteResponse(${index}, '${msg.role}', '${msg.content}')"><i class="fas fa-trash"></i></button>
             `;
             document.getElementById('conversationMessages').appendChild(msgDiv);
         });
@@ -473,7 +495,7 @@ document.head.appendChild(style);
             const title = `${prompt} - ${new Date().toLocaleString()}`;
             currentConversation = { title, messages: [] };
             conversations.push(currentConversation);
-            document.getElementById('conversationTitle').innerText = title;
+            document.getElementById('conversationTitle').value = title;
             document.getElementById('conversationContainer').style.display = 'block';
             document.getElementById('promptContainer').style.display = 'none';
             document.getElementById('conversationMessages').innerHTML = `<div><strong>${prompt}</strong></div>`;
@@ -482,7 +504,7 @@ document.head.appendChild(style);
     });
 
     // Send message
-    document.getElementById('sendMessageButton').addEventListener('click', async function() {
+    async function sendMessage() {
         const messageInput = document.getElementById('messageInput');
         const userMessage = messageInput.value.trim();
         if (!userMessage) return;
@@ -507,11 +529,12 @@ document.head.appendChild(style);
             currentConversation.messages.push({ role: 'ai', content: aiResponse });
             document.getElementById('conversationMessages').innerHTML += `<div><strong>AI:</strong> ${aiResponse}</div>`;
             renderConversations();
+            saveConversationsToStorage();
         } catch (error) {
             console.error('Error generating AI response:', error);
-            document.getElementById('conversationMessages').innerHTML += `<div style="color: red;"><strong>Error:</strong> ${error.message}</div>`;
+            document.getElementById('errorContainer').innerText = `Error: ${error.message}`;
         }
-    });
+    }
 
     // Edit user or AI response
     function editResponse(convIndex, role, content) {
@@ -525,6 +548,7 @@ document.head.appendChild(style);
             });
             renderConversations();
             loadConversationMessages(convIndex);
+            saveConversationsToStorage();
         }
     }
 
@@ -533,6 +557,7 @@ document.head.appendChild(style);
         conversations[convIndex].messages = conversations[convIndex].messages.filter(msg => !(msg.role === role && msg.content === content));
         renderConversations();
         loadConversationMessages(convIndex);
+        saveConversationsToStorage();
     }
 
     // Delete conversation
@@ -551,8 +576,8 @@ document.head.appendChild(style);
             msgDiv.className = 'response-item';
             msgDiv.innerHTML = `
                 <strong>${msg.role.charAt(0).toUpperCase() + msg.role.slice(1)}:</strong> ${msg.content}
-                <button onclick="editResponse(${index}, '${msg.role}', '${msg.content}')">Edit</button>
-                <button onclick="deleteResponse(${index}, '${msg.role}', '${msg.content}')">Delete</button>
+                <button onclick="editResponse(${index}, '${msg.role}', '${msg.content}')"><i class="fas fa-edit"></i></button>
+                <button onclick="deleteResponse(${index}, '${msg.role}', '${msg.content}')"><i class="fas fa-trash"></i></button>
             `;
             messagesContainer.appendChild(msgDiv);
         });
@@ -639,19 +664,6 @@ document.head.appendChild(style);
         }
     }
 
-    // Swap AI model functionality
-    document.getElementById('swapAIButton').addEventListener('click', function() {
-        const aiSelectContainer = document.getElementById('aiSelectContainer');
-        aiSelectContainer.style.display = aiSelectContainer.style.display === 'block' ? 'none' : 'block';
-    });
-
-    // Confirm AI model swap
-    document.getElementById('confirmSwapButton').addEventListener('click', function() {
-        const selectedModel = document.getElementById('aiModelSelect').value;
-        document.getElementById('aiSelect').value = selectedModel; // Update main AI select dropdown
-        document.getElementById('aiSelectContainer').style.display = 'none'; // Hide the swap model dropdown
-    });
-
         // Filter prompts based on search input
         document.getElementById('promptSearch').addEventListener('input', filterPrompts);
 
@@ -669,6 +681,14 @@ document.head.appendChild(style);
         const aiSelectContainer = document.getElementById('aiSelectContainer');
         aiSelectContainer.style.display = aiSelectContainer.style.display === 'block' ? 'none' : 'block';
     });
+
+    // Confirm AI model swap
+    document.getElementById('confirmSwapButton').addEventListener('click', function() {
+        const selectedModel = document.getElementById('aiModelSelect').value;
+        document.getElementById('aiSelect').value = selectedModel; // Update main AI select dropdown
+        document.getElementById('aiSelectContainer').style.display = 'none'; // Hide the swap model dropdown
+    });
+
     // Load conversations on page load
     loadConversationsFromStorage();
 </script>

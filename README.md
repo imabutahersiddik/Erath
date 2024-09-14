@@ -92,6 +92,20 @@ If you find this tool helpful and would like to support its development, you can
 
 Your support is greatly appreciated and will help fund the ongoing development and supporting its developers.
 
+## What's New in This Update (September 15, 2024)
+
+We are excited to announce the latest enhancements to Erath! This update introduces:
+
+- **AI Text Generation**: Leverage advanced AI capabilities to generate high-quality text effortlessly.
+  
+- **AI Conversation Support**: Engage in dynamic conversations with AI, enhancing user interaction through AI chat features.
+
+- **Integration of AI Mistral and Gemini**: Utilize cutting-edge AI models for improved writing and conversational experiences.
+
+- **Expanded Prompt Library**: Access over 99 prompts designed to help you generate and publish content on the web with just one click.
+
+Stay tuned for more exciting features coming in future updates!
+
 ## Contributions
 
 Contributions to this project are welcome. If you find a bug or have a feature suggestion, please open an issue on this GitHub repository. If you'd like to contribute code, please submit a pull request.
