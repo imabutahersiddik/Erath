@@ -960,10 +960,7 @@ document.querySelectorAll('.prompt-item').forEach(item => {
         document.getElementById('generateTextButton').style.display = 'inline-block'; // Show generate button
         document.getElementById('promptSearch').value = ''; // Clear search bar
         filterPrompts(); // Reset prompt filtering
-
-        // Hide prompt container and search form group
-        document.getElementById('promptContainer').style.display = 'none !important'; // Hide prompt list
-        document.getElementById('promptContainer').style.setProperty('display', 'none', 'important');
+        
         document.querySelector('.search-form-group').style.display = 'none'; // Hide search form group
         isPromptHidden = true; // Update the flag to indicate the prompt list is hidden
     });
@@ -973,7 +970,6 @@ document.querySelectorAll('.prompt-item').forEach(item => {
 document.getElementById('closePromptButton').addEventListener('click', function() {
     document.getElementById('selectedPrompt').style.display = 'none'; // Hide selected prompt
     document.getElementById('extraTextContainer').style.display = 'none'; // Hide extra fields
-    document.getElementById('promptContainer').style.display = 'block'; // Show prompt list
     document.getElementById('generateTextButton').style.display = 'none'; // Hide generate button
     document.querySelector('.search-form-group').style.display = 'block'; // Show search form group
     isPromptHidden = false; // Reset the flag to allow hiding again
@@ -981,6 +977,18 @@ document.getElementById('closePromptButton').addEventListener('click', function(
 
 // Filter prompts based on search input
 document.getElementById('promptSearch').addEventListener('input', filterPrompts);
+
+// Hide promptContainer on clicking prompt-item
+document.querySelectorAll('.prompt-item').forEach(item => {
+    item.addEventListener('click', () => {
+        document.getElementById('promptContainer').style.display = 'none !important';
+    });
+});
+
+// Show promptContainer on clicking closePromptButton
+document.getElementById('closePromptButton').addEventListener('click', () => {
+    document.getElementById('promptContainer').style.display = 'block';
+});
 
 // Function to filter prompts
 function filterPrompts() {
