@@ -177,7 +177,7 @@ document.head.appendChild(style);
 <div id="overlay"></div>
 
 <!-- Main AI Conversation Div -->
-<div id="aiConversationModal">
+<div id="aiConversationDiv">
     <div class="aimodal-header">
         <h5>AI Conversation</h5>
         <button type="button" class="close" onclick="closeDiv()">
@@ -247,8 +247,8 @@ document.head.appendChild(style);
 <script>
     $(document).ready(function() {
         // Show the AI conversation div and overlay when the button is clicked
-        $('#aiConModal').on('click', function() {
-            $('#aiConversationModal').fadeIn(); // Show the content div
+        $('#showDivButton').on('click', function() {
+            $('#aiConversationDiv').fadeIn(); // Show the content div
             $('#overlay').fadeIn(); // Show the overlay
         });
 
@@ -260,7 +260,7 @@ document.head.appendChild(style);
 
         // Function to close the AI conversation div and overlay
         window.closeDiv = function() {
-            $('#aiConversationModal').fadeOut(); // Hide the content div
+            $('#aiConversationDiv').fadeOut(); // Hide the content div
             $('#overlay').fadeOut(); // Hide the overlay
         };
 
