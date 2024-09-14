@@ -39,7 +39,7 @@
 
 <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a recipe based on dietary restrictions and health conditions.">Diet Recommendation Engine</div>
 
-<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a humorous story about a student trying to create a fake student ID.">Student Card Generator</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a humorous story about a student trying to create a fake student ID.">Student Mind Generator</div>
 
 <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Generate a collection of uplifting quotes for someone feeling down.">Positivity Boost</div>
 
@@ -289,7 +289,7 @@
 
 <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a home maintenance scheduler. When I type 'how to create a home maintenance schedule', provide a checklist and timeline for regular home maintenance tasks.">Home Maintenance Scheduler</div>
 
-<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a family movie night planner. When I type 'how to organize a family movie night', provide steps and ideas for a fun movie night at home.">Family Movie Night Planner</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a family night planner. When I type 'how to organize a family night', provide steps and ideas for a fun night at home.">Family Night Planner</div>
 
 <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a personal wellness coach. When I type 'how to improve my overall wellness', provide tips and strategies for enhancing physical and mental well-being.">Personal Wellness Coach</div>
 
@@ -297,7 +297,7 @@
 
 <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a mindful eating coach. When I type 'how to practice mindful eating', provide techniques for incorporating mindfulness into eating habits.">Mindful Eating Coach</div>
 
-<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a family game creator. When I type 'how to create a family board game', provide steps and ideas for designing a family-friendly board game.">Family Game Creator</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a family game creator. When I type 'how to create a family game', provide steps and ideas for designing a family-friendly game.">Family Game Creator</div>
 
 <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a personal finance goal setter. When I type 'how to set financial goals', provide a framework for establishing and achieving financial goals.">Personal Finance Goal Setter</div>
 
@@ -359,7 +359,7 @@
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a family emergency planner. When I type 'how to prepare for emergencies', provide a checklist for family emergency preparedness.">Family Emergency Planner</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a self-care advocate. When I type 'how to practice self-care', provide self-care activities and ideas.">Self-Care Advocate</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a personal finance coach. When I type 'how to save for a big purchase', provide a savings plan and tips.">Personal Finance Coach</div>
-            <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a family movie night organizer. When I type 'how to plan a movie night', provide tips for a fun family movie experience.">Family Movie Night Organizer</div>
+            <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a family night organizer. When I type 'how to plan a night', provide tips for a fun family experience.">Family Night Organizer</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a career development advisor. When I type 'how to advance my career', provide tips for professional growth and development.">Career Development Advisor</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a home gardening expert. When I type 'how to start a garden', provide tips for beginner gardeners.">Home Gardening Expert</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a family history researcher. When I type 'how to research my family tree', provide resources for genealogy research.">Family History Researcher</div>
@@ -406,7 +406,7 @@
 
 <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a web Open Graph protocol expert. When I type 'implement Open Graph in HTML', provide HTML code for incorporating Open Graph meta tags to control how a web page appears when shared on social media platforms.">Web Open Graph Protocol Expert</div>
 
-<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a web Twitter Card integrator. When I type 'add Twitter Cards to HTML', provide HTML code for embedding Twitter Card meta tags to enhance the appearance of a web page when shared on Twitter.">Web Twitter Card Integrator</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a web Twitter Mind integrator. When I type 'add Twitter Cards to HTML', provide HTML code for embedding Twitter Mind meta tags to enhance the appearance of a web page when shared on Twitter.">Web Twitter Mind Integrator</div>
 
 <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a web schema.org markup specialist. When I type 'use schema.org in HTML', provide HTML code for incorporating schema.org structured data to improve the understanding and presentation of web content in search engine results.">Web Schema.org Markup Specialist</div>
 
@@ -467,7 +467,7 @@
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a charity event page creator. When I type 'design an HTML charity event page', provide a template for promoting a charity event with details and donation options.">Charity Event Page Creator</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a fitness tracker page builder. When I type 'create an HTML fitness tracker', provide a template for tracking workouts and progress.">Fitness Tracker Page Builder</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a personal finance tracker creator. When I type 'design an HTML finance tracker', provide a template for tracking expenses and budgets.">Personal Finance Tracker Creator</div>
-            <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a movie review page creator. When I type 'create an HTML movie review page', provide a template for writing and displaying movie reviews.">Movie Review Page Creator</div>
+            <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a review page creator. When I type 'create an HTML review page', provide a template for writing and displaying reviews."> Review Page Creator</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a book review page builder. When I type 'design an HTML book review page', provide a template for writing and displaying book reviews.">Book Review Page Builder</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a DIY project page creator. When I type 'create an HTML DIY project page', provide a template for showcasing DIY projects with instructions and materials.">DIY Project Page Creator</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a gardening tips page builder. When I type 'design an HTML gardening tips page', provide a template for sharing gardening advice and tips.">Gardening Tips Page Builder</div>
@@ -476,7 +476,7 @@
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a fashion tips page creator. When I type 'create an HTML fashion tips page', provide a template for sharing fashion advice and style tips.">Fashion Tips Page Creator</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a home improvement tips page builder. When I type 'design an HTML home improvement tips page', provide a template for sharing home improvement advice and projects.">Home Improvement Tips Page Builder</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a technology review page creator. When I type 'create an HTML tech review page', provide a template for writing and displaying technology product reviews.">Technology Review Page Creator</div>
-            <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a music playlist page builder. When I type 'design an HTML music playlist page', provide a template for sharing music playlists and recommendations.">Music Playlist Page Builder</div>
+            <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a playlist page builder. When I type 'design an HTML playlist page', provide a template for sharing playlists and recommendations."> Playlist Page Builder</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a personal development tips page creator. When I type 'create an HTML personal development tips page', provide a template for sharing personal growth advice and resources.">Personal Development Tips Page Creator</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a mindfulness tips page builder. When I type 'design an HTML mindfulness tips page', provide a template for sharing mindfulness practices and techniques.">Mindfulness Tips Page Builder</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a travel itinerary page creator. When I type 'create an HTML travel itinerary page', provide a template for sharing travel plans and itineraries.">Travel Itinerary Page Creator</div>
@@ -527,7 +527,7 @@
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a local tourism page creator. When I type 'create an HTML local tourism page', provide a template for promoting local tourist attractions and activities.">Local Tourism Page Creator</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a sustainability tips page builder. When I type 'design an HTML sustainability tips page', provide a template for sharing tips on sustainable living.">Sustainability Tips Page Builder</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a community health initiatives page creator. When I type 'create an HTML community health initiatives page', provide a template for promoting health initiatives in the community.">Community Health Initiatives Page Creator</div>
-            <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a local music scene page builder. When I type 'design an HTML local music scene page', provide a template for showcasing local musicians and music events.">Local Music Scene Page Builder</div>
+            <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a local scene page builder. When I type 'design an HTML local scene page', provide a template for showcasing local ians and events.">Local Scene Page Builder</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a personal development resources page creator. When I type 'create an HTML personal development resources page', provide a template for listing books, courses, and workshops for personal growth.">Personal Development Resources Page Creator</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a local environmental initiatives page builder. When I type 'design an HTML local environmental initiatives page', provide a template for promoting local environmental efforts and projects.">Local Environmental Initiatives Page Builder</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a community arts and crafts page creator. When I type 'create an HTML community arts and crafts page', provide a template for showcasing local arts and crafts events and projects.">Community Arts and Crafts Page Creator</div>
@@ -549,6 +549,360 @@
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a local cultural heritage page creator. When I type 'create an HTML local cultural heritage page', provide a template for showcasing local cultural heritage and traditions.">Local Cultural Heritage Page Creator</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a community wellness page builder. When I type 'design an HTML community wellness page', provide a template for promoting wellness resources and programs in the community.">Community Wellness Page Builder</div>
             <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Act as a local education resources page creator. When I type 'create an HTML local education resources page', provide a template for listing educational resources and programs available in the community.">Local Education Resources Page Creator</div>
+            
+            <div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write an HTML web page about my bio, including sections for my education, work experience, skills, and hobbies, with a responsive design.">HTML Bio Page</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a CSS stylesheet that styles a personal blog, including typography, color schemes, and responsive layouts for mobile devices.">CSS Blog Stylesheet</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a JavaScript function that validates a user registration form, checking for valid email format, password strength, and required fields.">JavaScript Form Validation</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Python script that reads a CSV file containing user data and outputs a summary report of the data, including averages and counts.">Python CSV Report Generator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a PHP script that connects to a MySQL database and retrieves user information, displaying it in an HTML table.">PHP MySQL User Retrieval</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a React component that displays a list of tasks, allowing users to add, edit, and delete tasks with local storage support.">React Task List Component</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Node.js server application that serves a static HTML page and handles API requests for user data.">Node.js Static Server</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Java program that implements a simple banking system, allowing users to create accounts, deposit, withdraw, and check balances.">Java Banking System</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Ruby on Rails application that manages a library system, including models for books, authors, and users, with CRUD functionality.">Ruby on Rails Library Management</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Swift application that displays a list of s fetched from an API, allowing users to search and filter the results.">Swift List App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Kotlin Android app that tracks user expenses, allowing users to add, edit, and delete expense entries with a summary view.">Kotlin Expense Tracker App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a SQL database schema for an e-commerce application, including tables for products, orders, and customers, with relationships defined.">SQL E-commerce Schema</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write an HTML form that collects user feedback, including fields for name, email, rating, and comments, with basic validation.">HTML Feedback Form</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a JavaScript function that fetches weather data from an API and displays it on a web page.">JavaScript Weather Fetcher</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Python script that scrapes data from a website and stores it in a JSON file.">Python Web Scraper</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a C# application that manages a to-do list, allowing users to add, complete, and delete tasks with a graphical user interface.">C# To-Do List App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a TypeScript function that calculates the factorial of a number using recursion.">TypeScript Factorial Function</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Flask web application that allows users to register, log in, and manage their profiles.">Flask User Management App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Bash script that automates the backup of a directory to a specified location.">Bash Backup Script</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create an HTML page with a responsive navigation bar and a footer, using CSS Flexbox for layout.">HTML Responsive Navigation</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a JavaScript function that creates a countdown timer and displays it on a web page.">JavaScript Countdown Timer</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Python script that generates random passwords based on user-defined criteria (length, use of symbols, etc.).">Python Password Generator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a PHP form handler that processes user input from a contact form and sends an email notification.">PHP Contact Form Handler</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a React app that fetches and displays a list of users from an API, with the ability to view user details.">React User List App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Node.js application that implements a simple chat server using WebSocket.">Node.js Chat Server</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Java program that implements a simple quiz game with multiple-choice questions and scoring.">Java Quiz Game</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Ruby script that reads a text file and counts the frequency of each word.">Ruby Word Frequency Counter</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a SwiftUI application that displays a list of contacts, allowing users to add and delete contacts.">SwiftUI Contacts App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Kotlin function that sorts an array of integers in ascending order using the bubble sort algorithm.">Kotlin Bubble Sort Function</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a SQL query that retrieves the top 10 most expensive products from an e-commerce database.">SQL Expensive Products Query</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write an HTML page that includes a photo gallery with images that can be clicked to view in a larger size.">HTML Photo Gallery</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a JavaScript function that filters an array of objects based on a specified property value.">JavaScript Object Filter</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Python script that connects to a REST API and retrieves data, displaying it in a formatted way.">Python API Data Fetcher</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a PHP script that generates a PDF report from user input data.">PHP PDF Report Generator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a React component that implements a simple counter with increment and decrement buttons.">React Counter Component</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Node.js application that serves a RESTful API for managing a collection of books.">Node.js Book API</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Java application that implements a simple text-based game, allowing users to make choices that affect the outcome.">Java Text-Based Game</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Ruby on Rails application that allows users to create and manage events, with RSVP functionality.">Ruby on Rails Event Manager</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Swift application that fetches and displays the latest news articles from an API.">Swift News App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Kotlin application that allows users to track their fitness activities, including logging workouts and progress tracking.">Kotlin Fitness Tracker</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a SQL script that creates a table for storing customer reviews, including fields for rating, comments, and timestamps.">SQL Customer Reviews Table</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create an HTML page with a contact form that uses JavaScript to validate the input before submission.">HTML Contact Form with Validation</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a JavaScript function that generates a random quote from an array of quotes and displays it on a web page.">JavaScript Random Quote Generator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Python script that analyzes a text file and outputs the most common words and their frequencies.">Python Text Analysis Script</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a PHP script that creates a simple user authentication system with login and registration functionality.">PHP User Authentication</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a React app that allows users to create and manage a shopping list, with local storage support.">React Shopping List App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Node.js application that implements a simple blog with CRUD functionality for posts.">Node.js Blog Application</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Java program that simulates a simple ATM, allowing users to check balance, deposit, and withdraw funds.">Java ATM Simulator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Ruby script that generates a random password based on specified criteria (length, use of symbols, etc.).">Ruby Password Generator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a SwiftUI application that allows users to track their reading progress and manage a list of books.">SwiftUI Reading Tracker</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Kotlin function that checks if a string is a palindrome.">Kotlin Palindrome Checker</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a SQL query that retrieves all orders placed by a specific customer from an e-commerce database.">SQL Customer Orders Query</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write an HTML page that includes a simple calculator using JavaScript for basic arithmetic operations.">HTML Calculator Page</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a JavaScript function that toggles the visibility of an element on a web page.">JavaScript Toggle Visibility</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Python script that sends an email notification based on user-defined triggers.">Python Email Notification Script</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a PHP script that handles file uploads and stores them in a specified directory.">PHP File Upload Handler</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a React component that implements a simple image slider with next and previous buttons.">React Image Slider Component</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Node.js application that serves a static website with routing for different pages.">Node.js Static Website Server</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Java application that implements a simple contact management system with add, edit, and delete functionality.">Java Contact Management System</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Ruby on Rails application that allows users to create a personal blog, with features for posts and comments.">Ruby on Rails Personal Blog</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Swift application that allows users to create and manage a list of favorite recipes.">Swift Recipe Manager App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Kotlin application that fetches and displays quotes from an API, with the ability to share quotes.">Kotlin Quote Fetcher App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a SQL script that updates the prices of products in an e-commerce database based on a specified percentage increase.">SQL Price Update Script</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create an HTML page with a responsive grid layout for displaying a portfolio of projects.">HTML Portfolio Grid</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a JavaScript function that filters an array of numbers to return only even numbers.">JavaScript Even Number Filter</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Python script that generates a weekly meal plan based on user preferences.">Python Meal Planner Script</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a PHP script that retrieves and displays user profiles from a database with pagination.">PHP User Profile Display</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a React app that allows users to create and manage a personal journal with entries saved to local storage.">React Journal App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Node.js application that implements a simple URL shortener service.">Node.js URL Shortener</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Java program that implements a simple inventory management system with add, remove, and view functionality.">Java Inventory Management System</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Ruby script that fetches and displays the current weather for a specified location using an API.">Ruby Weather Fetcher</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a SwiftUI application that allows users to track their habits and set reminders.">SwiftUI Habit Tracker</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Kotlin function that calculates the Fibonacci sequence up to a specified number.">Kotlin Fibonacci Function</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a SQL query that retrieves the top-rated products from an e-commerce database.">SQL Top-Rated Products Query</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write an HTML page that includes a simple quiz with multiple-choice questions and displays the score at the end.">HTML Quiz Page</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a JavaScript function that converts temperatures between Celsius and Fahrenheit.">JavaScript Temperature Converter</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Python script that automates the process of sending birthday reminders via email.">Python Birthday Reminder Script</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a PHP script that generates a simple contact list with add, edit, and delete functionality.">PHP Contact List Manager</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a React component that implements a simple stopwatch with start, stop, and reset functionality.">React Stopwatch Component</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Node.js application that serves a simple blog with user authentication and post management.">Node.js Blog with Auth</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Java application that implements a simple voting system with candidates and vote counting.">Java Voting System</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Ruby on Rails application that allows users to create and manage their personal budgets.">Ruby on Rails Budget Manager</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Swift application that allows users to create and manage a list of tasks with deadlines.">Swift Task Manager App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Kotlin application that fetches and displays trivia questions from an API, allowing users to answer them.">Kotlin Trivia App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a SQL script that creates a table for storing user feedback with fields for rating and comments.">SQL User Feedback Table</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create an HTML page with a simple timer that counts down from a specified time.">HTML Countdown Timer</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a JavaScript function that generates a random color and applies it to the background of a web page.">JavaScript Random Color Generator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Python script that analyzes sales data and generates a summary report.">Python Sales Data Analyzer</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a PHP script that handles user login and session management for a web application.">PHP User Login System</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a React app that allows users to create and manage a list of favorite books, with the ability to add notes and ratings.">React Favorite Books App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Node.js application that implements a simple recipe API, allowing users to create, read, update, and delete recipes.">Node.js Recipe API</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Java program that implements a simple text editor with features for opening, editing, and saving text files.">Java Text Editor</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Ruby script that fetches and displays the latest tweets from a specific Twitter account using the Twitter API.">Ruby Twitter Fetcher</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a SwiftUI application that allows users to track their water intake and set daily goals.">SwiftUI Water Tracker App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Kotlin function that checks if a number is prime and returns true or false.">Kotlin Prime Checker</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a SQL query that retrieves all products with a discount greater than a specified percentage from an e-commerce database.">SQL Discounted Products Query</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write an HTML page that includes a simple survey form with multiple-choice questions and a submit button.">HTML Survey Form</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a JavaScript function that calculates the area of a rectangle based on user input.">JavaScript Rectangle Area Calculator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Python script that automates the process of downloading images from a specified URL.">Python Image Downloader Script</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a PHP script that generates a dynamic sitemap for a website based on its pages.">PHP Dynamic Sitemap Generator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a React component that implements a simple login form with validation and error messages.">React Login Form Component</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Node.js application that implements a simple task manager with user authentication and task assignment.">Node.js Task Manager App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Java application that simulates a simple rock-paper-scissors game between the user and the computer.">Java Rock-Paper-Scissors Game</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Ruby on Rails application that allows users to create and manage their personal journals with entries and tags.">Ruby on Rails Journal Manager</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Swift application that allows users to create and manage a list of goals with deadlines and reminders.">Swift Goals Manager App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Kotlin application that fetches and displays trivia questions from an API, allowing users to answer them and see scores.">Kotlin Trivia Quiz App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a SQL script that creates a table for storing employee information, including fields for name, position, and salary.">SQL Employee Table Creation</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create an HTML page with a simple feedback form that uses JavaScript to display a thank-you message upon submission.">HTML Feedback Form with Thank You</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a JavaScript function that generates a random password based on user-defined criteria (length, use of symbols, etc.).">JavaScript Random Password Generator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Python script that connects to a database and retrieves user information based on a search query.">Python Database User Retrieval</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a PHP script that implements a simple blog with user authentication and post management.">PHP Blog Application</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a React app that allows users to create and manage a list of fitness activities, tracking their progress over time.">React Fitness Activities Tracker</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Node.js application that implements a simple note-taking service with user authentication and note management.">Node.js Note-Taking Service</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Java program that implements a simple library management system with features for adding and removing books.">Java Library Management System</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Ruby script that generates a report of sales data from a CSV file, summarizing total sales and average sales per item.">Ruby Sales Report Generator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a SwiftUI application that allows users to track their sleep patterns and set sleep goals.">SwiftUI Sleep Tracker App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Kotlin function that calculates the greatest common divisor (GCD) of two numbers.">Kotlin GCD Function</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a SQL query that retrieves all active users from a user management database.">SQL Active Users Query</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write an HTML page that includes a simple calculator using JavaScript for basic arithmetic operations.">HTML Calculator Page</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a JavaScript function that checks if a string contains only digits.">JavaScript Digit Checker</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Python script that sends a daily weather report to users via email based on their location.">Python Daily Weather Email Script</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a PHP script that handles user registration and stores user data in a database.">PHP User Registration Script</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a React component that implements a simple timer with start, stop, and reset functionality.">React Timer Component</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Node.js application that implements a simple blog with comments and user authentication.">Node.js Blog with Comments</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Java application that simulates a simple card game, allowing users to draw and play cards.">Java Mind Game Simulator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Ruby on Rails application that allows users to create and manage their workout routines with tracking features.">Ruby on Rails Workout Manager</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Swift application that allows users to create and manage a list of travel destinations with notes and photos.">Swift Travel Planner App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Kotlin application that fetches and displays jokes from an API, allowing users to share their favorites.">Kotlin Joke Fetcher App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a SQL script that creates a table for storing product reviews, including fields for rating, comment, and user ID.">SQL Product Reviews Table Creation</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create an HTML page with a simple quiz that uses JavaScript to calculate and display the score at the end.">HTML Quiz with Score Display</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a JavaScript function that validates an email address format using regular expressions.">JavaScript Email Validator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Python script that automates the process of generating weekly reports from user data in a CSV file.">Python Weekly Report Generator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a PHP script that implements a simple content management system with user roles and permissions.">PHP Content Management System</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a React app that allows users to create and manage a list of favorite s, with the ability to add reviews.">React Manager App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Node.js application that implements a simple event management system with user registration and event creation.">Node.js Event Management System</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Java program that implements a simple password manager, allowing users to store and retrieve passwords securely.">Java Password Manager</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Ruby script that fetches and displays the current stock prices for specified companies using an API.">Ruby Stock Price Fetcher</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a SwiftUI application that allows users to track their fitness goals and progress over time.">SwiftUI Fitness Goals Tracker</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Kotlin function that converts temperatures between Celsius and Fahrenheit.">Kotlin Temperature Converter</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a SQL query that retrieves all orders placed within the last month from an e-commerce database.">SQL Recent Orders Query</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write an HTML page that includes a simple form for user registration with validation using JavaScript.">HTML Registration Form with Validation</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a JavaScript function that generates a random quote from an array of quotes and displays it on a web page.">JavaScript Random Quote Generator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Python script that connects to a REST API and retrieves data, displaying it in a formatted way.">Python API Data Fetcher</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a PHP script that handles file uploads and stores them in a specified directory.">PHP File Upload Handler</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a React component that implements a simple image slider with next and previous buttons.">React Image Slider Component</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Node.js application that serves a simple blog with user authentication and post management.">Node.js Blog with Auth</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Java application that implements a simple voting system with candidates and vote counting.">Java Voting System</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Ruby on Rails application that allows users to create and manage their personal budgets.">Ruby on Rails Budget Manager</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Swift application that allows users to create and manage a list of tasks with deadlines.">Swift Task Manager App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Kotlin application that fetches and displays quotes from an API, with the ability to share quotes.">Kotlin Quote Fetcher App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a SQL script that creates a table for storing user feedback with fields for rating and comments.">SQL User Feedback Table</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create an HTML page with a simple timer that counts down from a specified time.">HTML Countdown Timer</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a JavaScript function that toggles the visibility of an element on a web page.">JavaScript Toggle Visibility</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Python script that analyzes sales data and generates a summary report.">Python Sales Data Analyzer</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a PHP script that retrieves and displays user profiles from a database with pagination.">PHP User Profile Display</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a React app that allows users to create and manage a personal journal with entries saved to local storage.">React Journal App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Node.js application that implements a simple note-taking service with user authentication and note management.">Node.js Note-Taking Service</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Java program that implements a simple contact management system with add, edit, and delete functionality.">Java Contact Management System</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Ruby script that generates a random password based on specified criteria (length, use of symbols, etc.).">Ruby Password Generator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a SwiftUI application that allows users to track their sleep patterns and set sleep goals.">SwiftUI Sleep Tracker App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Kotlin function that calculates the greatest common divisor (GCD) of two numbers.">Kotlin GCD Function</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a SQL query that retrieves all active users from a user management database.">SQL Active Users Query</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write an HTML page that includes a simple calculator using JavaScript for basic arithmetic operations.">HTML Calculator Page</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a JavaScript function that checks if a string contains only digits.">JavaScript Digit Checker</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Python script that sends a daily weather report to users via email based on their location.">Python Daily Weather Email Script</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a PHP script that handles user registration and stores user data in a database.">PHP User Registration Script</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a React component that implements a simple timer with start, stop, and reset functionality.">React Timer Component</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Node.js application that implements a simple blog with comments and user authentication.">Node.js Blog with Comments</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Java application that simulates a simple card game, allowing users to draw and play cards.">Java Mind Game Simulator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Ruby on Rails application that allows users to create and manage their workout routines with tracking features.">Ruby on Rails Workout Manager</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a Swift application that allows users to create and manage a list of travel destinations with notes and photos.">Swift Travel Planner App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Kotlin application that fetches and displays trivia questions from an API, allowing users to answer them and see scores.">Kotlin Trivia Quiz App</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a SQL script that creates a table for storing product reviews, including fields for rating, comment, and user ID.">SQL Product Reviews Table Creation</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create an HTML page with a simple quiz that uses JavaScript to calculate and display the score at the end.">HTML Quiz with Score Display</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a JavaScript function that validates an email address format using regular expressions.">JavaScript Email Validator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Create a Python script that automates the process of generating weekly reports from user data in a CSV file.">Python Weekly Report Generator</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-prompt="Write a PHP script that implements a simple content management system with user roles and permissions.">PHP Content Management System</div>
                 </div>
                 <div id="extraTextContainer" style="display: none;">
                     <div class="form-group">
