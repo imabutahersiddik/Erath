@@ -1,3 +1,177 @@
+
+<script>
+// Create a style element
+const style = document.createElement('style');
+
+// Set the CSS content
+style.textContent = `
+.aiConversationModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .aimodal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .aimodal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .aimodal-header h5 {
+            margin: 0;
+            flex-grow: 1;
+        }
+        .search-form-group {
+            margin-bottom: 15px;
+        }
+        .conversation-list {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .conversation-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .delete-icon {
+            display: none;
+            cursor: pointer;
+            color: red;
+        }
+        .conversation-item:hover .delete-icon {
+            display: inline;
+        }
+        #conversationMessages {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .prompt-item {
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .prompt-item:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .input-group {
+            display: flex;
+            margin-top: 10px;
+        }
+        #messageInput {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+        .response-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        .response-item button {
+            margin-left: 10px;
+            background-color: #dc3545; /* Red for delete */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+        .response-item button:hover {
+            background-color: #c82333; /* Darker red on hover */
+        }
+        .edit-title {
+            flex-grow: 1;
+            border: none;
+            padding: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+        #swapAIButton {
+            margin-left: 10px;
+        }
+        .aipagination {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .error-message {
+            color: red;
+        }
+        /* Style for the main AI conversation div */
+        #aiConversationDiv {
+            display: none; /* Initially hidden */
+            position: fixed; /* Fixed position */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust for centering */
+            width: 80%; /* Width of the div */
+            max-width: 600px; /* Max width */
+            background-color: white; /* Background color */
+            border: 1px solid #ccc; /* Border */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow */
+            z-index: 1050; /* Ensure it appears above other content */
+            padding: 20px; /* Padding inside the div */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        /* Style for the overlay */
+        #overlay {
+            display: none; /* Initially hidden */
+            position: fixed; /* Fixed position */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            z-index: 1040; /* Ensure it appears below the visible div */
+        }
+
+        /* Style for the prompts div */
+        #promptsDiv {
+            display: none; /* Initially hidden */
+            position: fixed; /* Fixed position */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust for centering */
+            width: 80%; /* Width of the div */
+            max-width: 600px; /* Max width */
+            background-color: white; /* Background color */
+            border: 1px solid #ccc; /* Border */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow */
+            z-index: 1050; /* Ensure it appears above other content */
+            padding: 20px; /* Padding inside the div */
+            border-radius: 5px; /* Rounded corners */
+        }
+`;
+
+// Append the style element to the head of the document
+document.head.appendChild(style);
+</script>
 <!-- AI Conversation Modal -->
 <!-- Overlay -->
 <div id="overlay"></div>
@@ -70,6 +244,60 @@
     </div>
 </div>
 
+<script>
+    $(document).ready(function() {
+        // Show the AI conversation div and overlay when the button is clicked
+        $('#aiConModal').on('click', function() {
+            $('#aiConversationModal').fadeIn(); // Show the content div
+            $('#overlay').fadeIn(); // Show the overlay
+        });
+
+        // Show the prompts div and overlay when the button is clicked
+        $('#showPromptsButton').on('click', function() {
+            $('#promptsDiv').fadeIn(); // Show the prompts div
+            $('#overlay').fadeIn(); // Show the overlay
+        });
+
+        // Function to close the AI conversation div and overlay
+        window.closeDiv = function() {
+            $('#aiConversationModal').fadeOut(); // Hide the content div
+            $('#overlay').fadeOut(); // Hide the overlay
+        };
+
+        // Function to close the prompts div and overlay
+        window.closePromptsDiv = function() {
+            $('#promptsDiv').fadeOut(); // Hide the prompts div
+            $('#overlay').fadeOut(); // Hide the overlay
+        };
+
+        // Hide the divs and overlay when the overlay is clicked
+        $('#overlay').on('click', function() {
+            closeDiv(); // Hide the AI conversation div
+            closePromptsDiv(); // Hide the prompts div
+        });
+    });
+
+    // Function to filter prompts based on user input
+    function filterPrompts() {
+        const searchInput = document.getElementById('promptSearch').value.toLowerCase();
+        const prompts = document.querySelectorAll('.prompt-item');
+
+        prompts.forEach(prompt => {
+            const promptText = prompt.textContent.toLowerCase();
+            const promptData = prompt.getAttribute('data-prompt').toLowerCase(); // Get data-prompt attribute
+            if (promptText.includes(searchInput) || promptData.includes(searchInput)) {
+                prompt.style.display = 'block'; // Show matching prompts
+            } else {
+                prompt.style.display = 'none'; // Hide non-matching prompts
+            }
+        });
+    }
+
+    // Function to close the prompt container (if needed)
+    function closePromptContainer() {
+        $('#promptContainer').fadeOut(); // Hide the prompt container
+    }
+</script>
 <script>
     let conversations = [];
     let currentConversation = null;
@@ -348,231 +576,4 @@
 
     // Load conversations on page load
     loadConversationsFromStorage();
-</script>
-<script>
-// Create a style element
-const style = document.createElement('style');
-
-// Set the CSS content
-style.textContent = `
-.aiConversationModal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-        .aimodal-content {
-            background-color: #fefefe;
-            margin: 10% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .aimodal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .aimodal-header h5 {
-            margin: 0;
-            flex-grow: 1;
-        }
-        .search-form-group {
-            margin-bottom: 15px;
-        }
-        .conversation-list {
-            max-height: 200px;
-            overflow-y: auto;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        .conversation-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-        .delete-icon {
-            display: none;
-            cursor: pointer;
-            color: red;
-        }
-        .conversation-item:hover .delete-icon {
-            display: inline;
-        }
-        #conversationMessages {
-            max-height: 300px;
-            overflow-y: auto;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        .prompt-item {
-            margin: 5px;
-            padding: 10px;
-            border: 1px solid #007bff;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .prompt-item:hover {
-            background-color: #007bff;
-            color: white;
-        }
-        .input-group {
-            display: flex;
-            margin-top: 10px;
-        }
-        #messageInput {
-            flex-grow: 1;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            resize: none;
-        }
-        .response-item {
-            display: flex;
-            justify-content: space-between;
-            margin: 5px 0;
-        }
-        .response-item button {
-            margin-left: 10px;
-            background-color: #dc3545; /* Red for delete */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
-        }
-        .response-item button:hover {
-            background-color: #c82333; /* Darker red on hover */
-        }
-        .edit-title {
-            flex-grow: 1;
-            border: none;
-            padding: 5px;
-            font-size: 16px;
-            outline: none;
-        }
-        #swapAIButton {
-            margin-left: 10px;
-        }
-        .aipagination {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-        .error-message {
-            color: red;
-        }
-        /* Style for the main AI conversation div */
-        #aiConversationDiv {
-            display: none; /* Initially hidden */
-            position: fixed; /* Fixed position */
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%); /* Adjust for centering */
-            width: 80%; /* Width of the div */
-            max-width: 600px; /* Max width */
-            background-color: white; /* Background color */
-            border: 1px solid #ccc; /* Border */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow */
-            z-index: 1050; /* Ensure it appears above other content */
-            padding: 20px; /* Padding inside the div */
-            border-radius: 5px; /* Rounded corners */
-        }
-
-        /* Style for the overlay */
-        #overlay {
-            display: none; /* Initially hidden */
-            position: fixed; /* Fixed position */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-            z-index: 1040; /* Ensure it appears below the visible div */
-        }
-
-        /* Style for the prompts div */
-        #promptsDiv {
-            display: none; /* Initially hidden */
-            position: fixed; /* Fixed position */
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%); /* Adjust for centering */
-            width: 80%; /* Width of the div */
-            max-width: 600px; /* Max width */
-            background-color: white; /* Background color */
-            border: 1px solid #ccc; /* Border */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow */
-            z-index: 1050; /* Ensure it appears above other content */
-            padding: 20px; /* Padding inside the div */
-            border-radius: 5px; /* Rounded corners */
-        }
-`;
-
-// Append the style element to the head of the document
-document.head.appendChild(style);
-</script>
-<script>
-    $(document).ready(function() {
-        // Show the AI conversation div and overlay when the button is clicked
-        $('#showDivButton').on('click', function() {
-            $('#aiConversationModal').fadeIn(); // Show the content div
-            $('#overlay').fadeIn(); // Show the overlay
-        });
-
-        // Show the prompts div and overlay when the button is clicked
-        $('#showPromptsButton').on('click', function() {
-            $('#promptsDiv').fadeIn(); // Show the prompts div
-            $('#overlay').fadeIn(); // Show the overlay
-        });
-
-        // Function to close the AI conversation div and overlay
-        window.closeDiv = function() {
-            $('#aiConversationModal').fadeOut(); // Hide the content div
-            $('#overlay').fadeOut(); // Hide the overlay
-        };
-
-        // Function to close the prompts div and overlay
-        window.closePromptsDiv = function() {
-            $('#promptsDiv').fadeOut(); // Hide the prompts div
-            $('#overlay').fadeOut(); // Hide the overlay
-        };
-
-        // Hide the divs and overlay when the overlay is clicked
-        $('#overlay').on('click', function() {
-            closeDiv(); // Hide the AI conversation div
-            closePromptsDiv(); // Hide the prompts div
-        });
-    });
-
-    // Function to filter prompts based on user input
-    function filterPrompts() {
-        const searchInput = document.getElementById('promptSearch').value.toLowerCase();
-        const prompts = document.querySelectorAll('.prompt-item');
-
-        prompts.forEach(prompt => {
-            const promptText = prompt.textContent.toLowerCase();
-            const promptData = prompt.getAttribute('data-prompt').toLowerCase(); // Get data-prompt attribute
-            if (promptText.includes(searchInput) || promptData.includes(searchInput)) {
-                prompt.style.display = 'block'; // Show matching prompts
-            } else {
-                prompt.style.display = 'none'; // Hide non-matching prompts
-            }
-        });
-    }
-
-    // Function to close the prompt container (if needed)
-    function closePromptContainer() {
-        $('#promptContainer').fadeOut(); // Hide the prompt container
-    }
 </script>

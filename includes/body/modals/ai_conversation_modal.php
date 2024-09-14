@@ -5,7 +5,7 @@ const style = document.createElement('style');
 
 // Set the CSS content
 style.textContent = `
-.aiConversationModal {
+#aiConversationModal {
             display: none;
             position: fixed;
             z-index: 1000;
