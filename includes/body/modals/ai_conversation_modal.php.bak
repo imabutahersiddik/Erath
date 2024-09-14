@@ -64,25 +64,36 @@
     let currentPage = 1; // Current page number
 
     // Open aimodal
-    document.getElementById('openaimodalButton').addEventListener('click', function() {
-        document.getElementById('aiConversationModal').style.display = 'block';
-    });
+document.getElementById('openaimodalButton').addEventListener('click', function() {
+    document.getElementById('aiConversationModal').style.display = 'block';
+});
 
-    // Close aimodal
-    document.getElementById('closeaimodalButton').addEventListener('click', function() {
-        document.getElementById('aiConversationModal').style.display = 'none';
-    });
+// Close aimodal
+document.getElementById('closeaimodalButton').addEventListener('click', closeModal);
 
-    // Close prompt section
-    document.getElementById('closePromptButton').addEventListener('click', function() {
-        document.getElementById('promptContainer').style.display = 'none';
-    });
+// Close modal on clicking outside of it
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('aiConversationModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+});
 
-    // Close conversation
-    document.getElementById('closeConversationButton').addEventListener('click', function() {
-        document.getElementById('conversationContainer').style.display = 'none';
-        document.getElementById('promptContainer').style.display = 'block'; // Show prompt list again
-    });
+// Function to close the modal
+function closeModal() {
+    document.getElementById('aiConversationModal').style.display = 'none';
+}
+
+// Close prompt section
+document.getElementById('closePromptButton').addEventListener('click', function() {
+    document.getElementById('promptContainer').style.display = 'none';
+});
+
+// Close conversation
+document.getElementById('closeConversationButton').addEventListener('click', function() {
+    document.getElementById('conversationContainer').style.display = 'none';
+    document.getElementById('promptContainer').style.display = 'block'; // Show prompt list again
+});
 
     // Load conversations from local storage
     function loadConversationsFromStorage() {
