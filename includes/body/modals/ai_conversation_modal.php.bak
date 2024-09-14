@@ -3,15 +3,16 @@
     <div class="modal-dialog" role="document" style="max-width: 100%">
         <div class="aimodal-content">
             <div class="aimodal-header">
-                <h5>AI Conversation</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <h5>AI Conversation</h5> 
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
+                    <span aria-hidden="true">&#215;</span>
                 </button>
             </div>
             <div class="search-form-group">
                 <label for="aiSelect">Select AI Model:</label>
                 <select id="aiSelect">
                     <option value="gemini">Gemini</option>
-                    <option value="mistral" selected>Mistral</option>
+                    <option value="mistral" selected="selected">Mistral</option>
                 </select>
             </div>
             <div class="search-form-group">
@@ -29,8 +30,8 @@
                 </div>
             </nav>
             <div class="search-form-group">
-                <input type="text" id="promptSearch" placeholder="Search prompts..." />
-                <span class="close-button" id="closePromptButton">&times;</span>
+                <input type="text" id="promptSearch" placeholder="Search prompts..." onkeyup="filterPrompts()" />
+                <span class="close-button" id="closePromptButton" onclick="closePromptContainer()">&#215;</span>
             </div>
             <div id="promptContainer" class="d-flex flex-wrap mb-3">
                 <div class="prompt-item" data-prompt="How's the weather today?">Weather</div>
@@ -41,16 +42,17 @@
             <div id="conversationContainer" style="display: none;">
                 <div class="aimodal-header">
                     <input type="text" id="conversationTitle" class="edit-title" />
-                    <button id="closeConversationButton" class="close-button">Close</button>
+                    <button id="closeConversationButton" class="close-button" onclick="closeConversation()">Close</button>
                 </div>
                 <div id="conversationMessages">
                     <!-- Messages will be dynamically added here -->
                 </div>
                 <div class="input-group">
                     <textarea id="messageInput" rows="3" placeholder="Type your message..."></textarea>
-                    <button id="sendMessageButton"><i class="fas fa-paper-plane"></i> Send</button>
+                    <button id="sendMessageButton" onclick="sendMessage()"><i class="fas fa-paper-plane"></i> Send</button>
                     <button id="swapAIButton"><i class="fas fa-exchange-alt"></i> Swap AI</button>
                 </div>
+                <div id="errorContainer" class="error-message"></div>
             </div>
         </div>
     </div>
@@ -63,37 +65,21 @@
     const conversationsPerPage = 5; // Number of conversations to show per page
     let currentPage = 1; // Current page number
 
-// Close aimodal
-document.getElementById('closeaimodalButton').addEventListener('click', closeModal);
-
-// Close modal on clicking outside of it
-window.addEventListener('click', function(event) {
-    const modal = document.getElementById('aiConversationModal');
-    if (event.target === modal) {
-        closeModal();
+    // Close modal
+    function closeModal() {
+        document.getElementById('aiConversationModal').style.display = 'none';
     }
-});
 
-// Function to close the modal
-function closeModal() {
-    document.getElementById('aiConversationModal').style.display = 'none';
-}
+    // Close prompt section
+    function closePromptContainer() {
+        document.getElementById('promptContainer').style.display = 'none';
+    }
 
-// Close prompt section
-document.getElementById('closePromptButton').addEventListener('click', function() {
-    document.getElementById('promptContainer').style.display = 'none';
-});
-
-// Close conversation
-document.getElementById('closeConversationButton').addEventListener('click', function() {
-    document.getElementById('conversationContainer').style.display = 'none';
-    document.getElementById('promptContainer').style.display = 'block'; // Show prompt list again
-});
-
-const handleItemClick = (event) => {
-    event.stopPropagation();
-    // Handle your item click logic here
-};
+    // Close conversation
+    function closeConversation() {
+        document.getElementById('conversationContainer').style.display = 'none';
+        document.getElementById('promptContainer').style.display = 'block'; // Show prompt list again
+    }
 
     // Load conversations from local storage
     function loadConversationsFromStorage() {
@@ -179,7 +165,7 @@ const handleItemClick = (event) => {
     });
 
     // Send message
-    document.getElementById('sendMessageButton').addEventListener('click', async function() {
+    async function sendMessage() {
         const messageInput = document.getElementById('messageInput');
         const userMessage = messageInput.value.trim();
         if (!userMessage) return;
@@ -207,9 +193,9 @@ const handleItemClick = (event) => {
             saveConversationsToStorage();
         } catch (error) {
             console.error('Error generating AI response:', error);
-            document.getElementById('conversationMessages').innerHTML += `<div style="color: red;"><strong>Error:</strong> ${error.message}</div>`;
+            document.getElementById('errorContainer').innerText = `Error: ${error.message}`;
         }
-    });
+    }
 
     // Edit user or AI response
     function editResponse(convIndex, role, content) {
@@ -339,6 +325,15 @@ const handleItemClick = (event) => {
         }
     }
 
+    // Filter prompts based on user input
+    function filterPrompts() {
+        const searchTerm = document.getElementById('promptSearch').value.toLowerCase();
+        const promptItems = document.querySelectorAll('.prompt-item');
+        promptItems.forEach(item => {
+            const promptText = item.textContent.toLowerCase();
+            item.style.display = promptText.includes(searchTerm) ? 'block' : 'none';        });
+    }
+
     // Load conversations on page load
     loadConversationsFromStorage();
 </script>
@@ -361,7 +356,7 @@ style.textContent = `
         }
         .aimodal-content {
             background-color: #fefefe;
-            margin: 15% auto;
+            margin: 10% auto;
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
@@ -439,6 +434,10 @@ style.textContent = `
         .response-item button {
             margin-left: 10px;
             background-color: #dc3545; /* Red for delete */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
         }
         .response-item button:hover {
             background-color: #c82333; /* Darker red on hover */
@@ -457,6 +456,9 @@ style.textContent = `
             display: flex;
             justify-content: space-between;
             margin-top: 10px;
+        }
+        .error-message {
+            color: red;
         }
 `;
 

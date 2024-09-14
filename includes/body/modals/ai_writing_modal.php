@@ -1,7 +1,7 @@
 
     <!-- AI Writing Modal -->
     <div class="modal fade" id="aiWritingModal" tabindex="-1" role="dialog" aria-labelledby="aiWritingModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog" role="ai_writing">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="aiWritingModalLabel">Select a Prompt</h5>

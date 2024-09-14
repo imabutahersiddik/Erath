@@ -1050,14 +1050,18 @@
             }, '');
         }
     </script>
-    <script>
+<script>
   $(document).ready(function() {
     $('.prompt-item').on('click', function() {
       // Get the data-prompt attribute
       var promptText = $(this).data('prompt');
       
+      // Get the text content of the clicked div
+      var divText = $(this).text();
+      
       // Set the text in the modal
       $('#selectedPrompt').text(promptText);
+      $('#modalDivText').text(divText); // New line to set div text
     });
   });
 </script>
