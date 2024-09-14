@@ -5,7 +5,7 @@ const style = document.createElement('style');
 
 // Set the CSS content
 style.textContent = `
-#aiConversationModal {
+#aiConversationDiv {
             display: none;
             position: fixed;
             z-index: 1000;
@@ -187,8 +187,8 @@ document.head.appendChild(style);
     <div class="search-form-group">
         <label for="aiSelect">Select AI Model:</label>
         <select id="aiSelect">
-            <option value="gemini">Gemini</option>
-            <option value="mistral" selected="selected">Mistral</option>
+            <option value="mistral">Mistral</option>
+            <option value="gemini" selected="selected">Gemini</option>
         </select>
     </div>
     <div class="search-form-group">
@@ -241,6 +241,105 @@ document.head.appendChild(style);
         <div class="prompt-item" data-prompt="Tell me a joke.">Joke</div>
         <div class="prompt-item" data-prompt="What's the latest news?">News</div>
         <div class="prompt-item" data-prompt="Give me a recipe.">Recipe</div>
+        <div class="prompt-item" data-prompt="Create a meal planner app that helps users organize their weekly meals based on dietary preferences and available ingredients. Include a shopping list feature.">Meal Planner App</div>
+
+<div class="prompt-item" data-prompt="Develop a personal finance tracker that allows users to input their income and expenses, categorize them, and visualize their spending habits with charts.">Personal Finance Tracker</div>
+
+<div class="prompt-item" data-prompt="Design a community garden management system that connects local gardeners, allows them to share tips, and coordinate planting schedules.">Community Garden Management</div>
+
+<div class="prompt-item" data-prompt="Build a time management tool that helps users prioritize tasks using the Eisenhower Matrix and integrates with their calendar for reminders.">Time Management Tool</div>
+
+<div class="prompt-item" data-prompt="Create a mental health journal app that prompts users with daily questions, tracks their mood, and provides resources for self-care.">Mental Health Journal</div>
+
+<div class="prompt-item" data-prompt="Develop a recipe sharing platform where users can upload, rate, and comment on recipes, with a focus on healthy eating and dietary restrictions.">Recipe Sharing Platform</div>
+
+<div class="prompt-item" data-prompt="Design a local event finder app that aggregates community events based on user interests and location, with RSVP and reminder features.">Local Event Finder</div>
+
+<div class="prompt-item" data-prompt="Create a home inventory management system that helps users track their belongings, manage warranties, and schedule maintenance reminders.">Home Inventory Management</div>
+
+<div class="prompt-item" data-prompt="Build a digital decluttering tool that guides users through organizing their files and emails, offering tips and a progress tracker.">Digital Decluttering Tool</div>
+
+<div class="prompt-item" data-prompt="Develop a language exchange platform that connects users wanting to learn each other's languages through video calls and messaging.">Language Exchange Platform</div>
+
+<div class="prompt-item" data-prompt="Create a smart grocery list app that uses AI to suggest recipes based on the items in your pantry and generates a shopping list for missing ingredients.">Smart Grocery List App</div>
+
+<div class="prompt-item" data-prompt="Develop a customizable wellness tracker that allows users to set personal health goals, log their progress, and receive tailored tips and reminders based on their habits.">Customizable Wellness Tracker</div>
+
+<div class="prompt-item" data-prompt="Design an eco-friendly product finder that helps users locate sustainable and ethically sourced products in their area, complete with user reviews and ratings.">Eco-Friendly Product Finder</div>
+
+<div class="prompt-item" data-prompt="Build a neighborhood skill-sharing platform where users can offer and request services, such as tutoring, gardening, or handyman work, fostering community connections.">Neighborhood Skill-Sharing Platform</div>
+
+<div class="prompt-item" data-prompt="Create an interactive family calendar app that allows family members to share events, set reminders, and coordinate schedules in real-time, with a focus on family bonding.">Interactive Family Calendar</div>
+
+<div class="prompt-item" data-prompt="Develop a digital pet care assistant that helps pet owners track vaccinations, appointments, and dietary needs, while offering reminders and tips for pet health.">Digital Pet Care Assistant</div>
+
+<div class="prompt-item" data-prompt="Design a travel planning app that curates personalized itineraries based on user preferences, budget, and travel history, integrating local experiences and hidden gems.">Personalized Travel Planner</div>
+
+<div class="prompt-item" data-prompt="Build a volunteer matching platform that connects users with local non-profits based on their skills and interests, facilitating community engagement and support.">Volunteer Matching Platform</div>
+
+<div class="prompt-item" data-prompt="Create a digital home maintenance scheduler that reminds homeowners about seasonal tasks, provides DIY guides, and connects them with local service providers.">Home Maintenance Scheduler</div>
+
+<div class="prompt-item" data-prompt="Develop a community recipe swap app that allows users to exchange homemade meals with neighbors, promoting local food sharing and reducing food waste.">Community Recipe Swap</div>
+
+<div class="prompt-item" data-prompt="Create a virtual wardrobe organizer that allows users to upload photos of their clothing, mix and match outfits, and receive suggestions based on weather and occasion.">Virtual Wardrobe Organizer</div>
+
+<div class="prompt-item" data-prompt="Develop an AI-driven meal prep assistant that generates weekly meal prep plans, provides shopping lists, and offers cooking tutorials based on user dietary restrictions and preferences.">AI Meal Prep Assistant</div>
+
+<div class="prompt-item" data-prompt="Design a personal sustainability tracker that helps users monitor their carbon footprint, set eco-friendly goals, and provides tips for reducing waste in daily life.">Personal Sustainability Tracker</div>
+
+<div class="prompt-item" data-prompt="Build a collaborative book club platform that connects readers, facilitates discussions, and organizes virtual meetings, complete with reading lists and member reviews.">Collaborative Book Club Platform</div>
+
+<div class="prompt-item" data-prompt="Create a neighborhood safety app that allows users to report local incidents, share safety tips, and receive alerts about nearby emergencies or hazards.">Neighborhood Safety App</div>
+
+<div class="prompt-item" data-prompt="Develop a family budgeting tool that helps families track expenses, set savings goals, and visualize their financial health with engaging graphs and reports.">Family Budgeting Tool</div>
+
+<div class="prompt-item" data-prompt="Design a home energy efficiency app that analyzes energy consumption patterns, suggests improvements, and connects users with local energy-saving programs and incentives.">Home Energy Efficiency App</div>
+
+<div class="prompt-item" data-prompt="Build a digital gratitude journal that prompts users to reflect on daily positives, track their mood over time, and share their gratitude with a supportive community.">Digital Gratitude Journal</div>
+
+<div class="prompt-item" data-prompt="Create a local history exploration app that allows users to discover and share historical facts, photos, and stories about their neighborhoods, fostering community pride.">Local History Exploration App</div>
+
+<div class="prompt-item" data-prompt="Develop a mental wellness chatbot that provides users with mindfulness exercises, coping strategies, and resources based on their emotional state and preferences.">Mental Wellness Chatbot</div>
+
+<div class="prompt-item" data-prompt="Create a decentralized community marketplace that allows users to buy, sell, or trade goods and services locally, with a focus on sustainability and reducing carbon footprints.">Decentralized Community Marketplace</div>
+
+<div class="prompt-item" data-prompt="Develop a personalized learning platform that uses AI to adapt educational content and resources to individual learning styles, preferences, and progress, making education more accessible.">Personalized Learning Platform</div>
+
+<div class="prompt-item" data-prompt="Design a mental health support network app that connects users with trained volunteers for peer support, offers self-help resources, and promotes mental wellness activities.">Mental Health Support Network</div>
+
+<div class="prompt-item" data-prompt="Build a gamified fitness app that encourages users to complete daily physical challenges, track their progress, and earn rewards while fostering a sense of community through team challenges.">Gamified Fitness App</div>
+
+<div class="prompt-item" data-prompt="Create a virtual event platform that allows users to host and attend interactive workshops, webinars, and social events with features for networking, Q&A, and real-time feedback.">Virtual Event Platform</div>
+
+<div class="prompt-item" data-prompt="Develop a food waste reduction app that connects users with local restaurants and grocery stores to offer surplus food at discounted prices, promoting sustainability and community support.">Food Waste Reduction App</div>
+
+<div class="prompt-item" data-prompt="Design a digital citizenship education platform that provides resources and interactive modules on online safety, privacy, and responsible digital behavior for all age groups.">Digital Citizenship Education Platform</div>
+
+<div class="prompt-item" data-prompt="Build a personal productivity assistant that integrates with calendars and task management tools to analyze user habits and suggest personalized strategies for improving focus and efficiency.">Personal Productivity Assistant</div>
+
+<div class="prompt-item" data-prompt="Create a community-driven travel guide app that allows users to share hidden gems, travel tips, and itineraries, fostering a sense of exploration and connection among travelers.">Community-Driven Travel Guide</div>
+
+<div class="prompt-item" data-prompt="Develop a neighborhood wellness initiative platform that connects users with local health resources, fitness classes, and wellness events, promoting healthy living within the community.">Neighborhood Wellness Initiative</div>
+
+<div class="prompt-item" data-prompt="Create a mental health companion app that uses AI to provide personalized coping strategies, mindfulness exercises, and connects users with licensed therapists for virtual support.">Mental Health Companion App</div>
+
+<div class="prompt-item" data-prompt="Develop a community-driven disaster preparedness platform that provides resources, checklists, and local emergency contacts, enabling neighborhoods to collectively prepare for natural disasters.">Disaster Preparedness Platform</div>
+
+<div class="prompt-item" data-prompt="Design an inclusive fitness app that adapts workouts for users with disabilities, offering personalized training plans, virtual coaching, and community support for all fitness levels.">Inclusive Fitness App</div>
+
+<div class="prompt-item" data-prompt="Build a smart recycling assistant that uses image recognition to educate users on proper recycling practices, track their recycling habits, and connect them with local recycling programs.">Smart Recycling Assistant</div>
+
+<div class="prompt-item" data-prompt="Create a digital storytelling platform that allows users to share their personal stories and experiences through multimedia, fostering empathy and understanding within diverse communities.">Digital Storytelling Platform</div>
+
+<div class="prompt-item" data-prompt="Develop a local food sourcing app that connects consumers directly with local farmers and food producers, promoting farm-to-table practices and reducing food miles.">Local Food Sourcing App</div>
+
+<div class="prompt-item" data-prompt="Design a personal finance education platform that gamifies financial literacy, helping users learn about budgeting, investing, and saving through interactive challenges and community support.">Personal Finance Education Platform</div>
+
+<div class="prompt-item" data-prompt="Build a virtual mentorship network that connects youth with professionals in their fields of interest, providing guidance, resources, and opportunities for career exploration.">Virtual Mentorship Network</div>
+
+<div class="prompt-item" data-prompt="Create a neighborhood art and culture exchange platform that allows users to showcase local artists, organize events, and promote cultural appreciation within their communities.">Neighborhood Art and Culture Exchange</div>
+
+<div class="prompt-item" data-prompt="Develop a holistic wellness platform that integrates physical, mental, and emotional health resources, offering personalized plans and community support for overall well-being.">Holistic Wellness Platform</div>
     </div>
 </div>
 
@@ -301,25 +400,28 @@ document.head.appendChild(style);
 <script>
     let conversations = [];
     let currentConversation = null;
-    let currentAI = 'mistral'; // Default AI model
-    const conversationsPerPage = 5; // Number of conversations to show per page
-    let currentPage = 1; // Current page number
+    let currentAI = 'mistral'; // Default model set to Mistral
+
+    // Open modal
+    document.getElementById('openModalButton').addEventListener('click', function() {
+        document.getElementById('aiChatModal').style.display = 'block';
+    });
 
     // Close modal
-    function closeModal() {
-        document.getElementById('aiConversationModal').style.display = 'none';
-    }
+    document.getElementById('closeModalButton').addEventListener('click', function() {
+        document.getElementById('aiChatModal').style.display = 'none';
+    });
 
     // Close prompt section
-    function closePromptContainer() {
+    document.getElementById('closePromptButton').addEventListener('click', function() {
         document.getElementById('promptContainer').style.display = 'none';
-    }
+    });
 
     // Close conversation
-    function closeConversation() {
+    document.getElementById('closeConversationButton').addEventListener('click', function() {
         document.getElementById('conversationContainer').style.display = 'none';
         document.getElementById('promptContainer').style.display = 'block'; // Show prompt list again
-    }
+    });
 
     // Load conversations from local storage
     function loadConversationsFromStorage() {
@@ -328,60 +430,35 @@ document.head.appendChild(style);
         renderConversations();
     }
 
-    // Render conversations with pagination
+    // Render conversations
     function renderConversations() {
         const conversationList = document.getElementById('conversationList');
         conversationList.innerHTML = '';
-
-        const startIndex = (currentPage - 1) * conversationsPerPage;
-        const endIndex = startIndex + conversationsPerPage;
-        const conversationsToRender = conversations.slice(startIndex, endIndex);
-
-        conversationsToRender.forEach((conv, index) => {
+        conversations.forEach((conv, index) => {
             const convItem = document.createElement('div');
             convItem.className = 'conversation-item';
             convItem.innerHTML = `
-                <span onclick="openConversation(${startIndex + index})">${conv.title}</span>
+                <span onclick="openConversation(${index})">${conv.title}</span>
                 <div>
-                    <i class="fas fa-trash delete-icon" onclick="deleteConversation(${startIndex + index})"></i>
+                    <i class="fas fa-trash delete-icon" onclick="deleteConversation(${index})"></i>
                 </div>
             `;
             conversationList.appendChild(convItem);
         });
-
-        // Show or hide pagination buttons
-        document.getElementById('prevPageButton').style.display = currentPage > 1 ? 'inline-block' : 'none';
-        document.getElementById('nextPageButton').style.display = endIndex < conversations.length ? 'inline-block' : 'none';
     }
-
-    // Previous page button
-    document.getElementById('prevPageButton').addEventListener('click', function() {
-        if (currentPage > 1) {
-            currentPage--;
-            renderConversations();
-        }
-    });
-
-    // Next page button
-    document.getElementById('nextPageButton').addEventListener('click', function() {
-        if (currentPage * conversationsPerPage < conversations.length) {
-            currentPage++;
-            renderConversations();
-        }
-    });
 
     // Open a conversation for continuing
     function openConversation(index) {
         currentConversation = conversations[index];
-        document.getElementById('conversationTitle').value = currentConversation.title;
+        document.getElementById('conversationTitle').innerText = currentConversation.title;
         document.getElementById('conversationMessages').innerHTML = '';
         currentConversation.messages.forEach(msg => {
             const msgDiv = document.createElement('div');
             msgDiv.className = 'response-item';
             msgDiv.innerHTML = `
                 <strong>${msg.role.charAt(0).toUpperCase() + msg.role.slice(1)}:</strong> ${msg.content}
-                <button onclick="editResponse(${index}, '${msg.role}', '${msg.content}')"><i class="fas fa-edit"></i></button>
-                <button onclick="deleteResponse(${index}, '${msg.role}', '${msg.content}')"><i class="fas fa-trash"></i></button>
+                <button onclick="editResponse(${index}, '${msg.role}', '${msg.content}')">Edit</button>
+                <button onclick="deleteResponse(${index}, '${msg.role}', '${msg.content}')">Delete</button>
             `;
             document.getElementById('conversationMessages').appendChild(msgDiv);
         });
@@ -396,7 +473,7 @@ document.head.appendChild(style);
             const title = `${prompt} - ${new Date().toLocaleString()}`;
             currentConversation = { title, messages: [] };
             conversations.push(currentConversation);
-            document.getElementById('conversationTitle').value = title;
+            document.getElementById('conversationTitle').innerText = title;
             document.getElementById('conversationContainer').style.display = 'block';
             document.getElementById('promptContainer').style.display = 'none';
             document.getElementById('conversationMessages').innerHTML = `<div><strong>${prompt}</strong></div>`;
@@ -405,7 +482,7 @@ document.head.appendChild(style);
     });
 
     // Send message
-    async function sendMessage() {
+    document.getElementById('sendMessageButton').addEventListener('click', async function() {
         const messageInput = document.getElementById('messageInput');
         const userMessage = messageInput.value.trim();
         if (!userMessage) return;
@@ -430,12 +507,11 @@ document.head.appendChild(style);
             currentConversation.messages.push({ role: 'ai', content: aiResponse });
             document.getElementById('conversationMessages').innerHTML += `<div><strong>AI:</strong> ${aiResponse}</div>`;
             renderConversations();
-            saveConversationsToStorage();
         } catch (error) {
             console.error('Error generating AI response:', error);
-            document.getElementById('errorContainer').innerText = `Error: ${error.message}`;
+            document.getElementById('conversationMessages').innerHTML += `<div style="color: red;"><strong>Error:</strong> ${error.message}</div>`;
         }
-    }
+    });
 
     // Edit user or AI response
     function editResponse(convIndex, role, content) {
@@ -449,7 +525,6 @@ document.head.appendChild(style);
             });
             renderConversations();
             loadConversationMessages(convIndex);
-            saveConversationsToStorage();
         }
     }
 
@@ -458,7 +533,6 @@ document.head.appendChild(style);
         conversations[convIndex].messages = conversations[convIndex].messages.filter(msg => !(msg.role === role && msg.content === content));
         renderConversations();
         loadConversationMessages(convIndex);
-        saveConversationsToStorage();
     }
 
     // Delete conversation
@@ -477,8 +551,8 @@ document.head.appendChild(style);
             msgDiv.className = 'response-item';
             msgDiv.innerHTML = `
                 <strong>${msg.role.charAt(0).toUpperCase() + msg.role.slice(1)}:</strong> ${msg.content}
-                <button onclick="editResponse(${index}, '${msg.role}', '${msg.content}')"><i class="fas fa-edit"></i></button>
-                <button onclick="deleteResponse(${index}, '${msg.role}', '${msg.content}')"><i class="fas fa-trash"></i></button>
+                <button onclick="editResponse(${index}, '${msg.role}', '${msg.content}')">Edit</button>
+                <button onclick="deleteResponse(${index}, '${msg.role}', '${msg.content}')">Delete</button>
             `;
             messagesContainer.appendChild(msgDiv);
         });
@@ -565,15 +639,36 @@ document.head.appendChild(style);
         }
     }
 
-    // Filter prompts based on user input
-    function filterPrompts() {
-        const searchTerm = document.getElementById('promptSearch').value.toLowerCase();
-        const promptItems = document.querySelectorAll('.prompt-item');
-        promptItems.forEach(item => {
-            const promptText = item.textContent.toLowerCase();
-            item.style.display = promptText.includes(searchTerm) ? 'block' : 'none';        });
-    }
+    // Swap AI model functionality
+    document.getElementById('swapAIButton').addEventListener('click', function() {
+        const aiSelectContainer = document.getElementById('aiSelectContainer');
+        aiSelectContainer.style.display = aiSelectContainer.style.display === 'block' ? 'none' : 'block';
+    });
 
+    // Confirm AI model swap
+    document.getElementById('confirmSwapButton').addEventListener('click', function() {
+        const selectedModel = document.getElementById('aiModelSelect').value;
+        document.getElementById('aiSelect').value = selectedModel; // Update main AI select dropdown
+        document.getElementById('aiSelectContainer').style.display = 'none'; // Hide the swap model dropdown
+    });
+
+        // Filter prompts based on search input
+        document.getElementById('promptSearch').addEventListener('input', filterPrompts);
+
+        // Function to filter prompts
+        function filterPrompts() {
+            const searchValue = document.getElementById('promptSearch').value.toLowerCase();
+            document.querySelectorAll('.prompt-item').forEach(item => {
+                const promptText = item.textContent.toLowerCase();
+                item.style.display = promptText.includes(searchValue) ? 'block' : 'none';
+            });
+        }
+    
+    // Swap AI model functionality
+    document.getElementById('swapAIButton').addEventListener('click', function() {
+        const aiSelectContainer = document.getElementById('aiSelectContainer');
+        aiSelectContainer.style.display = aiSelectContainer.style.display === 'block' ? 'none' : 'block';
+    });
     // Load conversations on page load
     loadConversationsFromStorage();
 </script>
