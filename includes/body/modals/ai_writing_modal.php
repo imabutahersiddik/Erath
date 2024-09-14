@@ -14,7 +14,7 @@
                     <input type="text" id="promptSearch" class="form-control" placeholder="Search for a prompt...">
                 </div>
                 <div id="selectedPrompt" style="font-weight: bold; margin-bottom: 10px; display: none;">
-                    <h3 id="selectedPromptHtml"></h3>
+                    <b><span id="selectedPromptHtml"></span></b>
                     <span id="selectedPromptText"></span>
                     <button type="button" class="close" id="closePromptButton">
                         <span aria-hidden="true">&times;</span>
