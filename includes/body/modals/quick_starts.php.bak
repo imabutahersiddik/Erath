@@ -49,15 +49,29 @@ style.textContent = `
 <div id="tutorialModal">
     <div class="modal-content">
         <h2>Welcome to Erath!</h2>
-        <p>Follow these steps to get started:</p>
+        <p>Erath is a powerful platform that allows you to easily host and share your web pages. Follow these steps to get started:</p>
         <ol>
             <li><strong>Paste Your HTML Code:</strong> In the textarea, paste your HTML code that you want to host.</li>
             <li><strong>Submit Your Code:</strong> Click the "Erath" button to process your input.</li>
             <li><strong>Get Your Link:</strong> After submission, you will receive a link to your hosted page.</li>
             <li><strong>View Your Web Page:</strong> Click the link to view and share your page.</li>
         </ol>
+        
+        <h3>What Erath Offers</h3>
+        <ul>
+            <li><strong>Instant Hosting:</strong> Simply paste your HTML code and get a live link to your web page in seconds.</li>
+            <li><strong>Easy Sharing:</strong> Share your hosted pages with anyone, anywhere in the world.</li>
+            <li><strong>No Setup Required:</strong> Erath takes care of the hosting infrastructure, so you can focus on creating your content.</li>
+            <li><strong>AI Writing Assistance:</strong> Select a prompt from the editor to get started with AI writing and enhance your web pages.</li>
+        </ul>
+        
         <h3>AI Writing Assistance</h3>
-        <p>Select a prompt from the editor to get started with AI writing!</p>
+        <ul>
+            <li><strong>Brainstorm Ideas:</strong> Get inspiration for your web content with AI-generated ideas and prompts.</li>
+            <li><strong>Improve Writing:</strong> Use AI to refine and enhance your writing, ensuring it's engaging and effective.</li>
+            <li><strong>Save Time:</strong> AI writing assistance speeds up the content creation process, allowing you to focus on other aspects of your web development.</li>
+        </ul>
+        
         <button id="closeBtn">Got It!</button>
     </div>
 </div>
