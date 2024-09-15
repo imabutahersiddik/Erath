@@ -166,6 +166,33 @@ style.textContent = `
             padding: 20px; /* Padding inside the div */
             border-radius: 5px; /* Rounded corners */
         }
+        #overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+  display: none;
+}
+
+#aiConversationDiv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 9999;
+  display: none;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
 `;
 
 // Append the style element to the head of the document
@@ -689,6 +716,27 @@ document.head.appendChild(style);
         document.getElementById('aiSelect').value = selectedModel; // Update main AI select dropdown
         document.getElementById('aiSelectContainer').style.display = 'none'; // Hide the swap model dropdown
     });
+    
+function openAIConversationDiv() {
+  document.getElementById('overlay').style.display = 'block';
+  document.getElementById('aiConversationDiv').style.display = 'block';
+  document.body.classList.add('modal-open');
+}
+
+function closeAIConversationDiv() {
+  document.getElementById('overlay').style.display = 'none';
+  document.getElementById('aiConversationDiv').style.display = 'none';
+  document.body.classList.remove('modal-open');
+}
+
+// Modify the existing event listeners
+document.getElementById('aiConversationDiv').addEventListener('show', function () {
+  document.body.style.overflow = 'hidden';
+});
+
+document.getElementById('aiConversationDiv').addEventListener('hidden', function () {
+  document.body.style.overflow = '';
+});
 
     // Load conversations on page load
     loadConversationsFromStorage();

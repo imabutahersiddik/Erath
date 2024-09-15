@@ -1,4 +1,17 @@
+<script>
+// Create a style element
+const style = document.createElement('style');
 
+// Set the CSS content
+style.textContent = `
+body.modal-open {
+    overflow: hidden; /* Prevent scrolling */
+}
+`;
+
+// Append the style element to the head of the document
+document.head.appendChild(style);
+</script>
     <!-- AI Writing Modal -->
     <div class="modal fade" id="aiWritingModal" tabindex="-1" role="dialog" aria-labelledby="aiWritingModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen" role="ai_writing">
