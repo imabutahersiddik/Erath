@@ -1,7 +1,20 @@
+<script>
+// Create a style element
+const style = document.createElement('style');
 
+// Set the CSS content
+style.textContent = `
+body.modal-open {
+    overflow: hidden; /* Prevent scrolling */
+}
+`;
+
+// Append the style element to the head of the document
+document.head.appendChild(style);
+</script>
     <!-- AI Writing Modal -->
     <div class="modal fade" id="aiWritingModal" tabindex="-1" role="dialog" aria-labelledby="aiWritingModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="ai_writing">
+        <div class="modal-dialog modal-fullscreen" role="ai_writing">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="aiWritingModalLabel">Select a Prompt</h5>
@@ -1064,6 +1077,16 @@
       $('#modalDivText').text(divText); // New line to set div text
     });
   });
+  
+  const aiWritingModal = new bootstrap.Modal(document.getElementById('aiWritingModal'));
+
+document.querySelector("#aiWritingModal").addEventListener('show.bs.modal', function () {
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+});
+
+document.querySelector("#aiWritingModal").addEventListener('hidden.bs.modal', function () {
+    document.body.style.overflow = ''; // Restore scrolling
+});
 </script>
 </body>
 </html>
