@@ -8,6 +8,8 @@ require __DIR__.'/../includes/header/styles.php';
 require __DIR__.'/../includes/header/navbar.php';
 
 /* Body */
+/* Quick Starts */
+require __DIR__.'/../includes/body/modals/quick_starts.php';
 require __DIR__.'/../includes/body/editor.php';
 require __DIR__.'/../includes/body/modals/modal.php';
 require __DIR__.'/../includes/body/modals/upfiles.php';
@@ -100,5 +102,3 @@ require __DIR__.'/../includes/body/preview.php';
 require __DIR__.'/../includes/body/plugins.php';
 /* Footer */
 require __DIR__.'/../includes/footer/footer.php';
-/* Quick Starts */
-require __DIR__.'/../includes/body/modals/quick_starts.php';

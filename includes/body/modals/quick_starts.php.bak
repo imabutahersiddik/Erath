@@ -109,3 +109,33 @@ style.textContent = `
         };
     });
 </script>
+<script>
+    // Function to show the modal
+    function showModal() {
+        document.getElementById('tutorialModal').style.display = 'block';
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        document.getElementById('tutorialModal').style.display = 'none';
+        localStorage.setItem('hasVisited', 'true'); // Set a flag in local storage
+    }
+
+    // Check if it's the user's first visit
+    window.onload = function() {
+        if (!localStorage.getItem('hasVisited')) {
+            showModal(); // Show modal if not visited before
+        }
+    };
+
+    // Event listener for the close button
+    document.getElementById('closeBtn').onclick = closeModal;
+
+    // Optional: Close the modal when clicking outside of it
+    window.onclick = function(event) {
+        const modal = document.getElementById('tutorialModal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    };
+</script>
