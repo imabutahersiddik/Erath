@@ -32,6 +32,345 @@
 
 <div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a recipe based on dietary restrictions and health conditions.">Diet Recommendation Engine</div>
 
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a user engagement strategy for Quira that focuses on interactive learning and community involvement.">Quira Engagement Strategy</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Design a tutorial for new users on how to effectively use Quira for learning and knowledge sharing.">Quira User Tutorial</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a list of best practices for users to maximize their experience on Quira.">Quira Best Practices</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Develop a marketing campaign to promote Quira's interactive learning features to potential users.">Quira Marketing Campaign</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Outline a series of community events or webinars that could be hosted on Quira to foster engagement.">Quira Community Events</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a feedback mechanism for users to suggest improvements and new features for Quira.">Quira User Feedback System</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft a guide for users on how to create and share engaging content on Quira.">Quira Content Creation Guide</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Propose a rewards system for users who actively participate and contribute to Quira.">Quira Rewards System</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a series of challenges or quests for users to complete on Quira to enhance learning.">Quira Learning Challenges</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Design a mobile app feature for Quira that allows users to learn on-the-go.">Quira Mobile Learning Feature</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate a detailed description of Quira Quest, highlighting its purpose, features, and benefits for users seeking interactive learning opportunities.">Quira Quest Description</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a detailed outline for a Quira Quest that focuses on mastering a specific subject through interactive challenges.">Quira Quest Subject Mastery</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Design a series of fun and educational challenges for Quira users to complete as part of a quest.">Quira Educational Challenges</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Develop a leaderboard system for tracking user progress and achievements in Quira Quests.">Quira Quest Leaderboard</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a set of rewards for users who successfully complete Quira Quests and challenges.">Quira Quest Rewards</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Outline a collaborative Quira Quest that encourages teamwork among users to solve complex problems.">Quira Collaborative Quest</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft a promotional plan to encourage users to participate in upcoming Quira Quests and challenges.">Quira Quest Promotion Plan</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a user guide for participating in Quira Quests, including tips for success.">Quira Quest User Guide</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Propose a theme for a monthly Quira Quest that aligns with current trends or events.">Quira Monthly Quest Theme</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Design an onboarding experience for new users to introduce them to Quira Quests and challenges.">Quira Quest Onboarding Experience</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a tutorial on how to build a simple web application using React and Node.js.">React and Node.js Web App Tutorial</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your experiences and lessons learned while transitioning from a junior to a senior developer.">From Junior to Senior Developer: Lessons Learned</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a comparison post about popular front-end frameworks: React, Vue, and Angular.">Comparing Front-End Frameworks: React, Vue, and Angular</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the importance of code reviews and provide best practices for conducting them effectively.">The Importance of Code Reviews: Best Practices</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a guide on how to optimize web performance and improve loading times.">Web Performance Optimization Guide</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your favorite tools and resources for learning new programming languages.">Top Tools and Resources for Learning Programming Languages</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a post about the benefits of using TypeScript over JavaScript in large projects.">Why Use TypeScript Over JavaScript in Large Projects</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the role of DevOps in modern software development and how to get started with it.">Getting Started with DevOps in Modern Software Development</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a personal story about a challenging bug you encountered and how you resolved it.">Overcoming a Challenging Bug: My Personal Story</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate a comprehensive guide for writing high-quality posts on DEV.to covering all key topics, including:
+
+- Choosing an engaging post title 
+- Crafting an informative post description
+- Selecting relevant tags for discoverability
+- Creating an eye-catching thumbnail image
+- Formatting the post content using Markdown
+- Embedding code snippets, images, videos and other rich media
+- Optimizing the post for accessibility 
+- Best practices for promoting the post to grow readership
+
+Provide step-by-step instructions and examples for each topic to create a definitive resource for DEV.to authors across all experience levels and interests. The guide should be 1000-1500 words in length with clear section headings and a logical flow. Generate a unique title for the guide based on the content.">DEV.to Post Writing Guide</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a compelling DEV.to post that explores the latest trends in web development, including:
+
+- An engaging title that captures attention
+- A brief introduction outlining the importance of staying updated with trends
+- In-depth analysis of at least five current trends in web development
+- Practical examples or case studies illustrating each trend
+- Tips for developers on how to adapt to these trends
+- A conclusion summarizing the key takeaways
+- Relevant tags to enhance visibility on the platform
+
+Additionally, provide a suggested thumbnail image concept that reflects the content of the post. Aim for a word count of 800-1200 words, ensuring the content is informative, engaging, and well-structured.">DEV.to Post on Web Development Trends</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post on DEV.to that explores the benefits of using Markdown for formatting blog posts, including tips and examples.">Markdown Mastery on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a Medium post discussing the importance of storytelling in blogging, with techniques to enhance narrative skills.">The Art of Storytelling on Medium</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate a WordPress tutorial on how to optimize blog posts for SEO, covering keyword research, meta tags, and content structure.">SEO Optimization for WordPress</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft a Blogger post that highlights essential plugins for enhancing blog functionality and user experience.">Must-Have Plugins for Blogger</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a post for DEV.to that outlines the best practices for cross-posting content across multiple platforms.">Cross-Posting Content Effectively</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a Medium article that reviews the top writing tools for bloggers, comparing features and usability.">Top Writing Tools for Bloggers on Medium</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate a WordPress post discussing the pros and cons of using free vs. premium themes for blogging.">Free vs. Premium Themes on WordPress</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a DEV.to post that explores the benefits of open-source software for developers, highlighting popular projects and how to contribute.">The Power of Open-Source on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a post for LinkedIn that discusses the importance of continuous learning for tech professionals, with tips on staying updated in a rapidly evolving industry.">Continuous Learning for Tech Professionals on LinkedIn</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate a Twitter thread that shares concise productivity hacks for developers, encouraging engagement through relevant hashtags and tagging.">Productivity Hacks for Developers on Twitter</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate a post for DEV.to that explores the ethical considerations of technology, encouraging critical thinking and discussion.">Ethics in Technology on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a post for Facebook's developer community that highlights the best resources for learning a specific programming language or framework.">Top Resources for Learning [Language/Framework] on Facebook</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post for DEV.to that shares tips for effective code documentation, emphasizing the importance of clear and concise explanations.">Effective Code Documentation on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post on DEV.to about the importance of code reviews and best practices for conducting them.">Code Reviews Best Practices on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a tutorial on how to set up a RESTful API using Node.js on DEV.to.">RESTful API with Node.js on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the pros and cons of using TypeScript in JavaScript projects on DEV.to.">TypeScript Pros and Cons on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your experience transitioning from a junior to a senior developer on DEV.to.">Junior to Senior Developer Journey on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a guide on how to use Git effectively for version control on DEV.to.">Effective Git Usage on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Explore the role of DevOps in modern software development on DEV.to.">Role of DevOps in Development on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a post about the best practices for writing unit tests in JavaScript on DEV.to.">Unit Testing Best Practices on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the future of web development frameworks on DEV.to.">Future of Web Development Frameworks on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share tips for improving your debugging skills as a developer on DEV.to.">Improving Debugging Skills on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the impact of 5G technology on app development on DEV.to.">Impact of 5G on App Development on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a guide on how to optimize web performance for better user experience on DEV.to.">Web Performance Optimization on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the importance of accessibility in web design on DEV.to.">Accessibility in Web Design on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your favorite coding podcasts and why you recommend them on DEV.to.">Favorite Coding Podcasts on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post on the benefits of pair programming and how to implement it on DEV.to.">Benefits of Pair Programming on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a tutorial on building a simple web application using React on DEV.to.">Building a Web App with React on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the significance of continuous integration and deployment (CI/CD) on DEV.to.">CI/CD Significance on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your thoughts on the rise of low-code/no-code platforms on DEV.to.">Rise of Low-Code/No-Code Platforms on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the challenges of remote work for developers and how to overcome them on DEV.to.">Remote Work Challenges on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a guide on how to effectively manage technical debt in software projects on DEV.to.">Managing Technical Debt on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the role of AI in software development and its future implications on DEV.to.">AI in Software Development on DEV.to</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write an article on Medium about the importance of mentorship in tech careers.">Importance of Mentorship in Tech on Medium</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a post discussing the impact of blockchain technology beyond cryptocurrencies on Medium.">Blockchain Beyond Cryptocurrencies on Medium</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your insights on the role of soft skills in technical professions on Medium.">Soft Skills in Tech Professions on Medium</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a piece about the benefits of contributing to open-source projects on Medium.">Benefits of Open-Source Contributions on Medium</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss how to build a personal brand as a developer on Medium.">Building a Personal Brand as a Developer on Medium</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a post about the evolution of programming languages and their future on Medium.">Evolution of Programming Languages on Medium</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share tips for effective time management for software developers on Medium.">Time Management for Developers on Medium</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write an article on the importance of networking in the tech industry on Medium.">Networking in the Tech Industry on Medium</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a post discussing the challenges and rewards of freelancing in tech on Medium.">Freelancing in Tech: Challenges and Rewards on Medium</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your thoughts on the impact of remote work on team dynamics on Medium.">Impact of Remote Work on Team Dynamics on Medium</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a tutorial on WordPress about how to create a custom theme from scratch.">Creating a Custom Theme on WordPress</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a post discussing the best SEO practices for WordPress blogs.">SEO Best Practices for WordPress Blogs</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your experience with different hosting providers for WordPress on WordPress.">WordPress Hosting Providers Experience</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a guide on how to secure your WordPress site against common threats.">Securing Your WordPress Site</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the importance of regular backups for WordPress sites and how to implement them.">Importance of Backups for WordPress</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a post about the best plugins for enhancing WordPress functionality.">Best Plugins for WordPress Functionality</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share tips for optimizing images for faster loading times on WordPress.">Optimizing Images for WordPress</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a tutorial on how to set up an e-commerce store using WooCommerce on WordPress.">Setting Up WooCommerce on WordPress</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the benefits of using a child theme in WordPress development.">Benefits of Child Themes in WordPress</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a post about the role of analytics in improving WordPress site performance.">Role of Analytics in WordPress Performance</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post on Blogger about how to choose the right blogging niche.">Choosing the Right Blogging Niche on Blogger</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a guide on how to monetize your blog effectively on Blogger.">Monetizing Your Blog on Blogger</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your tips for writing engaging blog titles that attract readers on Blogger.">Writing Engaging Blog Titles on Blogger</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the importance of consistency in blogging and how to maintain it on Blogger.">Consistency in Blogging on Blogger</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a tutorial on how to use Google Analytics to track blog performance on Blogger.">Using Google Analytics on Blogger</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a post about the best practices for guest blogging and building relationships.">Guest Blogging Best Practices</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your experience with different blogging platforms and their pros and cons on Blogger.">Blogging Platforms Experience</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a piece on how to create compelling content that resonates with your audience on Blogger.">Creating Compelling Content on Blogger</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the importance of email marketing for bloggers and how to implement it.">Email Marketing for Bloggers</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a post about the role of social media in promoting your blog.">Social Media Promotion for Blogs</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the top programming languages to learn in 2024.">Top Programming Languages to Learn in 2024</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a tutorial on how to build a simple mobile app using Flutter.">Building a Mobile App with Flutter</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the impact of quantum computing on software development.">Impact of Quantum Computing on Software Development</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your thoughts on the importance of mental health for software developers.">Mental Health for Software Developers</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the significance of user experience (UX) in software design.">Significance of UX in Software Design</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a tutorial on how to use Docker for containerization in development.">Using Docker for Development</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the benefits and challenges of adopting Agile methodologies in software projects.">Agile Methodologies in Software Projects</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your experience with different code editors and their features.">Code Editors Experience</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the importance of documentation in software development.">Importance of Documentation in Development</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a guide on how to transition from a non-technical to a technical career.">Transitioning to a Technical Career</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the impact of social media on the tech industry and developer communities.">Impact of Social Media on Tech Industry</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your thoughts on the future of remote work in the tech industry.">Future of Remote Work in Tech</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the importance of diversity in tech teams.">Importance of Diversity in Tech Teams</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a tutorial on how to implement OAuth for user authentication in web applications.">Implementing OAuth for User Authentication</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the role of mentorship in fostering diversity in tech.">Mentorship and Diversity in Tech</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share tips for writing effective technical documentation.">Writing Effective Technical Documentation</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the benefits of learning multiple programming languages.">Benefits of Learning Multiple Languages</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a guide on how to conduct effective user testing for software products.">Conducting Effective User Testing</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the importance of performance optimization in web applications.">Performance Optimization in Web Applications</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your thoughts on the ethical implications of AI in software development.">Ethical Implications of AI in Development</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the significance of code quality and maintainability.">Significance of Code Quality</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a tutorial on how to use APIs effectively in your applications.">Using APIs Effectively</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the benefits of using microservices architecture in software development.">Benefits of Microservices Architecture</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your insights on the importance of version control in collaborative projects.">Importance of Version Control in Collaboration</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about how to create effective API documentation.">Creating Effective API Documentation</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a guide on how to use webhooks in your applications.">Using Webhooks in Applications</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the importance of testing in the software development lifecycle.">Importance of Testing in Development Lifecycle</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your thoughts on the future of mobile app development.">Future of Mobile App Development</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the benefits of using serverless architecture.">Benefits of Serverless Architecture</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a tutorial on how to implement responsive design in web applications.">Implementing Responsive Design</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the role of data privacy in software development.">Role of Data Privacy in Development</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share tips for effective communication in remote teams.">Effective Communication in Remote Teams</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the significance of user feedback in product development.">Significance of User Feedback in Development</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a guide on how to manage project scope effectively.">Managing Project Scope Effectively</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the impact of emerging technologies on traditional software development practices.">Emerging Technologies Impact on Development</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your experience with different software development methodologies.">Experience with Software Development Methodologies</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the importance of code refactoring.">Importance of Code Refactoring</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a tutorial on how to implement caching in web applications.">Implementing Caching in Web Applications</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the benefits of using design patterns in software development.">Benefits of Design Patterns in Development</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your thoughts on the role of artificial intelligence in software testing.">AI's Role in Software Testing</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the significance of cloud computing in modern software development.">Significance of Cloud Computing in Development</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a guide on how to use feature flags in software development.">Using Feature Flags in Development</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the importance of scalability in software architecture.">Importance of Scalability in Architecture</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share tips for effective project management in software development.">Effective Project Management Tips</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the significance of cross-platform development.">Significance of Cross-Platform Development</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a tutorial on how to implement user authentication in web applications.">Implementing User Authentication</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the role of ethics in software engineering.">Role of Ethics in Software Engineering</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your experience with different database management systems.">Experience with Database Management Systems</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the importance of software documentation.">Importance of Software Documentation</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a guide on how to effectively use user stories in agile development.">Using User Stories in Agile Development</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the impact of globalization on the tech industry.">Impact of Globalization on Tech Industry</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your thoughts on the future of the Internet of Things (IoT).">Future of the Internet of Things (IoT)</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the significance of mobile-first design principles.">Significance of Mobile-First Design</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a tutorial on how to use machine learning in software applications.">Using Machine Learning in Applications</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the benefits of using a microservices architecture for scalability.">Microservices Architecture for Scalability</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your experience with different cloud service providers.">Experience with Cloud Service Providers</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the importance of user-centered design in software development.">Importance of User-Centered Design</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a guide on how to implement DevSecOps in your organization.">Implementing DevSecOps</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the significance of data analytics in decision-making processes.">Significance of Data Analytics in Decision-Making</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your thoughts on the future of augmented reality (AR) in software applications.">Future of Augmented Reality in Applications</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the importance of community involvement in open-source projects.">Community Involvement in Open-Source Projects</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a tutorial on how to implement a CI/CD pipeline for your projects.">Implementing a CI/CD Pipeline</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the role of feedback loops in agile development.">Feedback Loops in Agile Development</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Share your experience with remote collaboration tools for developers.">Experience with Remote Collaboration Tools</div>
+
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a post about the significance of cross-functional teams in software projects.">Significance of Cross-Functional Teams</div>
+
 <div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a humorous story about a student trying to create a fake student ID.">Student Mind Generator</div>
 
 <div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate a collection of uplifting quotes for someone feeling down.">Positivity Boost</div>
