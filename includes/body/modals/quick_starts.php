@@ -76,44 +76,36 @@ style.textContent = `
     </div>
 </div>
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Function to set a cookie
-    function setCookie(name, value, days) {
-        const d = new Date();
-        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-        const expires = "expires=" + d.toUTCString();
-        document.cookie = name + "=" + value + ";" + expires + ";path=/";
-    }
-
-    // Function to get a cookie
-    function getCookie(name) {
-        const nameEQ = name + "=";
-        const ca = document.cookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
         }
-        return null;
-    }
 
-    // Show the tutorial modal on first visit
-    if (!getCookie('tutorialShown')) {
-        document.getElementById('tutorialModal').style.display = 'flex';
-    }
+        // Function to get a cookie
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
 
-    // Close button event listener
-    document.getElementById('closeBtn').onclick = function() {
-        setCookie('tutorialShown', 'true', 30); // Set cookie for 30 days
-        document.getElementById('tutorialModal').style.display = 'none';
-    };
+        // Show the tutorial modal on first visit
+        if (!getCookie('tutorialShown')) {
+            document.getElementById('tutorialModal').style.display = 'flex';
+        }
 
-    // Optional: Close the modal when clicking outside of it
-    window.onclick = function(event) {
-        const modal = document.getElementById('tutorialModal');
-        if (event.target === modal) {
+        document.getElementById('closeBtn').onclick = function() {
             setCookie('tutorialShown', 'true', 30); // Set cookie for 30 days
-            modal.style.display = 'none';
-        }
-    };
-});
+            document.getElementById('tutorialModal').style.display = 'none';
+        };
+    });
+</script>

@@ -9,7 +9,7 @@ require __DIR__.'/../includes/header/navbar.php';
 
 /* Body */
 /* Quick Starts */
-require __DIR__.'/../includes/body/modals/quick_starts.php';
+//require __DIR__.'/../includes/body/modals/quick_starts.php';
 require __DIR__.'/../includes/body/editor.php';
 require __DIR__.'/../includes/body/modals/modal.php';
 require __DIR__.'/../includes/body/modals/upfiles.php';
