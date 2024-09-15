@@ -1404,5 +1404,3 @@ Additionally, provide a suggested thumbnail image concept that reflects the cont
     });
   });
 </script>
-</body>
-</html>
