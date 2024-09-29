@@ -1365,7 +1365,14 @@ Additionally, provide a suggested thumbnail image concept that reflects the cont
                     border-radius: 8px; border-color: #ccc;" readonly></textarea>
 
                 <!-- Chat Area -->
-                <div class='chat-area' id='chatArea'></div>
+                <div style="
+                    max-height: 200px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 10px;" id='chatArea'></div>
 
                 <!-- Error Message -->
                 <div id='error-message' style="
@@ -1381,7 +1388,7 @@ Additionally, provide a suggested thumbnail image concept that reflects the cont
                 border-bottom-right-radius: 12px;">
                 <button id='generateTextButton' class='btn btn-success' style='border-radius: 8px;'>Generate Text</button>
                 <button type='button' class='btn btn-secondary' data-dismiss='modal' style='border-radius: 8px;'>Close</button>
-                    <button id="insertTextButton" class="btn btn-primary" style="display: none;">Insert Text</button>
+                    <button id="insertTextButton" class="btn btn-primary" style="">Publish</button>
                 </div>
             </div>
         </div>

@@ -1388,7 +1388,7 @@ Additionally, provide a suggested thumbnail image concept that reflects the cont
                 border-bottom-right-radius: 12px;">
                 <button id='generateTextButton' class='btn btn-success' style='border-radius: 8px;'>Generate Text</button>
                 <button type='button' class='btn btn-secondary' data-dismiss='modal' style='border-radius: 8px;'>Close</button>
-                    <button id="insertTextButton" class="btn btn-primary" style="display: none;">Insert Text</button>
+                    <button id="insertTextButton" class="btn btn-primary" style="">Insert</button>
                 </div>
             </div>
         </div>
