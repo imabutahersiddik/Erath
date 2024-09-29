@@ -588,77 +588,50 @@ document.head.appendChild(style);
     function saveConversationsToStorage() {
         localStorage.setItem('conversations', JSON.stringify(conversations));
     }
-    
-    // Function to simulate typing effect
-function typeWriter(text, textarea) {
-    let index = 0;
-    const interval = setInterval(() => {
-        if (index < text.length) {
-            textarea.value += text.charAt(index);
-            index++;
-        } else {
-            clearInterval(interval);
-        }
-    }, 50); // Adjust typing speed here
-}
 
     // AI generation functions
- // Function to simulate typing effect
-function typeWriter(text, textarea) {
-    let index = 0;
-    const interval = setInterval(() => {
-        if (index < text.length) {
-            textarea.value += text.charAt(index);
-            index++;
-        } else {
-            clearInterval(interval);
-        }
-    }, 50); // Adjust typing speed here
-}
+    async function generateTextWithGemini(prompt, apiKey) {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
-async function generateTextWithGemini(prompt, apiKey) {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-    
-    const requestOptions = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            contents: [{
-                parts: [{
-                    text: prompt,
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [{
+                        text: prompt,
+                    }],
                 }],
-            }],
-        }),
-    };
+            }),
+        };
 
-    try {
-        const response = await fetch(url, requestOptions);
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(`Gemini API error: ${errorData.error.message || response.statusText}`);
-        }
+        try {
+            const response = await fetch(url, requestOptions);
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`Gemini API error: ${errorData.error.message || response.statusText}`);
+            }
 
-        const responseData = await response.json();
-        if (
-            responseData.candidates &&
-            Array.isArray(responseData.candidates) &&
-            responseData.candidates.length > 0 &&
-            responseData.candidates[0].content &&
-            responseData.candidates[0].content.parts &&
-            Array.isArray(responseData.candidates[0].content.parts) &&
-            responseData.candidates[0].content.parts.length > 0
-        ) {
-            const generatedText = responseData.candidates[0].content.parts[0].text || "No text generated.";
-            typeWriter(generatedText, document.getElementById('aiOutput'));
-        } else {
-            throw new Error("No text generated.");
+            const responseData = await response.json();
+            if (
+                responseData.candidates &&
+                Array.isArray(responseData.candidates) &&
+                responseData.candidates.length > 0 &&
+                responseData.candidates[0].content &&
+                responseData.candidates[0].content.parts &&
+                Array.isArray(responseData.candidates[0].content.parts) &&
+                responseData.candidates[0].content.parts.length > 0
+            ) {
+                return responseData.candidates[0].content.parts[0].text || "No text generated.";
+            } else {
+                return "No text generated.";
+            }
+        } catch (error) {
+            throw new Error(`Failed to fetch from Gemini API: ${error.message}`);
         }
-    } catch (error) {
-        document.getElementById('error-message').innerText = error.message;
     }
-}
 
     async function generateTextWithMistral(prompt, apiKey) {
         const url = 'https://api.mistral.ai/v1/chat/completions';

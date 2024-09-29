@@ -166,6 +166,33 @@ style.textContent = `
             padding: 20px; /* Padding inside the div */
             border-radius: 5px; /* Rounded corners */
         }
+        #overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+  display: none;
+}
+
+#aiConversationDiv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 9999;
+  display: none;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
 `;
 
 // Append the style element to the head of the document
@@ -615,24 +642,23 @@ document.head.appendChild(style);
             }
 
             const responseData = await response.json();
-        if (
-            responseData.candidates &&
-            Array.isArray(responseData.candidates) &&
-            responseData.candidates.length > 0 &&
-            responseData.candidates[0].content &&
-            responseData.candidates[0].content.parts &&
-            Array.isArray(responseData.candidates[0].content.parts) &&
-            responseData.candidates[0].content.parts.length > 0
-        ) {
-            const generatedText = responseData.candidates[0].content.parts[0].text || "No text generated.";
-            typeWriter(generatedText, document.getElementById('aiOutput'));
-        } else {
-            throw new Error("No text generated.");
+            if (
+                responseData.candidates &&
+                Array.isArray(responseData.candidates) &&
+                responseData.candidates.length > 0 &&
+                responseData.candidates[0].content &&
+                responseData.candidates[0].content.parts &&
+                Array.isArray(responseData.candidates[0].content.parts) &&
+                responseData.candidates[0].content.parts.length > 0
+            ) {
+                return responseData.candidates[0].content.parts[0].text || "No text generated.";
+            } else {
+                return "No text generated.";
+            }
+        } catch (error) {
+            throw new Error(`Failed to fetch from Gemini API: ${error.message}`);
         }
-    } catch (error) {
-        document.getElementById('error-message').innerText = error.message;
     }
-}
 
     async function generateTextWithMistral(prompt, apiKey) {
         const url = 'https://api.mistral.ai/v1/chat/completions';
@@ -645,28 +671,26 @@ document.head.appendChild(style);
         };
 
         try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${apiKey}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        });
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${apiKey}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
 
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(`Mistral API error: ${errorData.error.message || response.statusText}`);
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`Mistral API error: ${errorData.error.message || response.statusText}`);
+            }
+
+            const responseData = await response.json();
+            return responseData.choices[0].message.content || "No text generated.";
+        } catch (error) {
+            throw new Error("Error calling Mistral API: " + error.message);
         }
-
-        const responseData = await response.json();
-        const generatedText = responseData.choices[0].message.content || "No text generated.";
-        typeWriter(generatedText, document.getElementById('aiOutput'));
-        
-    } catch (error) {
-        document.getElementById('error-message').innerText = "Error calling Mistral API: " + error.message;
     }
-}
 
     // Filter prompts based on search input
     document.getElementById('promptSearch').addEventListener('input', filterPrompts);
@@ -692,6 +716,27 @@ document.head.appendChild(style);
         document.getElementById('aiSelect').value = selectedModel; // Update main AI select dropdown
         document.getElementById('aiSelectContainer').style.display = 'none'; // Hide the swap model dropdown
     });
+    
+function openAIConversationDiv() {
+  document.getElementById('overlay').style.display = 'block';
+  document.getElementById('aiConversationDiv').style.display = 'block';
+  document.body.classList.add('modal-open');
+}
+
+function closeAIConversationDiv() {
+  document.getElementById('overlay').style.display = 'none';
+  document.getElementById('aiConversationDiv').style.display = 'none';
+  document.body.classList.remove('modal-open');
+}
+
+// Modify the existing event listeners
+document.getElementById('aiConversationDiv').addEventListener('show', function () {
+  document.body.style.overflow = 'hidden';
+});
+
+document.getElementById('aiConversationDiv').addEventListener('hidden', function () {
+  document.body.style.overflow = '';
+});
 
     // Load conversations on page load
     loadConversationsFromStorage();
