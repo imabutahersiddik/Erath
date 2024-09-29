@@ -1412,13 +1412,114 @@ Additionally, provide a suggested thumbnail image concept that reflects the cont
             $('#textGenerationModal').modal('hide');
         });
 
-        async function generateTextWithGemini(prompt, apiKey) {
-            // Gemini API implementation
+        // Function to simulate typing effect
+function typeWriter(text, textarea) {
+    let index = 0;
+    const interval = setInterval(() => {
+        if (index < text.length) {
+            textarea.value += text.charAt(index);
+            index++;
+        } else {
+            clearInterval(interval);
+        }
+    }, 50); // Adjust typing speed here
+}
+
+async function generateTextWithGemini(prompt, apiKey) {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+    
+    const requestOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            contents: [{
+                parts: [{
+                    text: prompt,
+                }],
+            }],
+        }),
+    };
+
+    try {
+        const response = await fetch(url, requestOptions);
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`Gemini API error: ${errorData.error.message || response.statusText}`);
         }
 
-        async function generateTextWithMistral(prompt, apiKey) {
-            // Mistral API implementation
+        const responseData = await response.json();
+        if (
+            responseData.candidates &&
+            Array.isArray(responseData.candidates) &&
+            responseData.candidates.length > 0 &&
+            responseData.candidates[0].content &&
+            responseData.candidates[0].content.parts &&
+            Array.isArray(responseData.candidates[0].content.parts) &&
+            responseData.candidates[0].content.parts.length > 0
+        ) {
+            const generatedText = responseData.candidates[0].content.parts[0].text || "No text generated.";
+            typeWriter(generatedText, document.getElementById('aiOutput'));
+        } else {
+            throw new Error("No text generated.");
         }
+    } catch (error) {
+        document.getElementById('error-message').innerText = error.message;
+    }
+}
+
+async function generateTextWithMistral(prompt, apiKey) {
+    const url = 'https://api.mistral.ai/v1/chat/completions';
+
+    const data = {
+        model: 'mistral-large-latest',
+        messages: [
+            { role: 'user', content: prompt }
+        ]
+    };
+
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${apiKey}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`Mistral API error: ${errorData.error.message || response.statusText}`);
+        }
+
+        const responseData = await response.json();
+        const generatedText = responseData.choices[0].message.content || "No text generated.";
+        typeWriter(generatedText, document.getElementById('aiOutput'));
+        
+    } catch (error) {
+        document.getElementById('error-message').innerText = "Error calling Mistral API: " + error.message;
+    }
+}
+
+// Event listener for the Generate Text button
+document.getElementById('generateTextButton').addEventListener('click', async () => {
+    const prompt = document.getElementById('extraTextInput').value;
+    const apiKey = document.getElementById('apiKeyInput').value;
+    
+    const selectedAIService = document.getElementById('aiSelect').value;
+
+    // Clear previous output and error message
+    document.getElementById('aiOutput').value = '';
+    document.getElementById('error-message').innerText = '';
+
+    if (selectedAIService === 'gemini') {
+        await generateTextWithGemini(prompt, apiKey);
+    } else if (selectedAIService === 'mistral') {
+        await generateTextWithMistral(prompt, apiKey);
+    }
+});
 
         function logMessage(...args) {
             const consoleOutput = document.getElementById('console-output');
