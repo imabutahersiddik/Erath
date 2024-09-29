@@ -15,6 +15,61 @@
                         <input type="text" id="promptSearch" class="form-control" placeholder="Search for a prompt...">
                     </div>
                     <div id="promptContainer" class="d-flex flex-wrap mb-3">
+                        <div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a professional summary for a resume.">Professional Summary</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="List key skills for a marketing position.">Marketing Skills</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft a cover letter for a software engineering job.">Cover Letter</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Outline achievements for a project management role.">Project Management Achievements</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate bullet points for an administrative assistant resume.">Administrative Assistant Bullet Points</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a list of certifications for an IT professional.">IT Certifications</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a summary of work experience for a recent graduate.">Recent Graduate Experience</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Develop a personal brand statement for a freelancer.">Personal Brand Statement</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Compile a list of transferable skills for career changers.">Transferable Skills</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft an objective statement for an entry-level position.">Objective Statement</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create an elevator pitch for networking events.">Elevator Pitch</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="List common interview questions and ideal responses.">Interview Questions & Responses</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate keywords to optimize an online profile (e.g., LinkedIn).">Profile Keywords</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Outline the steps to prepare for a job interview.">Interview Preparation Steps</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a networking strategy for job seekers.">Networking Strategy</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft follow-up email templates after interviews.">Follow-Up Email Templates</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate ideas for portfolio projects to showcase skills.">Portfolio Project Ideas</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="List tips for effective remote work on a resume.">Remote Work Tips</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a list of soft skills for a customer service role.">Customer Service Soft Skills</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft a summary of qualifications for a healthcare position.">Healthcare Qualifications Summary</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Outline the steps to create an effective LinkedIn profile.">LinkedIn Profile Steps</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate a list of industry-specific jargon for a finance resume.">Finance Industry Jargon</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a timeline of professional development for an educator.">Educator Professional Development Timeline</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft a statement of purpose for graduate school applications.">Graduate School Statement of Purpose</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Compile a list of volunteer experiences to include on a resume.">Volunteer Experience List</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate tips for tailoring resumes to specific job postings.">Tailoring Resume Tips</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft a skills assessment for self-evaluation before job applications.">Self-Evaluation Skills Assessment</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Outline the benefits of using action verbs in resumes.">Benefits of Action Verbs</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a checklist for proofreading resumes and cover letters.">Proofreading Checklist</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="List common mistakes to avoid when writing resumes.">Resume Mistakes to Avoid</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate a list of professional organizations to join for networking.">Professional Organizations List</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft an introduction for a personal website or blog related to your career.">Personal Website Introduction</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a list of questions to ask during an informational interview.">Informational Interview Questions</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Outline strategies for leveraging social media in job searching.">Social Media Job Search Strategies</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate ideas for showcasing accomplishments in an online portfolio.">Online Portfolio Accomplishments</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft a plan for continuous learning and skill development post-hire.">Continuous Learning Plan</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Develop a comprehensive career development plan that includes your current role, desired career path, short-term and long-term goals, skills to acquire, potential resources for support, and actionable steps to achieve your objectives. Reflect on your strengths and areas for improvement, and outline a timeline for tracking your progress.">Career Development Plan</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a list of short-term career goals for the next year.">Short-Term Career Goals</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Outline a strategy for networking within your industry.">Networking Strategy</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Identify key skills needed for advancement in your current job.">Key Skills for Advancement</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft a personal mission statement that aligns with your career aspirations.">Personal Mission Statement</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a list of potential mentors and how they can assist you in your career.">Potential Mentors List</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Outline a plan for gaining new certifications relevant to your field.">Certification Plan</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate a list of professional development workshops or courses to attend this year.">Professional Development Opportunities</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft a self-assessment to evaluate your current skills and competencies.">Self-Assessment Draft</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create an action plan for transitioning to a new industry.">Industry Transition Action Plan</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Outline the steps to improve your public speaking skills for career advancement.">Public Speaking Improvement Steps</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Develop a strategy for seeking feedback from supervisors and peers.">Feedback Seeking Strategy</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="List potential side projects that can enhance your skills and portfolio.">Side Project Ideas</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a timeline for achieving long-term career goals over the next five years.">Long-Term Career Goals Timeline</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft a plan to improve work-life balance while pursuing career growth.">Work-Life Balance Plan</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate ideas for building a personal brand online relevant to your career field.">Personal Brand Building Ideas</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Outline strategies for enhancing emotional intelligence in the workplace.">Emotional Intelligence Strategies</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a list of industry trends to watch that may impact your career path.">Industry Trends List</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft an elevator pitch that summarizes your career goals and aspirations.">Elevator Pitch Draft</div>
                         <div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a story about a brave knight.">Brave Knight</div>
                     <div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Describe a futuristic city.">Futuristic City</div>
                     <div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a poem about nature.">Nature Poem</div>
@@ -1245,38 +1300,48 @@ Additionally, provide a suggested thumbnail image concept that reflects the cont
     <!-- Text Generation Modal -->
     <div class="modal fade" id="textGenerationModal" tabindex="-1" role="dialog" aria-labelledby="textGenerationModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="display:block;">
-                    <h5 id="modalDivText" class="modal-title" id="textGenerationModalLabel"></h5>
-    <div id="selectedPrompt"></div>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+            <div class="modal-content" style="border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+            <div class="modal-header" style="display: block; background-color: #f3f3f3; border-top-left-radius: 12px; border-top-right-radius: 12px;">
+                <h5 id="modalDivText" class="modal-title" id="textGenerationModalLabel" style="color: #333; font-weight: bold;"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none; background: none;">
+                    <span aria-hidden="true" style="font-size: 18px; color: #888;">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="background-color: #ffffff; padding: 20px;">
+                <div class="form-group">
+                    <label for="extraTextInput" style="color: #555;">Your Input:</label>
+                    <textarea id="extraTextInput" rows="3" class="form-control" placeholder="Add any additional text here..." style="border-radius: 8px; border-color: #ccc;"></textarea>
                 </div>
-                <div class="modal-body">
-                    <div id="selectedPrompt" style="font-weight: bold; margin-bottom: 10px;"></div>
-                    <div class="form-group">
-                        <label for="extraTextInput">Add Extra Text:</label>
-                        <textarea id="extraTextInput" rows="3" class="form-control" placeholder="Add any additional text here..."></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="aiSelect">Select AI Service:</label>
-                        <select class="form-control" id="aiSelect">
-                            <option value="gemini">Gemini</option>
-                            <option value="mistral">Mistral</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="apiKeyInput">Enter Your API Key:</label>
-                        <input type="text" class="form-control" id="apiKeyInput" placeholder="Enter API Key">
-                    </div>
-                    <textarea id="aiOutput" rows="5" class="form-control" placeholder="AI-generated text will appear here..."></textarea>
-                    <div id="error-message" style="color: red; margin-top: 10px;"></div>
-                    <div id="console-output" style="max-height: 150px; overflow-y: auto; margin-top: 10px; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px;"></div>
+                <div class="form-group">
+                    <label for="aiSelect" style="color: #555;">Select AI Service:</label>
+                    <select class="form-control" id="aiSelect" style="border-radius: 8px; border-color: #ccc;">
+                        <option value="gemini">Gemini</option>
+                        <option value="mistral">Mistral</option>
+                    </select>
                 </div>
-                <div class="modal-footer">
-                    <button id="generateTextButton" class="btn btn-success">Generate Text</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div class="form-group">
+                <div id="debug-info"></div>
+                    <label for="apiKeyInput" style="color: #555;">Enter Your API Key:</label>
+                    <input type="text" class="form-control" id="apiKeyInput" placeholder="Enter API Key" style="border-radius: 8px; border-color: #ccc;">
+                </div>
+                <textarea id="aiOutput" rows="5" class="form-control" placeholder="AI-generated text will appear here..." style="
+                    border-radius: 8px; border-color: #ccc;" readonly></textarea>
+                <div id="error-message" style="
+                    color: red; margin-top: 10px;"></div>
+            </div>
+            <div class="modal-footer" style="
+                background-color: #f3f3f3;
+                border-bottom-left-radius: 12px;
+                border-bottom-right-radius: 12px;">
+                <button id="generateTextButton" class="
+                    btn btn-success"
+                    style="
+                    border-radius: 8px;">Generate Text</button>
+                <button type= "button"
+                        class= "btn btn-secondary"
+                        data-dismiss= "modal"
+                        style="
+                        border-radius: 8px;">Close</button>
                     <button id="insertTextButton" class="btn btn-primary" style="display: none;">Insert Text</button>
                 </div>
             </div>
