@@ -590,31 +590,44 @@ document.head.appendChild(style);
     }
 
     // AI generation functions
-    async function generateTextWithGemini(prompt, apiKey) {
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+ // Function to simulate typing effect
+function typeWriter(text, textarea) {
+    let index = 0;
+    const interval = setInterval(() => {
+        if (index < text.length) {
+            textarea.value += text.charAt(index);
+            index++;
+        } else {
+            clearInterval(interval);
+        }
+    }, 50); // Adjust typing speed here
+}
 
-        const requestOptions = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                contents: [{
-                    parts: [{
-                        text: prompt,
-                    }],
+async function generateTextWithGemini(prompt, apiKey) {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+    
+    const requestOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            contents: [{
+                parts: [{
+                    text: prompt,
                 }],
-            }),
-        };
+            }],
+        }),
+    };
 
-        try {
-            const response = await fetch(url, requestOptions);
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(`Gemini API error: ${errorData.error.message || response.statusText}`);
-            }
+    try {
+        const response = await fetch(url, requestOptions);
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`Gemini API error: ${errorData.error.message || response.statusText}`);
+        }
 
-            const responseData = await response.json();
+        const responseData = await response.json();
         if (
             responseData.candidates &&
             Array.isArray(responseData.candidates) &&
@@ -645,28 +658,26 @@ document.head.appendChild(style);
         };
 
         try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${apiKey}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        });
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${apiKey}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
 
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(`Mistral API error: ${errorData.error.message || response.statusText}`);
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`Mistral API error: ${errorData.error.message || response.statusText}`);
+            }
+
+            const responseData = await response.json();
+            return responseData.choices[0].message.content || "No text generated.";
+        } catch (error) {
+            throw new Error("Error calling Mistral API: " + error.message);
         }
-
-        const responseData = await response.json();
-        const generatedText = responseData.choices[0].message.content || "No text generated.";
-        typeWriter(generatedText, document.getElementById('aiOutput'));
-        
-    } catch (error) {
-        document.getElementById('error-message').innerText = "Error calling Mistral API: " + error.message;
     }
-}
 
     // Filter prompts based on search input
     document.getElementById('promptSearch').addEventListener('input', filterPrompts);
