@@ -70,6 +70,44 @@
 <div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Outline strategies for enhancing emotional intelligence in the workplace.">Emotional Intelligence Strategies</div>
 <div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a list of industry trends to watch that may impact your career path.">Industry Trends List</div>
 <div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft an elevator pitch that summarizes your career goals and aspirations.">Elevator Pitch Draft</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Describe how Mindful can help users manage daily stress effectively.">Managing Daily Stress</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Outline the personalized advice features of the Mindful app and their benefits.">Personalized Advice Features</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a list of mindfulness exercises available in the Mindful app.">Mindfulness Exercises List</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss the role of AI in providing tailored mental wellness support through Mindful.">AI in Mental Wellness</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate tips for integrating Mindful into daily routines for better mental health.">Integrating Mindful Tips</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft a user testimonial highlighting the impact of Mindful on anxiety management.">User Testimonial Draft</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="List potential challenges users may face while using the Mindful app and solutions to overcome them.">User Challenges and Solutions</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Outline a marketing strategy to promote the Mindful app among college students.">Marketing Strategy for Students</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a comparison table of features between Mindful and other mental wellness apps.">App Features Comparison Table</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss how Mindful can aid in developing emotional resilience over time.">Emotional Resilience Development</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft an article on the importance of mental wellness apps like Mindful in today's society.">Importance of Mental Wellness Apps</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate a list of user engagement strategies for the Mindful app.">User Engagement Strategies</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Outline how Mindful can support users during challenging life transitions.">Support During Life Transitions</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Create a guide on how to track progress using the Mindful app's features.">Progress Tracking Guide</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="List potential partnerships for Mindful with organizations focused on mental health awareness.">Potential Partnerships List</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Draft a FAQ section addressing common questions about using the Mindful app.">FAQ Section Draft</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Gemini, provide a detailed analysis of the current trends in mental wellness apps, including user preferences and emerging features.">Gemini: Mental Wellness Trends Analysis</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Mistral, generate a comprehensive guide on effective stress management techniques, tailored for busy professionals.">Mistral: Stress Management Techniques Guide</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Discuss how user feedback can improve the features of the Mindful app.">User Feedback Impact</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Generate ideas for new features that could enhance user experience in the Mindful app.">New Feature Ideas</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Reflect on a recent accomplishment and how it has positively impacted your self-worth.">Accomplishment Reflection</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Describe a challenging situation you encountered and the lessons learned from it.">Challenging Situation Lessons</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write about a hobby that brings you joy and its importance to your well-being.">Joyful Hobby Exploration</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="List three unique qualities about yourself and celebrate them.">Unique Qualities Celebration</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Describe a self-care ritual that helps you recharge mentally and emotionally.">Self-Care Ritual Description</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a letter to your future self expressing your hopes and dreams.">Letter to Future Self</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Reflect on a time when you overcame self-doubt and how it changed your outlook.">Overcoming Self-Doubt Reflection</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Describe someone who positively impacts your mental health and how they do so.">Positive Impact Person</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="List ten things that always make you smile, regardless of the situation.">Smile-Inducing List</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Reflect on a setback you faced and how you bounced back from it.">Setback Reflection</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Describe qualities you admire in yourself that contribute to your well-being.">Admired Qualities Description</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Explore your dreams and aspirations, outlining steps to achieve them.">Dreams and Aspirations Exploration</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a letter to someone who has passed away, expressing their positive influence on your life.">Letter to a Lost Loved One</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Identify a situation that causes you anxiety and brainstorm coping strategies.">Anxiety Coping Strategies</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Reflect on a moment of gratitude for people or experiences in your life right now.">Gratitude Reflection</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Explore a limiting belief about yourself and challenge it with evidence.">Limiting Belief Challenge</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Describe a peaceful place in nature and how it makes you feel.">Peaceful Nature Description</div>
+<div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Reflect on a significant life lesson learned and its influence on your growth.">Significant Life Lesson Reflection</div>
                         <div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a story about a brave knight.">Brave Knight</div>
                     <div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Describe a futuristic city.">Futuristic City</div>
                     <div class="prompt-item btn btn-outline-primary m-1" data-toggle="modal" data-target="#textGenerationModal" data-prompt="Write a poem about nature.">Nature Poem</div>
@@ -1302,7 +1340,7 @@ Additionally, provide a suggested thumbnail image concept that reflects the cont
         <div class="modal-dialog" role="document">
             <div class="modal-content" style="border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
             <div class="modal-header" style="display: block; background-color: #f3f3f3; border-top-left-radius: 12px; border-top-right-radius: 12px;">
-                <h5 id="modalDivText" class="modal-title" id="textGenerationModalLabel" style="color: #333; font-weight: bold;"></h5>
+                <h5 id="modalDivText" class="modal-title" id="textGenerationModalLabel" style="color: #333; font-weight: bold;">Text Generation</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none; background: none;">
                     <span aria-hidden="true" style="font-size: 18px; color: #888;">&times;</span>
                 </button>
@@ -1320,28 +1358,29 @@ Additionally, provide a suggested thumbnail image concept that reflects the cont
                     </select>
                 </div>
                 <div class="form-group">
-                <div id="debug-info"></div>
                     <label for="apiKeyInput" style="color: #555;">Enter Your API Key:</label>
                     <input type="text" class="form-control" id="apiKeyInput" placeholder="Enter API Key" style="border-radius: 8px; border-color: #ccc;">
                 </div>
                 <textarea id="aiOutput" rows="5" class="form-control" placeholder="AI-generated text will appear here..." style="
                     border-radius: 8px; border-color: #ccc;" readonly></textarea>
-                <div id="error-message" style="
+
+                <!-- Chat Area -->
+                <div class='chat-area' id='chatArea'></div>
+
+                <!-- Error Message -->
+                <div id='error-message' style="
                     color: red; margin-top: 10px;"></div>
+
+                <!-- Button to show chat -->
+                <button id='showChatButton' class='btn btn-info mt-2' style='display:none;'>Show Chat</button>
+
             </div>
-            <div class="modal-footer" style="
+            <div class='modal-footer' style="
                 background-color: #f3f3f3;
                 border-bottom-left-radius: 12px;
                 border-bottom-right-radius: 12px;">
-                <button id="generateTextButton" class="
-                    btn btn-success"
-                    style="
-                    border-radius: 8px;">Generate Text</button>
-                <button type= "button"
-                        class= "btn btn-secondary"
-                        data-dismiss= "modal"
-                        style="
-                        border-radius: 8px;">Close</button>
+                <button id='generateTextButton' class='btn btn-success' style='border-radius: 8px;'>Generate Text</button>
+                <button type='button' class='btn btn-secondary' data-dismiss='modal' style='border-radius: 8px;'>Close</button>
                     <button id="insertTextButton" class="btn btn-primary" style="display: none;">Insert Text</button>
                 </div>
             </div>
