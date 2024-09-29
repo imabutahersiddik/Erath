@@ -588,6 +588,19 @@ document.head.appendChild(style);
     function saveConversationsToStorage() {
         localStorage.setItem('conversations', JSON.stringify(conversations));
     }
+    
+    // Function to simulate typing effect
+function typeWriter(text, textarea) {
+    let index = 0;
+    const interval = setInterval(() => {
+        if (index < text.length) {
+            textarea.value += text.charAt(index);
+            index++;
+        } else {
+            clearInterval(interval);
+        }
+    }, 50); // Adjust typing speed here
+}
 
     // AI generation functions
     async function generateTextWithGemini(prompt, apiKey) {

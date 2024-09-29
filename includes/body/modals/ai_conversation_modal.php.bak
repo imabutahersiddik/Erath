@@ -615,23 +615,24 @@ document.head.appendChild(style);
             }
 
             const responseData = await response.json();
-            if (
-                responseData.candidates &&
-                Array.isArray(responseData.candidates) &&
-                responseData.candidates.length > 0 &&
-                responseData.candidates[0].content &&
-                responseData.candidates[0].content.parts &&
-                Array.isArray(responseData.candidates[0].content.parts) &&
-                responseData.candidates[0].content.parts.length > 0
-            ) {
-                return responseData.candidates[0].content.parts[0].text || "No text generated.";
-            } else {
-                return "No text generated.";
-            }
-        } catch (error) {
-            throw new Error(`Failed to fetch from Gemini API: ${error.message}`);
+        if (
+            responseData.candidates &&
+            Array.isArray(responseData.candidates) &&
+            responseData.candidates.length > 0 &&
+            responseData.candidates[0].content &&
+            responseData.candidates[0].content.parts &&
+            Array.isArray(responseData.candidates[0].content.parts) &&
+            responseData.candidates[0].content.parts.length > 0
+        ) {
+            const generatedText = responseData.candidates[0].content.parts[0].text || "No text generated.";
+            typeWriter(generatedText, document.getElementById('aiOutput'));
+        } else {
+            throw new Error("No text generated.");
         }
+    } catch (error) {
+        document.getElementById('error-message').innerText = error.message;
     }
+}
 
     async function generateTextWithMistral(prompt, apiKey) {
         const url = 'https://api.mistral.ai/v1/chat/completions';
@@ -644,26 +645,28 @@ document.head.appendChild(style);
         };
 
         try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${apiKey}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${apiKey}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
 
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(`Mistral API error: ${errorData.error.message || response.statusText}`);
-            }
-
-            const responseData = await response.json();
-            return responseData.choices[0].message.content || "No text generated.";
-        } catch (error) {
-            throw new Error("Error calling Mistral API: " + error.message);
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`Mistral API error: ${errorData.error.message || response.statusText}`);
         }
+
+        const responseData = await response.json();
+        const generatedText = responseData.choices[0].message.content || "No text generated.";
+        typeWriter(generatedText, document.getElementById('aiOutput'));
+        
+    } catch (error) {
+        document.getElementById('error-message').innerText = "Error calling Mistral API: " + error.message;
     }
+}
 
     // Filter prompts based on search input
     document.getElementById('promptSearch').addEventListener('input', filterPrompts);
