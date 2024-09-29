@@ -589,7 +589,6 @@ document.head.appendChild(style);
         localStorage.setItem('conversations', JSON.stringify(conversations));
     }
 
-    // AI generation functions
 // Function to simulate typing effect
 function typeWriter(text, textarea) {
     let index = 0;
@@ -638,7 +637,14 @@ async function generateTextWithGemini(prompt, apiKey) {
             responseData.candidates[0].content.parts.length > 0
         ) {
             const generatedText = responseData.candidates[0].content.parts[0].text || "No text generated.";
+            
+            // Display AI response in textarea
             typeWriter(generatedText, document.getElementById('aiOutput'));
+
+            // Add user and AI messages to chat area
+            addChatMessage(prompt, 'user');
+            addChatMessage(generatedText, 'ai');
+
         } else {
             throw new Error("No text generated.");
         }
@@ -647,37 +653,85 @@ async function generateTextWithGemini(prompt, apiKey) {
     }
 }
 
-    async function generateTextWithMistral(prompt, apiKey) {
-        const url = 'https://api.mistral.ai/v1/chat/completions';
+async function generateTextWithMistral(prompt, apiKey) {
+    const url = 'https://api.mistral.ai/v1/chat/completions';
 
-        const data = {
-            model: 'mistral-large-latest',
-            messages: [
-                { role: 'user', content: prompt }
-            ]
-        };
+    const data = {
+        model: 'mistral-large-latest',
+        messages: [
+            { role: 'user', content: prompt }
+        ]
+    };
 
-        try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${apiKey}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${apiKey}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
 
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(`Mistral API error: ${errorData.error.message || response.statusText}`);
-            }
-
-            const responseData = await response.json();
-            return responseData.choices[0].message.content || "No text generated.";
-        } catch (error) {
-            throw new Error("Error calling Mistral API: " + error.message);
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`Mistral API error: ${errorData.error.message || response.statusText}`);
         }
+
+        const responseData = await response.json();
+        
+        const generatedText = responseData.choices[0].message.content || "No text generated.";
+        
+        // Display AI response in textarea
+        typeWriter(generatedText, document.getElementById('aiOutput'));
+
+        // Add user and AI messages to chat area
+        addChatMessage(prompt, 'user');
+        addChatMessage(generatedText, 'ai');
+        
+    } catch (error) {
+        document.getElementById('error-message').innerText = "Error calling Mistral API:" + error.message;
     }
+}
+
+// Function to add messages to chat area
+function addChatMessage(message, sender) {
+    const chatArea = document.getElementById('chatArea');
+    
+    const messageDiv = document.createElement('div');
+    
+    messageDiv.className = sender === 'user' ? 'user-message' : 'ai-message';
+    
+    messageDiv.innerText = message;
+
+    chatArea.appendChild(messageDiv);
+}
+
+// Event listener for the Generate Text button
+document.getElementById('generateTextButton').addEventListener('click', async () => {
+    const prompt = document.getElementById('extraTextInput').value;
+    const apiKey = document.getElementById('apiKeyInput').value;
+
+    // Clear previous error message
+    document.getElementById('error-message').innerText = '';
+
+    if (prompt.trim() === '') {
+        document.getElementById('error-message').innerText = 'Please enter a prompt.';
+        return;
+    }
+
+    // Clear previous output from AI Output textarea and chat area
+    document.getElementById('aiOutput').value = '';
+
+    // Call the appropriate API based on user selection
+    const selectedAIService = document.getElementById('aiSelect').value;
+
+    if (selectedAIService === 'gemini') {
+        await generateTextWithGemini(prompt, apiKey);
+    } else if (selectedAIService === 'mistral') {
+        await generateTextWithMistral(prompt, apiKey);
+    }
+});
 
     // Filter prompts based on search input
     document.getElementById('promptSearch').addEventListener('input', filterPrompts);
