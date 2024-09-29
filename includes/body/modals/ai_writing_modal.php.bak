@@ -1296,47 +1296,47 @@ Additionally, provide a suggested thumbnail image concept that reflects the cont
             </div>
         </div>
     </div>
-
+    
     <!-- Text Generation Modal -->
-    <div class="modal fade" id="textGenerationModal" tabindex="-1" role="dialog" aria-labelledby="textGenerationModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="display:block;">
-                    <h5 id="modalDivText" class="modal-title" id="textGenerationModalLabel"></h5>
-    <div id="selectedPrompt"></div>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+<div class="modal fade" id="textGenerationModal" tabindex="-1" role="dialog" aria-labelledby="textGenerationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+            <div class="modal-header" style="display: block; background-color: #f3f3f3; border-top-left-radius: 12px; border-top-right-radius: 12px;">
+                <h5 id="modalDivText" class="modal-title" id="textGenerationModalLabel" style="color: #333; font-weight: bold;"></h5>
+                <div id="selectedPrompt" style="color: #555;"></div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="border: none; background: none;">
+                    <span aria-hidden="true" style="font-size: 18px; color: #888;">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="background-color: #ffffff; padding: 20px;">
+                <div id="selectedPrompt" style="font-weight: bold; margin-bottom: 10px; color: #333;"></div>
+                <div class="form-group">
+                    <label for="extraTextInput" style="color: #555;">Your Input:</label>
+                    <textarea id="extraTextInput" rows="3" class="form-control" placeholder="Add any additional text here..." style="border-radius: 8px; border-color: #ccc;"></textarea>
                 </div>
-                <div class="modal-body">
-                    <div id="selectedPrompt" style="font-weight: bold; margin-bottom: 10px;"></div>
-                    <div class="form-group">
-                        <label for="extraTextInput">Your Input:</label>
-                        <textarea id="extraTextInput" rows="3" class="form-control" placeholder="Add any additional text here..."></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="aiSelect">Select AI Service:</label>
-                        <select class="form-control" id="aiSelect">
-                            <option value="gemini">Gemini</option>
-                            <option value="mistral">Mistral</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="apiKeyInput">Enter Your API Key:</label>
-                        <input type="text" class="form-control" id="apiKeyInput" placeholder="Enter API Key">
-                    </div>
-                    <textarea id="aiOutput" rows="5" class="form-control" placeholder="AI-generated text will appear here..."></textarea>
-                    <div id="error-message" style="color: red; margin-top: 10px;"></div>
-                    <div id="console-output" style="max-height: 150px; overflow-y: auto; margin-top: 10px; background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px;"></div>
+                <div class="form-group">
+                    <label for="aiSelect" style="color: #555;">Select AI Service:</label>
+                    <select class="form-control" id="aiSelect" style="border-radius: 8px; border-color: #ccc;">
+                        <option value="gemini">Gemini</option>
+                        <option value="mistral">Mistral</option>
+                    </select>
                 </div>
-                <div class="modal-footer">
-                    <button id="generateTextButton" class="btn btn-success">Generate Text</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button id="insertTextButton" class="btn btn-primary" style="display: none;">Insert Text</button>
+                <div class="form-group">
+                    <label for="apiKeyInput" style="color: #555;">Enter Your API Key:</label>
+                    <input type="text" class="form-control" id="apiKeyInput" placeholder="Enter API Key" style="border-radius: 8px; border-color: #ccc;">
                 </div>
+                <textarea id="aiOutput" rows="5" class="form-control" placeholder="AI-generated text will appear here..." style="border-radius: 8px; border-color: #ccc;"></textarea>
+                <div id="error-message" style="color: red; margin-top: 10px;"></div>
+                <div id="console-output" style="max-height: 150px; overflow-y: auto; margin-top: 10px; background-color: #f9f9f9; border-radius: 8px; border: 1px solid #ccc; padding: 10px;"></div>
+            </div>
+            <div class="modal-footer" style="background-color: #f3f3f3; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
+                <button id="generateTextButton" class="btn btn-success" style="border-radius: 8px;">Generate Text</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="border-radius: 8px;">Close</button>
+                <button id="insertTextButton" class="btn btn-primary" style="display: none; border-radius: 8px;">Insert Text</button>
             </div>
         </div>
     </div>
+</div>
 
     <script>
         let showConsoleOutput = false;
