@@ -1311,7 +1311,7 @@ Additionally, provide a suggested thumbnail image concept that reflects the cont
                 <div class="modal-body">
                     <div id="selectedPrompt" style="font-weight: bold; margin-bottom: 10px;"></div>
                     <div class="form-group">
-                        <label for="extraTextInput">Add Extra Text:</label>
+                        <label for="extraTextInput">Your Input:</label>
                         <textarea id="extraTextInput" rows="3" class="form-control" placeholder="Add any additional text here..."></textarea>
                     </div>
                     <div class="form-group">
